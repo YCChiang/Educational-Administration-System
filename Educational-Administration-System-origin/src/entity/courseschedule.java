@@ -1,5 +1,4 @@
 package entity;
-import java.util.Date;
 public class courseschedule {
 	private int id;
 	private String class_id;

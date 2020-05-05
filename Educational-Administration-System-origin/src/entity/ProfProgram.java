@@ -1,6 +1,6 @@
 package entity;
 
-public class protp {
+public class ProfProgram {
 	private  int id;
 	private String specialty;
 	private String class_id;

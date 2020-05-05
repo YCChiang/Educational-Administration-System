@@ -1,7 +1,7 @@
 package entity;
 
 
-public class user {
+public class User {
 	private String name;
 	private String password;
 	private String type;

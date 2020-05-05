@@ -1,5 +1,5 @@
 package entity;
-public class courseschedule {
+public class ClassSchedule {
 	private int id;
 	private String class_id;
 	private String time;

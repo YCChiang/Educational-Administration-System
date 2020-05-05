@@ -1,9 +1,11 @@
 package test;
 import dao.impl.*;
+import entity.ClassGrade;
 public class insertgrade {
 	public static void main(String [] args) {
+		ClassGrade grade = new ClassGrade("2017011315","002",99,1);
 		classgradeDaoimpl c1 = new classgradeDaoimpl();
-		if(c1.Enterresults("2017011315","002",99,1)){
+		if(c1.save(grade) == 1){
 			
 		}
 		else {

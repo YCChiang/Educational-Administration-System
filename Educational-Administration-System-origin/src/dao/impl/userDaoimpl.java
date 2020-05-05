@@ -1,14 +1,14 @@
 package dao.impl;
 import dao.*;
 import dbconnect.connect;
-import entity.user;
+import entity.User;
 import java.sql.*;
 public class userDaoimpl implements userDao{
 
 	@Override
-	public user login(String name, String password, String type) {
+	public User login(String name, String password, String type) {
 		// TODO Auto-generated method stub
-		user uu = null;
+		User uu = null;
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -20,7 +20,7 @@ public class userDaoimpl implements userDao{
 			pstmt.setString(3,password);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				uu = new user();
+				uu = new User();
 				uu.setname(name);
 				uu.setpassword(password);
 				uu.settype(type);

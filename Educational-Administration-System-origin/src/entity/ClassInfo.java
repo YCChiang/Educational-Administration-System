@@ -1,6 +1,6 @@
 package entity;
 
-public class classinformation {
+public class ClassInfo {
 	private String id;
 	private String name;
 	private int hour;

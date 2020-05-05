@@ -1,10 +1,10 @@
 package test;
 import dao.impl.*;
-import entity.user;
+import entity.User;
 public class logintest {
 	public static void main(String args[]) {
 		userDaoimpl udi = new userDaoimpl();
-		user u1 = udi.login("2017011316", "2017011316", "Ñ§Éú");
+		User u1 = udi.login("2017011316", "2017011316", "Ñ§ï¿½ï¿½");
 		System.out.println(u1.getname());
 	}
 }

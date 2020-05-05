@@ -1,5 +1,6 @@
 package dao;
 
+import entity.ClassGrade;
 public interface classgradeDao {
-	public boolean Enterresults(String student_id,String class_id , int grade,int rank);
+	public int save(ClassGrade grade);
 }

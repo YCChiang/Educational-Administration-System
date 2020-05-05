@@ -2,7 +2,7 @@ package dbconnect;
 import java.sql.*;
 public class connect {
 	public static Connection getConnection() {
-		String url = "jdbc:mariadb://127.0.0.1:3306/eas";
+		String url = "jdbc:mariadb://127.0.0.1:3306/educationalas";
 		String name = "manager";
 		String ps = "manager";
 		try {
@@ -11,7 +11,7 @@ public class connect {
 			return con;
 		}catch(Exception e) {
 			e.printStackTrace();
-			System.out.println("Êý¾Ý¿âÁ¬½Ó³ö´í");
+			System.out.println("ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½");
 			System.exit(0);
 			return null;
 		}	

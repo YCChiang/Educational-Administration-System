@@ -44,6 +44,35 @@ public class teacherDaoimpl implements teacherDao{
 		}
 		return null;
 	}
+
+	@Override
+	/*
+	 * (non-Javadoc)
+	 * @see dao.teacherDao#modifyinfo(entity.Teacher)
+	 * 更新教师信息，根据给他的teacher来完成更新信息
+	 * 成功更新返回1，失败返回0
+	 */
+	public int modifyinfo(Teacher t) {
+		// TODO Auto-generated method stub
+		Connection con = connect.getConnection();
+		PreparedStatement pstmt = null;
+		try {
+			String sql = "update teacher set name = ? ,gender = ? ,department = ?,title = ? ,tel = ? where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, t.getName());
+			pstmt.setInt(2, t.getGender());
+			pstmt.setString(3, t.getDepartment());
+			pstmt.setString(4, t.getTitle());
+			pstmt.setString(5, t.getTel());
+			pstmt.setString(6, t.getId());
+			pstmt.executeQuery();
+				return 1;
+			}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
 	
 
 }

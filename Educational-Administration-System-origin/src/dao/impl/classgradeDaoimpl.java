@@ -17,7 +17,7 @@ public class classgradeDaoimpl implements classgradeDao{
 	 * 	1: 插入成功
 	 * 	0: 插入失败
 	 */
-	public int save(ClassGrade grade) {
+	public int insert(ClassGrade grade) {
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		try {

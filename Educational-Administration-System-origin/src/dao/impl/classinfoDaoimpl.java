@@ -13,7 +13,7 @@ public class classinfoDaoimpl implements classinfoDao{
 	 * @see dao.classinfoDao#save(entity.ClassInfo)
 	 * 成功返回1 ， 失败返回0
 	 */
-	public int save(ClassInfo info) {
+	public int insert(ClassInfo info) {
 		// TODO Auto-generated method stub
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;

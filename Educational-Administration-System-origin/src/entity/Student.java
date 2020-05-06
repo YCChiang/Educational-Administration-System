@@ -6,6 +6,7 @@ public class Student {
 	private int gender;
 	private String specialty;
 	private String classinfo;
+	private String department;
 	private int age;
 	public String getClassinfo() {
 		return classinfo;
@@ -56,5 +57,11 @@ public class Student {
 	}
 	public void setSpecialty(String specialty) {
 		this.specialty = specialty;
+	}
+	public String getDepartment() {
+		return department;
+	}
+	public void setDepartment(String department) {
+		this.department = department;
 	}
 }

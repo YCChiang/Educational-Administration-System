@@ -1,9 +1,7 @@
 package test;
 
 import dao.impl.studentDaoimpl;
-import dao.impl.teacherDaoimpl;
 import entity.Student;
-import entity.Teacher;
 
 public class modifystudentinfo {
 

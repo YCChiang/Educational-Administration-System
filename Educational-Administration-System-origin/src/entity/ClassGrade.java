@@ -6,6 +6,9 @@ public class ClassGrade {
 	private float grade;
 	private int rank;
 	
+	public ClassGrade() {
+		
+	}
 	public ClassGrade(String student_id, String class_id, float grade, int rank) {
 		this.student_id = student_id;
 		this.class_id = class_id;

@@ -2,11 +2,13 @@ package dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import dao.classselectionDao;
 import dbconnect.connect;
 import entity.ClassSelection;
+import entity.Student;
 
 public class classselectionDaoimpl implements classselectionDao{
 
@@ -36,6 +38,46 @@ public class classselectionDaoimpl implements classselectionDao{
 			e.printStackTrace();
 		}
 		return 0;
+	}
+
+	@Override
+	/*
+	 * (non-Javadoc)
+	 * @see dao.classselectionDao#searchbystudentid(entity.Student)
+	 * 学生查看选课情况，返回一个ClassSelection数组，若没选课则返回一个null指针
+	 */
+	public ClassSelection[] searchbystudentid(Student s) {
+		Connection con = connect.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			String sql = "select * from classselection where student_id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, s.getId());
+			rs = pstmt.executeQuery();
+			rs.last(); //获得resultset的大小，用来开数组
+			int size = rs.getRow();
+			rs.beforeFirst(); //回到最开始的位置
+			//System.out.println(size);
+			ClassSelection[] cs = new ClassSelection[size];
+			for(int i = 0 ; i< size ;i++)
+				cs[i] = new ClassSelection();
+			int pos = 0 ;
+			while(rs.next()) {
+				cs[pos].setStudent_id(rs.getString(1));
+				cs[pos].setStudent_name(rs.getString(2));
+				cs[pos].setClass_id(rs.getString(3));
+				cs[pos].setClass_name(rs.getString(4));
+				cs[pos].setTeacher_id(rs.getString(5));
+				cs[pos].setTeacher_name(rs.getString(6));
+				pos++;
+			}
+			return cs;
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 	
 }

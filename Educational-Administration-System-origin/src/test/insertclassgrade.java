@@ -14,7 +14,7 @@ public class insertclassgrade {
 		C.setTeacher_id("0011");
 		C.setTeacher_name("连远峰");
 		classinfoDaoimpl c1 = new classinfoDaoimpl();
-		if(c1.save(C)==1) {
+		if(c1.insert(C)==1) {
 			
 		}
 		else {

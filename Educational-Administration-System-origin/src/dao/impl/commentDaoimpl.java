@@ -10,6 +10,13 @@ import dbconnect.connect;
 import entity.Comment;
 
 public class commentDaoimpl implements CommentDao {
+	
+	@Override
+	public int insert(Comment comm)
+	{
+		
+		return 0;
+	}
 
 	@Override
 	/*

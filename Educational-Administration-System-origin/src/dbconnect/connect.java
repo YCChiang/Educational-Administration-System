@@ -2,7 +2,7 @@ package dbconnect;
 import java.sql.*;
 public class connect {
 	public static Connection getConnection() {
-		String url = "jdbc:mariadb://127.0.0.1:3306/educationalas";
+		String url = "jdbc:mariadb://127.0.0.1:3306/educational_system";
 		String name = "manager";
 		String ps = "manager";
 		try {

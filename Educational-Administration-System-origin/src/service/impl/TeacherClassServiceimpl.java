@@ -1,5 +1,7 @@
 package service.impl;
 
+import java.util.List;
+
 import dao.impl.classgradeDaoimpl;
 import dao.impl.classinfoDaoimpl;
 import entity.ClassGrade;
@@ -21,10 +23,10 @@ public class TeacherClassServiceimpl implements TeacherClassService{
 	}
 
 	@Override
-	public ClassInfo[] findclassinfoList(String teacher_id) {
+	public List<ClassInfo> findclassinfoList(String teacher_id) {
 		// TODO Auto-generated method stub
 		classinfoDaoimpl DAO = new classinfoDaoimpl();
-		return DAO.selectbyteacherid(teacher_id);
+		return DAO.selectByTeacherid(teacher_id);
 	}
 
 }

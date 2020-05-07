@@ -54,4 +54,31 @@ public class commentDaoimpl implements CommentDao {
 		return null;
 	}
 
+	@Override
+	/*
+	 * (non-Javadoc)
+	 * @see dao.CommentDao#insert(entity.Comment)
+	 * 插入评教
+	 */
+	public int insert(Comment c) {
+		Connection con = connect.getConnection();
+		PreparedStatement pstmt = null;
+		try {
+			String sql = "INSERT INTO comment (class_id, class_name, teacher_id ,teacher_name ,content) VALUES (?, ?, ? ,?,?);";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, c.getClass_id());
+			pstmt.setString(2, c.getClass_name());
+			pstmt.setString(3, c.getTeacher_id());
+			pstmt.setString(4, c.getTeacher_name());
+			pstmt.setString(5, c.getContent());
+			pstmt.executeQuery();
+			pstmt.close();
+			con.close();
+			return 1;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
 }

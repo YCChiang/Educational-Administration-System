@@ -35,7 +35,6 @@ public class student extends JFrame implements ActionListener
 
 	        // item1=new JMenuItem(“新建”)
 	        item1 = new JMenuItem("个人信息");
-	        
 	        item2 = new JMenuItem("培养方案");
 	        item3 = new JMenuItem("学籍注册");
 	        
@@ -112,42 +111,41 @@ public class student extends JFrame implements ActionListener
 	    	{
 	    		new inter();
 	    	}
-	    	if(ev.getSource()==item1)
+			if(ev.getSource() == item1)
 			{
-	    		//new 个人信息();
-	    		(new studentinfo()).setVisible(true);
+		    	个人信息new.main(null);
 			}
 			if(ev.getSource()==item2)
 			{
-				new 培养方案();
+				培养方案new.main(null);
 			}
 			if(ev.getSource()==item3)
 			{
-				new 学籍注册();
+				学籍注册new.main(null);
 			}
 			if(ev.getSource()==item4)
 			{
-				new 本学期课表();
+				本学期课表new.main(null);
 			}
 			if(ev.getSource()==item5)
 			{
-				new 选课();
+				选课new.main(null);
 			}
 			if(ev.getSource()==item6)
 			{
-				new 退课();
+				退课new.main(null);
 			}
 			if(ev.getSource()==item7)
 			{
-				new 课程成绩();
+				课程成绩new.main(null);
 			}
 			if(ev.getSource()==item8)
 			{
-				new 补考报名();
+				补考报名new.main(null);
 			}
 			if(ev.getSource()==item10)
 			{
-				new 教学评估();
+				教学评估new.main(null);
 			}
 			this.setVisible(false);
 		}

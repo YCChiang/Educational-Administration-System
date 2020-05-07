@@ -33,6 +33,23 @@ public class classinfoDaoimpl implements classinfoDao{
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
+		finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();				
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				if(con != null)
+					con.close();				
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		return 0;
 	}
 
@@ -76,6 +93,31 @@ public class classinfoDaoimpl implements classinfoDao{
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();				
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				if(rs != null)
+					rs.close();
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				if(con != null)
+					con.close();				
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return null;
 	}

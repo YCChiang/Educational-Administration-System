@@ -4,11 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import dao.classselectionDao;
 import dbconnect.connect;
 import entity.ClassSelection;
-import entity.Student;
 
 public class classselectionDaoimpl implements classselectionDao{
 
@@ -20,9 +21,9 @@ public class classselectionDaoimpl implements classselectionDao{
 	 * 失败返回0
 	 */
 	public int insert(ClassSelection cs) {
-		// TODO Auto-generated method stub
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
+		int result = 0;
 		try {
 			String sql = "insert into classselection set student_id = ? , student_name =? , class_id = ? , class_name = ? ,teacher_id = ? , teacher_name = ?";
 			pstmt = con.prepareStatement(sql);
@@ -32,52 +33,88 @@ public class classselectionDaoimpl implements classselectionDao{
 			pstmt.setString(4, cs.getClass_name());
 			pstmt.setString(5, cs.getTeacher_id());
 			pstmt.setString(6, cs.getTeacher_name());
-			pstmt.executeQuery();
-			return 1;
+			result = pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return 0;
+		finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();				
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				if(con != null)
+					con.close();				
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
 	}
 
 	@Override
-	/*
-	 * (non-Javadoc)
+	/* 
 	 * @see dao.classselectionDao#searchbystudentid(entity.Student)
 	 * 学生查看选课情况，返回一个ClassSelection数组，若没选课则返回一个null指针
 	 */
-	public ClassSelection[] searchbystudentid(String student_id) {
+	public List<ClassSelection> searchbystudentid(String student_id) {
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		List<ClassSelection> cs = new ArrayList<ClassSelection>();;
 		try {
 			String sql = "select * from classselection where student_id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, student_id);
 			rs = pstmt.executeQuery();
-			rs.last(); //获得resultset的大小，用来开数组
-			int size = rs.getRow();
+			rs.last(); //获得result set的大小，用来开数组
 			rs.beforeFirst(); //回到最开始的位置
 			//System.out.println(size);
-			ClassSelection[] cs = new ClassSelection[size];
-			for(int i = 0 ; i< size ;i++)
-				cs[i] = new ClassSelection();
-			int pos = 0 ;
 			while(rs.next()) {
-				cs[pos].setStudent_id(rs.getString(1));
-				cs[pos].setStudent_name(rs.getString(2));
-				cs[pos].setClass_id(rs.getString(3));
-				cs[pos].setClass_name(rs.getString(4));
-				cs[pos].setTeacher_id(rs.getString(5));
-				cs[pos].setTeacher_name(rs.getString(6));
-				pos++;
+				ClassSelection temp = new ClassSelection();
+				temp.setStudent_id(rs.getString(1));
+				temp.setStudent_name(rs.getString(2));
+				temp.setClass_id(rs.getString(3));
+				temp.setClass_name(rs.getString(4));
+				temp.setTeacher_id(rs.getString(5));
+				temp.setTeacher_name(rs.getString(6));
+				cs.add(temp);
 			}
-			return cs;
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();				
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				if(rs != null)
+					rs.close();
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				if(con != null)
+					con.close();				
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return cs;
 	}
 	
 }

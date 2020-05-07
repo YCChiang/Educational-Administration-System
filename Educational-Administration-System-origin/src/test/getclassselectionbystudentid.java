@@ -2,7 +2,7 @@ package test;
 
 import dao.impl.classselectionDaoimpl;
 import entity.ClassSelection;
-import entity.Student;
+
 
 public class getclassselectionbystudentid {
 

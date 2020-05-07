@@ -35,6 +35,7 @@ public class student extends JFrame implements ActionListener
 
 	        // item1=new JMenuItem(“新建”)
 	        item1 = new JMenuItem("个人信息");
+	        
 	        item2 = new JMenuItem("培养方案");
 	        item3 = new JMenuItem("学籍注册");
 	        
@@ -113,7 +114,8 @@ public class student extends JFrame implements ActionListener
 	    	}
 	    	if(ev.getSource()==item1)
 			{
-	    		new 个人信息();
+	    		//new 个人信息();
+	    		(new studentinfo()).setVisible(true);
 			}
 			if(ev.getSource()==item2)
 			{

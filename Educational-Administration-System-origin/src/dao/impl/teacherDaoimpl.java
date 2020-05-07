@@ -22,27 +22,28 @@ public class teacherDaoimpl implements teacherDao{
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		Teacher t = null;
+		Teacher teacher = null;
 		try {
 			String sql = "select * from teacher where id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, teacher_id);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				t = new Teacher();
-				t.setId(rs.getString(1));
-				t.setName(rs.getString(2));
-				t.setGender(rs.getInt(3));
-				t.setDepartment(rs.getString(4));
-				t.setTitle(rs.getString(5));
-				t.setTel(rs.getString(6));
-				return t;
+				teacher = new Teacher();
+				teacher.setId(rs.getString(1));
+				teacher.setName(rs.getString(2));
+				teacher.setGender(rs.getInt(3));
+				teacher.setDepartment(rs.getString(4));
+				teacher.setTitle(rs.getString(5));
+				teacher.setTel(rs.getString(6));
 			}
+			rs.close();
+			con.close();
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return teacher;
 	}
 
 	@Override
@@ -66,8 +67,9 @@ public class teacherDaoimpl implements teacherDao{
 			pstmt.setString(5, t.getTel());
 			pstmt.setString(6, t.getId());
 			pstmt.executeQuery();
-				return 1;
-			}
+			con.close();
+			return 1;
+		}
 		catch(SQLException e) {
 			e.printStackTrace();
 		}

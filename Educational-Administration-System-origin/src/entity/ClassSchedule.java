@@ -1,4 +1,8 @@
 package entity;
+
+/*
+ * 此类对应课程时间表
+ */
 public class ClassSchedule {
 	private int id;
 	private String class_id;

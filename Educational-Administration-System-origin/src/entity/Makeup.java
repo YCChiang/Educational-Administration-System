@@ -1,5 +1,8 @@
 package entity;
 
+/*
+ * 此类对应补考报名表
+ */
 public class Makeup {
 	private String student_id;
 	private String student_name;

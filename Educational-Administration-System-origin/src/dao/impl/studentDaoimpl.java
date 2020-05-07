@@ -34,8 +34,9 @@ public class studentDaoimpl implements studentDao {
 			pstmt.setString(8, s.getTel());
 			pstmt.setString(9, s.getId());
 			pstmt.executeQuery();
-				return 1;
-			}
+			con.close();
+			return 1;
+		}
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -72,6 +73,8 @@ public class studentDaoimpl implements studentDao {
 				s.setAddress(rs.getString(9));
 				return s;
 			}
+			rs.close();
+			con.close();
 		}
 		catch(SQLException e) {
 			e.printStackTrace();

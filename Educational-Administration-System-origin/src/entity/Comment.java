@@ -1,5 +1,8 @@
 package entity;
 
+/*
+ * 此类对应选课信息表
+ */
 public class Comment {
 	private String class_id;
 	private String class_name;

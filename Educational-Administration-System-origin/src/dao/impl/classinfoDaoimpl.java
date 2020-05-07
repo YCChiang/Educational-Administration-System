@@ -70,6 +70,8 @@ public class classinfoDaoimpl implements classinfoDao{
 				crs[pos].setCredit(rs.getInt(7));
 				pos++;
 			}
+			rs.close();
+			con.close();
 			return crs;
 		}
 		catch(SQLException e) {

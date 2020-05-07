@@ -44,6 +44,8 @@ public class commentDaoimpl implements CommentDao {
 				crs[pos].setContent(rs.getString(5));
 				pos++;
 			}
+			rs.close();
+			con.close();
 			return crs;
 		}
 		catch(SQLException e) {

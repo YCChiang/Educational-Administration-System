@@ -1,7 +1,7 @@
 package entity;
 
 /*
- * 此DAO对应课程信息表
+ * 此类对应课程信息表
  */
 public class ClassInfo {
 	private String id;

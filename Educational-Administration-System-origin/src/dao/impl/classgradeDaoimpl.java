@@ -30,6 +30,7 @@ public class classgradeDaoimpl implements classgradeDao{
 			pstmt.setFloat(3, grade.getGrade());
 			pstmt.setInt(4, grade.getRank());
 			pstmt.executeQuery();
+			con.close();
 			return 1;
 		}
 		catch(SQLException e) {
@@ -69,6 +70,8 @@ public class classgradeDaoimpl implements classgradeDao{
 				cg[pos].setRank(rs.getInt(4));
 				pos++;
 			}
+			rs.close();
+			con.close();
 			return cg;
 		}
 		catch(SQLException e) {

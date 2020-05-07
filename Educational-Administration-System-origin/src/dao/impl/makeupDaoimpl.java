@@ -65,6 +65,8 @@ public class makeupDaoimpl implements makeupDao {
 				M[pos].setClass_id(rs.getString(3));
 				pos++;
 			}
+			rs.close();
+			con.close();
 			return M;
 		}
 		catch(SQLException e) {

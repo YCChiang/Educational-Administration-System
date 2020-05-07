@@ -46,14 +46,14 @@ public class classselectionDaoimpl implements classselectionDao{
 	 * @see dao.classselectionDao#searchbystudentid(entity.Student)
 	 * 学生查看选课情况，返回一个ClassSelection数组，若没选课则返回一个null指针
 	 */
-	public ClassSelection[] searchbystudentid(Student s) {
+	public ClassSelection[] searchbystudentid(String student_id) {
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
 			String sql = "select * from classselection where student_id = ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, s.getId());
+			pstmt.setString(1, student_id);
 			rs = pstmt.executeQuery();
 			rs.last(); //获得resultset的大小，用来开数组
 			int size = rs.getRow();

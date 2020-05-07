@@ -12,7 +12,7 @@ public class student extends JFrame implements ActionListener
 	    // 菜单条组件
 	    JMenuBar jmb;
 	    JMenu menu1, menu2, menu3, menu4, menu5;
-	    JMenuItem item1,item2, item3, item4, item5, item6, item7,item8,item9;
+	    JMenuItem item1,item2, item3, item4, item5, item6, item7,item8,item9,item10;
 	    JLabel jl1;
 
 	    public static void main(String[] args) {
@@ -45,6 +45,8 @@ public class student extends JFrame implements ActionListener
 	        item7 = new JMenuItem("课程成绩");
 	        item8 = new JMenuItem("补考报名");
 	        
+	        item10 = new JMenuItem("教学评估");
+	        
 	        item9 = new JMenuItem("返回");
 
 	        //jta = new JTextArea();
@@ -63,6 +65,8 @@ public class student extends JFrame implements ActionListener
 	        
 	        menu4.add(item7);
 	        menu4.add(item8);
+	        
+	        menu5.add(item10);
 
 	        // 将菜单添加到菜单条上
 	        jmb.add(menu1);
@@ -90,6 +94,7 @@ public class student extends JFrame implements ActionListener
 			item7.addActionListener(this);
 			item8.addActionListener(this);
 			item9.addActionListener(this);
+			item10.addActionListener(this);
 	        
 	        jl1 = new JLabel(new ImageIcon("F://1.jpg"));
 	        this.add(jl1);
@@ -137,6 +142,10 @@ public class student extends JFrame implements ActionListener
 			if(ev.getSource()==item8)
 			{
 				new 补考报名();
+			}
+			if(ev.getSource()==item10)
+			{
+				new 教学评估();
 			}
 			this.setVisible(false);
 		}

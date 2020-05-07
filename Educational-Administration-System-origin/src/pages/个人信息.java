@@ -32,13 +32,13 @@ class 个人信息 extends JFrame implements ActionListener
 	        // 多行文本框会根据情况自己调节大小
 			
 			l8 = new JButton("个人信息");
-			l8.setBounds(35, 240, 140, 30);
+			l8.setBounds(35, 100, 140, 30);
 			frame.add(l8);
 	    	jb1 = new JButton("返回");
 	        //this.add(jsp);
 
 			Jtext1 = new JTextArea();//定义成文本区
-			Jtext1.setBounds(180, 240, 200, 150);
+			Jtext1.setBounds(180, 100, 200, 150);
 			frame.add(Jtext1);
 			frame.add(jb1);
 			jb1.setBounds(200, 500, 60, 20);

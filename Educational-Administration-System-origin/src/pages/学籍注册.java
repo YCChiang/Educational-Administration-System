@@ -59,7 +59,7 @@ class 学籍注册 extends JFrame implements ActionListener
     	if(ev.getSource() == jb1)
 		{
     		
-    		JOptionPane.showMessageDialog(null, "注册成功", "", JOptionPane.ERROR_MESSAGE);
+    		JOptionPane.showMessageDialog(null, "注册成功");
     		this.setVisible(false);
     		new student();
 		}

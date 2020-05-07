@@ -4,7 +4,18 @@ import entity.User;
 public class logintest {
 	public static void main(String args[]) {
 		userDaoimpl udi = new userDaoimpl();
-		User u1 = udi.login("2017011316", "2017011316", "学生");
-		System.out.println(u1.getname());
+		System.out.print("start");
+		User user = udi.searchByName("2017011294");
+		if(user != null) {
+			if(user.getpassword() == "666666") {
+				System.out.print("login in ssuccess");
+			}
+			else {
+				System.out.print("wrong password");
+			}
+		}
+		else {
+			System.out.print("wrong user name");
+		}
 	}
 }

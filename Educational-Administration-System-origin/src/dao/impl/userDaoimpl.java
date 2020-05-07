@@ -37,9 +37,9 @@ public class userDaoimpl implements userDao{
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				user = new User();
-				user.setname(rs.getString(0));
-				user.setpassword(rs.getString(1));
-				user.settype(rs.getString(2));
+				user.setname(rs.getString("name"));
+				user.setpassword(rs.getString("password"));
+				user.settype(rs.getString("type"));
 			}
 			pstmt.close();
 			rs.close();
@@ -50,33 +50,4 @@ public class userDaoimpl implements userDao{
 		}		
 		return user;
 	}
-
-	@Override
-	public User login(String name, String password, String type) {
-		// TODO Auto-generated method stub
-		User uu = null;
-		Connection con = connect.getConnection();
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		try {
-			String sql = "select * from user where type = ? and name = ? and password = ?";
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, type);
-			pstmt.setString(2, name);
-			pstmt.setString(3,password);
-			rs = pstmt.executeQuery();
-			if(rs.next()) {
-				uu = new User();
-				uu.setname(name);
-				uu.setpassword(password);
-				uu.settype(type);
-				return uu;
-			}
-		}
-		catch(SQLException e) {
-			e.printStackTrace();
-		}
-		return uu;
-	}
-
 }

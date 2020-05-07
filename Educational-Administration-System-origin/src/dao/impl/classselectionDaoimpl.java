@@ -62,7 +62,7 @@ public class classselectionDaoimpl implements classselectionDao{
 	 * @see dao.classselectionDao#searchbystudentid(entity.Student)
 	 * 学生查看选课情况，返回一个ClassSelection数组，若没选课则返回一个null指针
 	 */
-	public List<ClassSelection> searchbystudentid(String student_id) {
+	public List<ClassSelection> selectByStudentid(String student_id) {
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -72,17 +72,14 @@ public class classselectionDaoimpl implements classselectionDao{
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, student_id);
 			rs = pstmt.executeQuery();
-			rs.last(); //获得result set的大小，用来开数组
-			rs.beforeFirst(); //回到最开始的位置
-			//System.out.println(size);
 			while(rs.next()) {
 				ClassSelection temp = new ClassSelection();
-				temp.setStudent_id(rs.getString(1));
-				temp.setStudent_name(rs.getString(2));
-				temp.setClass_id(rs.getString(3));
-				temp.setClass_name(rs.getString(4));
-				temp.setTeacher_id(rs.getString(5));
-				temp.setTeacher_name(rs.getString(6));
+				temp.setStudent_id(rs.getString("student_id"));
+				temp.setStudent_name(rs.getString("student_name"));
+				temp.setClass_id(rs.getString("class_id"));
+				temp.setClass_name(rs.getString("class_name"));
+				temp.setTeacher_id(rs.getString("teacher_id"));
+				temp.setTeacher_name(rs.getString("teacher_name"));
 				cs.add(temp);
 			}
 		}
@@ -117,4 +114,56 @@ public class classselectionDaoimpl implements classselectionDao{
 		return cs;
 	}
 	
+	@Override
+	public List<ClassSelection> selectByClassID(String class_id){
+		Connection con = connect.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<ClassSelection> cs = new ArrayList<ClassSelection>();
+		try {
+			String sql = "select * from classselection where class_id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, class_id);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ClassSelection temp = new ClassSelection();
+				temp.setStudent_id(rs.getString("student_id"));
+				temp.setStudent_name(rs.getString("student_name"));
+				temp.setClass_id(rs.getString("class_id"));
+				temp.setClass_name(rs.getString("class_name"));
+				temp.setTeacher_id(rs.getString("teacher_id"));
+				temp.setTeacher_name(rs.getString("teacher_name"));
+				cs.add(temp);
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();				
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				if(rs != null)
+					rs.close();
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				if(con != null)
+					con.close();				
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return cs;
+	}	
 }

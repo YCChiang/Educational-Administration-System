@@ -1,4 +1,4 @@
-package service;
+package service.impl;
 
 import dao.impl.userDaoimpl;
 import entity.User;

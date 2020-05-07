@@ -1,5 +1,8 @@
 package entity;
 
+/*
+ * 此类对应学生信息表
+ */
 public class Student {
 	private String id;
 	private String name;

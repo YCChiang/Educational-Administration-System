@@ -1,5 +1,8 @@
 package entity;
 
+/*
+ * 此表对应专业培养方案表
+ */
 public class ProfProgram {
 	private  int id;
 	private String specialty;

@@ -1,6 +1,8 @@
 package entity;
 
-
+/*
+ * 此类对应账号表
+ */
 public class User {
 	private String name;
 	private String password;

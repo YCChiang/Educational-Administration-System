@@ -1,5 +1,8 @@
 package entity;
 
+/*
+ * 此DAO对应课程成绩信息表 
+ */
 public class ClassGrade {
 	private String student_id;
 	private String class_id;

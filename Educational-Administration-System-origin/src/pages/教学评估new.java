@@ -72,6 +72,7 @@ public class 教学评估new {
 				if(e.getSource() == button_1)
 				{
 					new student();
+					frame.setVisible(false);
 				}
 			}
 		});

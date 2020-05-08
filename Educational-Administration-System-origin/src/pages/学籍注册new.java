@@ -57,6 +57,7 @@ public class 学籍注册new {
 		    		
 		    		JOptionPane.showMessageDialog(null, "注册成功");
 		    		new student();
+		    		frame.setVisible(false);
 				}
 			}
 		});
@@ -67,7 +68,7 @@ public class 学籍注册new {
 				if(e.getSource() == button_1)
 				{
 					new student();
-					
+					frame.setVisible(false);
 				}
 			}
 		});

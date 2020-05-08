@@ -69,7 +69,7 @@ public class 评估new {
 				if(e.getSource() == button_1)
 				{
 					frame.setVisible(false);
-					new 教学评估new();
+					教学评估new.main(null);
 				}
 			}
 		});

@@ -86,6 +86,7 @@ public class 补考报名new {
 				if(e.getSource() == button_2)
 				{
 					new student();
+					frame.setVisible(false);
 				}
 			}
 		});

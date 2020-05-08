@@ -70,6 +70,7 @@ public class 退课new {
 				if(e.getSource() == button_1)
 				{
 					new student();
+					frame.setVisible(false);
 				}
 			}
 		});

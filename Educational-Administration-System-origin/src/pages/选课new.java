@@ -77,6 +77,7 @@ public class 选课new {
 		    		if(checkBox.isSelected())
 		    		{
 		    			JOptionPane.showMessageDialog(null, "选课成功");
+		    			frame.setVisible(false);
 		    		}
 				}
 			}
@@ -88,6 +89,7 @@ public class 选课new {
 				if(e.getSource() == button_2)
 				{
 					new student();
+					frame.setVisible(false);
 				}
 			}
 		});

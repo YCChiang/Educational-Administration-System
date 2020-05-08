@@ -2,6 +2,10 @@ package pages;
 
 import java.awt.*;
 import javax.swing.*;
+
+import entity.User;
+import service.loginservice;
+
 import java.awt.event.*;
 
 public class inter extends JFrame implements ActionListener {
@@ -77,21 +81,38 @@ public class inter extends JFrame implements ActionListener {
 	{
 		if (ev.getSource() == jb1) {
 			if (jcb1.isSelected() || jcb2.isSelected() || jcb3.isSelected()) {
-				if (jcb1.isSelected()) {
-					new manager();
-					this.setVisible(false);
+				loginservice login = new loginservice();
+				User get = login.findById(jtf1.getText());
+				if (get != null) {
+					if (jcb1.isSelected()) {
+						if (get.getpassword().equals(new String(jpf1.getPassword())) && get.gettype().equals("管理员")) {
+							new manager();
+							this.setVisible(false);
+						} else {
+							JOptionPane.showMessageDialog(null, "密码错误", "错误提示", JOptionPane.ERROR_MESSAGE);
+						}
+					}
+					if (jcb2.isSelected()) {
+						if (get.getpassword().equals(new String(jpf1.getPassword())) && get.gettype().equals("教师")) {
+							new teacher();
+							this.setVisible(false);
+						} else {
+							JOptionPane.showMessageDialog(null, "密码错误", "错误提示", JOptionPane.ERROR_MESSAGE);
+						}
+					}
+					if (jcb3.isSelected()) {
+						if (get.getpassword().equals(new String(jpf1.getPassword())) && get.gettype().equals("学生")) {
+							new student();
+							this.setVisible(false);
+						} else {
+							JOptionPane.showMessageDialog(null, "密码错误", "错误提示", JOptionPane.ERROR_MESSAGE);
+						}
+					}
+				} else {
+					JOptionPane.showMessageDialog(null, "账户错误", "错误提示", JOptionPane.ERROR_MESSAGE);
 				}
-				if (jcb2.isSelected()) {
-					new teacher();
-					this.setVisible(false);
-				}
-				if (jcb3.isSelected()) {
-					new student();
-					this.setVisible(false);
-				}
-			}
-			else {
-				JOptionPane.showMessageDialog(null,"未选择身份","错误提示",JOptionPane.ERROR_MESSAGE);
+			} else {
+				JOptionPane.showMessageDialog(null, "未选择身份", "错误提示", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 		if (ev.getSource() == jb2) {

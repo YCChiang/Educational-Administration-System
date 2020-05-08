@@ -4,8 +4,8 @@ import dao.impl.UserDaoimpl;
 import entity.User;
 
 public class loginservice {
-	public User findById(User user) {
+	public User findById(String name) {
 		UserDaoimpl userhandle = new UserDaoimpl();
-		return userhandle.searchByName(user.getname());
+		return userhandle.searchByName(name);
 	}
 }

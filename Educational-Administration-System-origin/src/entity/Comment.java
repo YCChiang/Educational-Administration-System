@@ -8,6 +8,7 @@ public class Comment {
 	private String class_name;
 	private String teacher_id;
 	private String teacher_name;
+	private String student_id;
 	private String content;
 	public String getClass_id() {
 		return class_id;
@@ -38,5 +39,11 @@ public class Comment {
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public String getStudent_id() {
+		return student_id;
+	}
+	public void setStudent_id(String student_id) {
+		this.student_id = student_id;
 	}
 }

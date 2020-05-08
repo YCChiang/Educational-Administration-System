@@ -1,38 +1,29 @@
 package dao.impl;
 
 import java.sql.Connection;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.ClassGradeDao;
+import dao.ElectiveInfoDao;
 import dbconnect.connect;
-
 import entity.ClassGrade;
-import entity.Student;
+import entity.ElectiveInfo;
 
-public class classgradeDaoimpl implements ClassGradeDao{
+public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
+
 	@Override
-	/*
-	 * return value:
-	 * 	1: 插入成功
-	 * 	0: 插入失败
-	 */
-	public int insert(ClassGrade info) {
+	public int insert(ElectiveInfo info) {
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		int result = 0;
 		try {
-			String sql = "insert into classgrade (student_id ,class_id ,grade ,rank, makeup) values (?,?,?,?,?) ";
+			String sql = "insert into classgrade (student_id ,class_id) values (?,?) ";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, info.getStudent_id());
 			pstmt.setString(2, info.getClass_id());
-			pstmt.setFloat(3, info.getGrade());
-			pstmt.setInt(4, info.getRank());
-			pstmt.setString(5, info.getMakeup());
 			result = pstmt.executeUpdate();
 		}
 		catch(SQLException e) {
@@ -53,23 +44,20 @@ public class classgradeDaoimpl implements ClassGradeDao{
 	}
 
 	@Override
-	public List<ClassGrade> selectByStudentid(String student_id) {
+	public List<ElectiveInfo> selectByStudentid(String student_id) {
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		List<ClassGrade> result = new ArrayList<ClassGrade>();
+		List<ElectiveInfo> result = new ArrayList<ElectiveInfo>();
 		try {
 			String sql = "select * from classgrade where student_id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, student_id);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				ClassGrade temp = new ClassGrade();
+				ElectiveInfo temp = new ElectiveInfo();
 				temp.setStudent_id(rs.getString(student_id));
 				temp.setClass_id(rs.getString("class_id"));
-				temp.setGrade(rs.getFloat("grade"));
-				temp.setRank(rs.getInt("rank"));
-				temp.setMakeup(rs.getString("makeup"));
 				result.add(temp);
 			}
 		}
@@ -93,23 +81,20 @@ public class classgradeDaoimpl implements ClassGradeDao{
 	}
 
 	@Override
-	public List<ClassGrade> selectByClassID(String class_id) {
+	public List<ElectiveInfo> selectByClassID(String class_id) {
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		List<ClassGrade> result = new ArrayList<ClassGrade>();
+		List<ElectiveInfo> result = new ArrayList<ElectiveInfo>();
 		try {
 			String sql = "select * from classgrade where class_id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, class_id);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				ClassGrade temp = new ClassGrade();
+				ElectiveInfo temp = new ElectiveInfo();
 				temp.setStudent_id(rs.getString("student_id"));
-				temp.setClass_id(class_id);
-				temp.setGrade(rs.getFloat("grade"));
-				temp.setRank(rs.getInt("rank"));
-				temp.setMakeup(rs.getString("makeup"));
+				temp.setClass_id(rs.getString(class_id));
 				result.add(temp);
 			}
 		}
@@ -131,7 +116,5 @@ public class classgradeDaoimpl implements ClassGradeDao{
 		}
 		return result;
 	}
-
-
 
 }

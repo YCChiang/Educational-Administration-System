@@ -18,7 +18,7 @@ public class teacherDaoimpl implements teacherDao{
 	 * 通过教师id来查找出老师的基本信息
 	 * 如果查询成功返回techer指针，失败返回null指针
 	 */
-	public Teacher searchbyteacherid(String teacher_id) {
+	public Teacher searchByTeacherid(String teacher_id) {
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -37,11 +37,22 @@ public class teacherDaoimpl implements teacherDao{
 				teacher.setTitle(rs.getString(5));
 				teacher.setTel(rs.getString(6));
 			}
-			rs.close();
-			con.close();
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();
+				if(rs != null)
+					rs.close();
+				if(con != null)
+					con.close();
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
 		}
 		return teacher;
 	}
@@ -53,10 +64,11 @@ public class teacherDaoimpl implements teacherDao{
 	 * 更新教师信息，根据给他的teacher来完成更新信息
 	 * 成功更新返回1，失败返回0
 	 */
-	public int modifyinfo(Teacher t) {
+	public int modify(Teacher t) {
 		// TODO Auto-generated method stub
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
+		int result = 0;
 		try {
 			String sql = "update teacher set name = ? ,gender = ? ,department = ?,title = ? ,tel = ? where id = ?";
 			pstmt = con.prepareStatement(sql);
@@ -66,14 +78,56 @@ public class teacherDaoimpl implements teacherDao{
 			pstmt.setString(4, t.getTitle());
 			pstmt.setString(5, t.getTel());
 			pstmt.setString(6, t.getId());
-			pstmt.executeQuery();
-			con.close();
-			return 1;
+			result = pstmt.executeUpdate();
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return 0;
+		finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();
+				if(con != null)
+					con.close();
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public int insert(Teacher t) {
+		Connection con = connect.getConnection();
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			String sql = "INSERT INTO student (id, name, gender, department, title, tel) "
+					+ "VALUES (?,?,?,?,?);";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1,t.getId());
+			pstmt.setString(2, t.getName());
+			pstmt.setInt(3, t.getGender());
+			pstmt.setString(4, t.getDepartment());
+			pstmt.setString(5, t.getTitle());
+			pstmt.setString(6, t.getTel());
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();
+				if(con != null)
+					con.close();
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
 	}
 	
 

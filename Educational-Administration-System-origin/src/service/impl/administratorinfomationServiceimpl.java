@@ -11,13 +11,13 @@ public class administratorinfomationServiceimpl implements administratorinfomati
 	@Override
 	public int modifyStudent(Student info) {
 		studentDaoimpl DAO = new studentDaoimpl();
-		return DAO.modifyinfo(info);
+		return DAO.modify(info);
 	}
 
 	@Override
 	public int modfiyTeacher(Teacher info) {
 		teacherDaoimpl DAO = new teacherDaoimpl();
-		return DAO.modifyinfo(info);
+		return DAO.modify(info);
 	}
 
 }

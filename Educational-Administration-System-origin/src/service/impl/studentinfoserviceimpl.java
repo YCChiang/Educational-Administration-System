@@ -10,7 +10,7 @@ public class studentinfoserviceimpl implements StudentInfomationService{
 	public Student findById(String id) {
 		// TODO Auto-generated method stub
 		studentDaoimpl Dao = new studentDaoimpl();
-		Student stu = Dao.searchbystudentid(id);
+		Student stu = Dao.searchByStudentid(id);
 		return stu;
 	}
 

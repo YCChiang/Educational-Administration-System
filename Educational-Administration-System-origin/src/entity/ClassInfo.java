@@ -11,6 +11,10 @@ public class ClassInfo {
 	private String teacher_id;
 	private String teacher_name;
 	private int credit;
+	private int start_week;
+	private int end_week;
+	private String year;
+	
 	public String getId() {
 		return id;
 	}
@@ -52,5 +56,23 @@ public class ClassInfo {
 	}
 	public void setCredit(int credit) {
 		this.credit = credit;
+	}
+	public int getStart_week() {
+		return start_week;
+	}
+	public void setStart_week(int start_week) {
+		this.start_week = start_week;
+	}
+	public int getEnd_week() {
+		return end_week;
+	}
+	public void setEnd_week(int end_week) {
+		this.end_week = end_week;
+	}
+	public String getYear() {
+		return year;
+	}
+	public void setYear(String year) {
+		this.year = year;
 	}
 }

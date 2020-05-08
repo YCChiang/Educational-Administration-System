@@ -17,7 +17,7 @@ public class modifystudentinfo {
 		t.setAge(20);
 		t.setSpecialty("物探");
 		t.setClassinfo("物探17-1");
-		if(t1.modifyinfo(t)==1) {
+		if(t1.modify(t)==1) {
 			System.out.println("修改成功");
 		}
 		else {

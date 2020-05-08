@@ -21,40 +21,44 @@ public class commentDaoimpl implements CommentDao {
 	 * 输入教师id， 返回一个Comment数组
 	 * 若查询失败，则返回的是null指针
 	 */
-	public Comment[] searchcommentbyteacherid(String teacher_id) {
+	public List<Comment> searchByTeacherid(String teacher_id) {
 		// TODO Auto-generated method stub
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		List<Comment> result = new ArrayList<Comment>();
 		try {
 			String sql = "select * from comment where teacher_id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, teacher_id);
 			rs = pstmt.executeQuery();
-			rs.last(); //获得resultset的大小，用来开数组
-			int size = rs.getRow();
-			rs.beforeFirst(); //回到最开始的位置
-			//System.out.println(size);
-			Comment[] crs = new Comment[size];
-			for(int i = 0 ; i< size ;i++)
-				crs[i] = new Comment();
-			int pos = 0 ;
 			while(rs.next()) {
-				crs[pos].setClass_id(rs.getString(1));
-				crs[pos].setClass_name(rs.getString(2));
-				crs[pos].setTeacher_id(rs.getString(3));
-				crs[pos].setTeacher_name(rs.getString(4));
-				crs[pos].setContent(rs.getString(5));
-				pos++;
+				Comment temp = new Comment();
+				temp.setClass_id(rs.getString(1));
+				temp.setClass_name(rs.getString(2));
+				temp.setTeacher_id(rs.getString(3));
+				temp.setTeacher_name(rs.getString(4));
+				temp.setContent(rs.getString(5));
+				result.add(temp);
 			}
-			rs.close();
-			con.close();
-			return crs;
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();
+				if(rs != null) 
+					rs.close();
+				if(con != null)
+					con.close();
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
 	}
 
 	@Override
@@ -66,6 +70,7 @@ public class commentDaoimpl implements CommentDao {
 	public int insert(Comment c) {
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
+		int result = 0;
 		try {
 			String sql = "INSERT INTO comment (class_id, class_name, teacher_id ,teacher_name ,content) VALUES (?, ?, ? ,?,?);";
 			pstmt = con.prepareStatement(sql);
@@ -74,14 +79,22 @@ public class commentDaoimpl implements CommentDao {
 			pstmt.setString(3, c.getTeacher_id());
 			pstmt.setString(4, c.getTeacher_name());
 			pstmt.setString(5, c.getContent());
-			pstmt.executeQuery();
-			pstmt.close();
-			con.close();
-			return 1;
+			result = pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return 0;
+		finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();
+				if(con != null)
+					con.close();
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
 	}
 
 	@Override
@@ -136,23 +149,11 @@ public class commentDaoimpl implements CommentDao {
 		finally {
 			try {
 				if(pstmt != null)
-					pstmt.close();				
-			}
-			catch(SQLException e) {
-				e.printStackTrace();
-			}
-			
-			try {
-				if(rs != null)
+					pstmt.close();
+				if(rs != null) 
 					rs.close();
-			}
-			catch(SQLException e) {
-				e.printStackTrace();
-			}
-			
-			try {
 				if(con != null)
-					con.close();				
+					con.close();
 			}
 			catch(SQLException e) {
 				e.printStackTrace();

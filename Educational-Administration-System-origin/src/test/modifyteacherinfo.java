@@ -15,7 +15,7 @@ public class modifyteacherinfo {
 		t.setName("赵忠厚");
 		t.setTel("110");
 		t.setTitle("教授");
-		if(t1.modifyinfo(t)==1) {
+		if(t1.modify(t)==1) {
 			System.out.println("修改成功");
 		}
 		else {

@@ -1,7 +1,9 @@
 package service;
 
+import java.util.List;
+
 import entity.Comment;
 
 public interface TeacherCommentService {
-	public Comment[] findCommentList(String teacher_id);
+	public List<Comment> findCommentList(String teacher_id);
 }

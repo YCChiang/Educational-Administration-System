@@ -11,6 +11,7 @@ public class Student {
 	private String classinfo;
 	private String department;
 	private int age;
+	private int admission_time;
 	public String getClassinfo() {
 		return classinfo;
 	}
@@ -66,5 +67,11 @@ public class Student {
 	}
 	public void setDepartment(String department) {
 		this.department = department;
+	}
+	public int getAdmission_time() {
+		return admission_time;
+	}
+	public void setAdmission_time(int admission_time) {
+		this.admission_time = admission_time;
 	}
 }

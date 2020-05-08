@@ -1,8 +1,11 @@
 package dao;
 
+import java.util.List;
+
 import entity.ClassGrade;
-import entity.Student;
-public interface classgradeDao {
-	public ClassGrade[] searchbystudentid(Student s);
-	public int insert(ClassGrade grade);
+
+public interface ClassGradeDao {
+	public int insert(ClassGrade cs);
+	public List<ClassGrade> selectByStudentid(String student_id);
+	public List<ClassGrade> selectByClassID(String class_id);
 }

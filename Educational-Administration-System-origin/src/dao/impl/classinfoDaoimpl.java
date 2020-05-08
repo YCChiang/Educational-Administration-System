@@ -3,12 +3,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.classinfoDao;
+import dao.ClassInfoDao;
 import dbconnect.connect;
 import entity.ClassInfo;
-import entity.ClassSelection;
 
-public class classinfoDaoimpl implements classinfoDao{
+public class classinfoDaoimpl implements ClassInfoDao{
 
 	@Override
 	/*
@@ -20,18 +19,22 @@ public class classinfoDaoimpl implements classinfoDao{
 		// TODO Auto-generated method stub
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
+		int result = 0;
 		try {
-			String sql = "insert into classinfo values(?,?,?,?,?,?,?) ";
+			String sql = "INSERT INTO classinfo (id, name, hour, capacity, year, start_week, end_week, teacher_id, teacher_name, credit) "
+					+ "VALUES (?,?,?,?,?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, info.getId());
 			pstmt.setString(2, info.getName());
 			pstmt.setInt(3, info.getHour());
 			pstmt.setInt(4, info.getCapacity());
-			pstmt.setString(5,info.getTeacher_id());
-			pstmt.setString(6,info.getTeacher_name());
-			pstmt.setInt(7,info.getCredit());
-			pstmt.executeQuery();
-			return 1;
+			pstmt.setString(5, info.getYear());
+			pstmt.setInt(6, info.getStart_week());
+			pstmt.setInt(7, info.getEnd_week());
+			pstmt.setString(8,info.getTeacher_id());
+			pstmt.setString(9,info.getTeacher_name());
+			pstmt.setInt(10,info.getCredit());
+			result = pstmt.executeUpdate();
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
@@ -39,21 +42,15 @@ public class classinfoDaoimpl implements classinfoDao{
 		finally {
 			try {
 				if(pstmt != null)
-					pstmt.close();				
-			}
-			catch(SQLException e) {
-				e.printStackTrace();
-			}
-			
-			try {
+					pstmt.close();
 				if(con != null)
-					con.close();				
+					con.close();
 			}
 			catch(SQLException e) {
 				e.printStackTrace();
 			}
 		}
-		return 0;
+		return result;
 	}
 
 	@Override
@@ -90,23 +87,11 @@ public class classinfoDaoimpl implements classinfoDao{
 		finally {
 			try {
 				if(pstmt != null)
-					pstmt.close();				
-			}
-			catch(SQLException e) {
-				e.printStackTrace();
-			}
-			
-			try {
+					pstmt.close();		
 				if(rs != null)
 					rs.close();
-			}
-			catch(SQLException e) {
-				e.printStackTrace();
-			}
-			
-			try {
 				if(con != null)
-					con.close();				
+					con.close();
 			}
 			catch(SQLException e) {
 				e.printStackTrace();
@@ -122,7 +107,7 @@ public class classinfoDaoimpl implements classinfoDao{
 		ResultSet rs = null;
 		List<ClassInfo> result = new ArrayList<ClassInfo>();
 		try {
-			String sql = "select * from classinfo where class_name = ?";
+			String sql = "select * from classinfo where class_name = %?%";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, class_name);
 			rs = pstmt.executeQuery();
@@ -132,6 +117,9 @@ public class classinfoDaoimpl implements classinfoDao{
 				temp.setName(rs.getString("name"));
 				temp.setHour(rs.getInt("hour"));
 				temp.setCapacity(rs.getInt("capacity"));
+				temp.setYear(rs.getString("year"));
+				temp.setStart_week(rs.getInt("start_week"));
+				temp.setEnd_week(rs.getInt("end_week"));
 				temp.setTeacher_id(rs.getString("teacher_id"));
 				temp.setTeacher_name(rs.getString("teacher_name"));
 				temp.setCredit(rs.getInt("credit"));
@@ -144,23 +132,11 @@ public class classinfoDaoimpl implements classinfoDao{
 		finally {
 			try {
 				if(pstmt != null)
-					pstmt.close();				
-			}
-			catch(SQLException e) {
-				e.printStackTrace();
-			}
-			
-			try {
+					pstmt.close();		
 				if(rs != null)
 					rs.close();
-			}
-			catch(SQLException e) {
-				e.printStackTrace();
-			}
-			
-			try {
 				if(con != null)
-					con.close();				
+					con.close();
 			}
 			catch(SQLException e) {
 				e.printStackTrace();
@@ -186,6 +162,9 @@ public class classinfoDaoimpl implements classinfoDao{
 				result.setName(rs.getString("name"));
 				result.setHour(rs.getInt("hour"));
 				result.setCapacity(rs.getInt("capacity"));
+				result.setYear(rs.getString("year"));
+				result.setStart_week(rs.getInt("start_week"));
+				result.setEnd_week(rs.getInt("end_week"));
 				result.setTeacher_id(rs.getString("teacher_id"));
 				result.setTeacher_name(rs.getString("teacher_name"));
 				result.setCredit(rs.getInt("credit"));
@@ -197,23 +176,11 @@ public class classinfoDaoimpl implements classinfoDao{
 		finally {
 			try {
 				if(pstmt != null)
-					pstmt.close();				
-			}
-			catch(SQLException e) {
-				e.printStackTrace();
-			}
-			
-			try {
+					pstmt.close();		
 				if(rs != null)
 					rs.close();
-			}
-			catch(SQLException e) {
-				e.printStackTrace();
-			}
-			
-			try {
 				if(con != null)
-					con.close();				
+					con.close();
 			}
 			catch(SQLException e) {
 				e.printStackTrace();
@@ -243,6 +210,17 @@ public class classinfoDaoimpl implements classinfoDao{
 		catch(SQLException e) {
 			e.printStackTrace();
 		}
+		finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();		
+				if(con != null)
+					con.close();
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
 		return 0;
 	}
 
@@ -253,7 +231,7 @@ public class classinfoDaoimpl implements classinfoDao{
 		ResultSet rs = null;
 		List<ClassInfo> result = new ArrayList<ClassInfo>();
 		try {
-			String sql = "select * from classinfo ";
+			String sql = "select * from classinfo";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
@@ -262,6 +240,9 @@ public class classinfoDaoimpl implements classinfoDao{
 				temp.setName(rs.getString("name"));
 				temp.setHour(rs.getInt("hour"));
 				temp.setCapacity(rs.getInt("capacity"));
+				temp.setYear(rs.getString("year"));
+				temp.setStart_week(rs.getInt("start_week"));
+				temp.setEnd_week(rs.getInt("end_week"));
 				temp.setTeacher_id(rs.getString("teacher_id"));
 				temp.setTeacher_name(rs.getString("teacher_name"));
 				temp.setCredit(rs.getInt("credit"));
@@ -274,23 +255,11 @@ public class classinfoDaoimpl implements classinfoDao{
 		finally {
 			try {
 				if(pstmt != null)
-					pstmt.close();				
-			}
-			catch(SQLException e) {
-				e.printStackTrace();
-			}
-			
-			try {
+					pstmt.close();		
 				if(rs != null)
 					rs.close();
-			}
-			catch(SQLException e) {
-				e.printStackTrace();
-			}
-			
-			try {
 				if(con != null)
-					con.close();				
+					con.close();
 			}
 			catch(SQLException e) {
 				e.printStackTrace();

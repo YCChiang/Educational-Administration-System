@@ -9,7 +9,7 @@ public class searchstudentinfo {
 		// TODO Auto-generated method stub
 		Student s ;
 		studentDaoimpl t1 = new studentDaoimpl();
-		s = t1.searchbystudentid("1");
+		s = t1.searchByStudentid("1");
 		if(s!=null) {
 			System.out.println(s.getName());
 		}

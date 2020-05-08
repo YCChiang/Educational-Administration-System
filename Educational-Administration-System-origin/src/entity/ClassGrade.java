@@ -1,23 +1,11 @@
 package entity;
 
-/*
- * 此类对应课程成绩信息表 
- */
 public class ClassGrade {
 	private String student_id;
 	private String class_id;
 	private float grade;
 	private int rank;
-	
-	public ClassGrade() {
-		
-	}
-	public ClassGrade(String student_id, String class_id, float grade, int rank) {
-		this.student_id = student_id;
-		this.class_id = class_id;
-		this.grade = grade;
-		this.rank = rank;
-	}
+	private String makeup;
 	
 	public String getStudent_id() {
 		return student_id;
@@ -42,5 +30,11 @@ public class ClassGrade {
 	}
 	public void setRank(int rank) {
 		this.rank = rank;
+	}
+	public String getMakeup() {
+		return makeup;
+	}
+	public void setMakeup(String makeup) {
+		this.makeup = makeup;
 	}
 }

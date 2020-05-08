@@ -1,5 +1,7 @@
 package test;
 
+import java.util.List;
+
 import dao.impl.classgradeDaoimpl;
 import entity.ClassGrade;
 import entity.Student;
@@ -18,9 +20,10 @@ public class searchbystudentid {
 		t.setSpecialty("物探");
 		t.setClassinfo("物探17-1");
 		classgradeDaoimpl cdl = new classgradeDaoimpl();
-		ClassGrade[] C = cdl.searchbystudentid(t);
-		for(int i = 0 ; i< C.length ; i++)
-			System.out.println(C[i].getGrade());
+		List<ClassGrade> Grades = cdl.selectByStudentid(t.getId());
+		for (ClassGrade g:Grades) {
+			System.out.print(g.getGrade());
+		}
 	}
 
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 import entity.ClassInfo;
 
-public interface classinfoDao{
+public interface ClassInfoDao{
 	public int insert(ClassInfo grade);
 	public ClassInfo selectByClass_id(String class_id);
 	public List<ClassInfo> selectByTeacherid(String teacher_id);

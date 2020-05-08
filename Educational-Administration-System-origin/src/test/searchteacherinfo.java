@@ -9,7 +9,7 @@ public class searchteacherinfo {
 		// TODO Auto-generated method stub
 		Teacher t ;
 		teacherDaoimpl t1 = new teacherDaoimpl();
-		t = t1.searchbyteacherid("0011");
+		t = t1.searchByTeacherid("0011");
 		if(t!=null) {
 			System.out.println(t.getName());
 		}

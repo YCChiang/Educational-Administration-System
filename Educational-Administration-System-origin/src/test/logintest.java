@@ -7,7 +7,7 @@ public class logintest {
 		System.out.print("start");
 		User user = udi.searchByName("2017011294");
 		if(user != null) {
-			if(user.getpassword() == "666666") {
+			if(user.getpassword().equals("2017011294")) {
 				System.out.print("login in ssuccess");
 			}
 			else {

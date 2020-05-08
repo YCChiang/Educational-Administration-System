@@ -3,7 +3,7 @@ import dao.*;
 import dbconnect.connect;
 import entity.User;
 import java.sql.*;
-public class userDaoimpl implements userDao{
+public class UserDaoimpl implements UserDao{
 	@Override
 	public int insert(User user) {
 		Connection con = connect.getConnection();

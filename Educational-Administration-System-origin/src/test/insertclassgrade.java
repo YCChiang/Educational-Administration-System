@@ -1,6 +1,6 @@
 package test;
 
-import dao.impl.classinfoDaoimpl;
+import dao.impl.ClassInfoDaoimpl;
 import entity.ClassInfo;
 
 public class insertclassgrade {
@@ -13,7 +13,7 @@ public class insertclassgrade {
 		C.setCredit(2);
 		C.setTeacher_id("0011");
 		C.setTeacher_name("连远峰");
-		classinfoDaoimpl c1 = new classinfoDaoimpl();
+		ClassInfoDaoimpl c1 = new ClassInfoDaoimpl();
 		if(c1.insert(C)==1) {
 			
 		}

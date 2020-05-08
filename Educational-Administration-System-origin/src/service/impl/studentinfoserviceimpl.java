@@ -1,6 +1,6 @@
 package service.impl;
 
-import dao.impl.studentDaoimpl;
+import dao.impl.StudentDaoimpl;
 import entity.Student;
 import service.StudentInfomationService;
 
@@ -9,7 +9,7 @@ public class studentinfoserviceimpl implements StudentInfomationService{
 	@Override
 	public Student findById(String id) {
 		// TODO Auto-generated method stub
-		studentDaoimpl Dao = new studentDaoimpl();
+		StudentDaoimpl Dao = new StudentDaoimpl();
 		Student stu = Dao.searchByStudentid(id);
 		return stu;
 	}

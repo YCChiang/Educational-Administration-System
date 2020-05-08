@@ -1,12 +1,12 @@
 package test;
 
-import dao.impl.commentDaoimpl;
+import dao.impl.CommentDaoimpl;
 import entity.Comment;
 
 public class insertcomment {
 
 	public static void main(String[] args) {
-		commentDaoimpl Cdi = new commentDaoimpl();
+		CommentDaoimpl Cdi = new CommentDaoimpl();
 		Comment C = new Comment();
 		C.setClass_id("001");
 		C.setClass_name("化工导论");

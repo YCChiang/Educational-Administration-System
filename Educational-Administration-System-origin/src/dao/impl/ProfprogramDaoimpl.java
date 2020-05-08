@@ -7,12 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import dao.profprogramDao;
+import dao.ProfprogramDao;
 import dbconnect.connect;
-import entity.Comment;
 import entity.ProfProgram;
 
-public class profprogramDaoimpl implements profprogramDao {
+public class ProfprogramDaoimpl implements ProfprogramDao {
 
 	@Override
 	/*

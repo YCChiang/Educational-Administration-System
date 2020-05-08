@@ -4,15 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import dao.ClassScheduleDAO;
 import dbconnect.connect;
-import entity.ClassInfo;
 import entity.ClassSchedule;
-import entity.ElectiveInfo;
 
 public class ClassScheduleDAOImpl implements ClassScheduleDAO {
 
@@ -92,8 +90,8 @@ public class ClassScheduleDAOImpl implements ClassScheduleDAO {
 		List<ClassSchedule> result = new ArrayList<ClassSchedule>();
 		try {
 			String sql = "SELECT * FROM classschedule WHERE class_id = ? and day in (";
-			String str= null;
-			sql += ")";
+			String str= days.stream().map(String::valueOf).collect(Collectors.joining(","));
+			sql += (str+ ")");
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, class_id);
 			rs = pstmt.executeQuery();

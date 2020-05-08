@@ -12,9 +12,8 @@ public class getclassselectionbystudentid {
 		// TODO Auto-generated method stub
 		ElectiveInfoDaoImpl c1 = new ElectiveInfoDaoImpl();
 		List<ElectiveInfo> C = c1.selectByStudentid("201801121");
-		int size =C.size();
-		for(int i = 0 ; i< size ; i++) {
-
+		for(ElectiveInfo info: C) {
+			
 		}
 	}
 

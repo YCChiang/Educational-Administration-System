@@ -1,13 +1,13 @@
 package test;
 
-import dao.impl.profprogramDaoimpl;
+import dao.impl.ProfprogramDaoimpl;
 import entity.ProfProgram;
 
 public class insertprofprogram {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		profprogramDaoimpl p = new profprogramDaoimpl();
+		ProfprogramDaoimpl p = new ProfprogramDaoimpl();
 		ProfProgram PP = new ProfProgram();
 		PP.setClass_id("1");
 		PP.setClass_name("数据结构");

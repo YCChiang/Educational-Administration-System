@@ -5,11 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dao.studentDao;
+import dao.StudentDao;
 import dbconnect.connect;
 import entity.Student;
 
-public class studentDaoimpl implements studentDao {
+public class StudentDaoimpl implements StudentDao {
 
 	@Override
 	/*

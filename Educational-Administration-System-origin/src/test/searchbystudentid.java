@@ -2,7 +2,7 @@ package test;
 
 import java.util.List;
 
-import dao.impl.classgradeDaoimpl;
+import dao.impl.ClassGradeDaoimpl;
 import entity.ClassGrade;
 import entity.Student;
 
@@ -19,7 +19,7 @@ public class searchbystudentid {
 		t.setAge(20);
 		t.setSpecialty("物探");
 		t.setClassinfo("物探17-1");
-		classgradeDaoimpl cdl = new classgradeDaoimpl();
+		ClassGradeDaoimpl cdl = new ClassGradeDaoimpl();
 		List<ClassGrade> Grades = cdl.selectByStudentid(t.getId());
 		for (ClassGrade g:Grades) {
 			System.out.print(g.getGrade());

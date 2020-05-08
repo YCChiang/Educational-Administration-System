@@ -1,6 +1,6 @@
 package test;
 
-import dao.impl.teacherDaoimpl;
+import dao.impl.TeacherDaoimpl;
 import entity.Teacher;
 
 public class searchteacherinfo {
@@ -8,7 +8,7 @@ public class searchteacherinfo {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Teacher t ;
-		teacherDaoimpl t1 = new teacherDaoimpl();
+		TeacherDaoimpl t1 = new TeacherDaoimpl();
 		t = t1.searchByTeacherid("0011");
 		if(t!=null) {
 			System.out.println(t.getName());

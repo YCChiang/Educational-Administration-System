@@ -9,10 +9,9 @@ import java.util.List;
 
 import dao.CommentDao;
 import dbconnect.connect;
-import entity.ClassInfo;
 import entity.Comment;
 
-public class commentDaoimpl implements CommentDao {
+public class CommentDaoimpl implements CommentDao {
 
 	@Override
 	/*

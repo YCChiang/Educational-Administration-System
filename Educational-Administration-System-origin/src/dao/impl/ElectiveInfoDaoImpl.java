@@ -9,7 +9,6 @@ import java.util.List;
 
 import dao.ElectiveInfoDao;
 import dbconnect.connect;
-import entity.ClassGrade;
 import entity.ElectiveInfo;
 
 public class ElectiveInfoDaoImpl implements ElectiveInfoDao {

@@ -1,6 +1,6 @@
 package test;
 
-import dao.impl.teacherDaoimpl;
+import dao.impl.TeacherDaoimpl;
 import entity.Teacher;
 
 public class modifyteacherinfo {
@@ -8,7 +8,7 @@ public class modifyteacherinfo {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Teacher t =new Teacher();
-		teacherDaoimpl t1 = new teacherDaoimpl();
+		TeacherDaoimpl t1 = new TeacherDaoimpl();
 		t.setId("0011");
 		t.setDepartment("石油学院");
 		t.setGender(1);

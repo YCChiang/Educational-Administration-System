@@ -1,11 +1,11 @@
 package service.impl;
 
-import dao.impl.userDaoimpl;
+import dao.impl.UserDaoimpl;
 import entity.User;
 
 public class loginservice {
 	public User findById(User user) {
-		userDaoimpl userhandle = new userDaoimpl();
+		UserDaoimpl userhandle = new UserDaoimpl();
 		return userhandle.searchByName(user.getname());
 	}
 }

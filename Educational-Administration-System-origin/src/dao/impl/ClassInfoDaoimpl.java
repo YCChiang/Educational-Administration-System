@@ -7,7 +7,7 @@ import dao.ClassInfoDao;
 import dbconnect.connect;
 import entity.ClassInfo;
 
-public class classinfoDaoimpl implements ClassInfoDao{
+public class ClassInfoDaoimpl implements ClassInfoDao{
 
 	@Override
 	/*

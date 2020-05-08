@@ -2,7 +2,7 @@ package service.impl;
 
 import java.util.List;
 
-import dao.impl.commentDaoimpl;
+import dao.impl.CommentDaoimpl;
 import entity.Comment;
 import service.administratorCommentService;
 
@@ -10,7 +10,7 @@ public class administratorCommentServiceimpl implements administratorCommentServ
 
 	@Override
 	public List<Comment> findCommentList() {
-		commentDaoimpl DAO = new commentDaoimpl();
+		CommentDaoimpl DAO = new CommentDaoimpl();
 		return DAO.searchall();
 	}
 

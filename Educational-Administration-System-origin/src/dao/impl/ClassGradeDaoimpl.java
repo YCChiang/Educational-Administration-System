@@ -12,9 +12,8 @@ import dao.ClassGradeDao;
 import dbconnect.connect;
 
 import entity.ClassGrade;
-import entity.Student;
 
-public class classgradeDaoimpl implements ClassGradeDao{
+public class ClassGradeDaoimpl implements ClassGradeDao{
 	@Override
 	/*
 	 * return value:

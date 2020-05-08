@@ -12,4 +12,10 @@ public class TeacherInformationServiceimpl implements TeacherInfomationService{
 		return Dao.searchbyteacherid(id);
 	}
 
+	@Override
+	public int modify(Teacher t) {
+		teacherDaoimpl DAO = new teacherDaoimpl();
+		return DAO.modifyinfo(t);
+	}
+
 }

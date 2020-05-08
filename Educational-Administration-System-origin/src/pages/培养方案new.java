@@ -11,6 +11,7 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JTable;
 
 public class 培养方案new {
 
@@ -60,34 +61,25 @@ public class 培养方案new {
 				}
 			}
 		});
-		
-		JTextArea textArea = new JTextArea();
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
+			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(34)
-					.addComponent(label)
-					.addGap(18)
-					.addComponent(textArea, GroupLayout.PREFERRED_SIZE, 290, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(30, Short.MAX_VALUE))
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
 					.addContainerGap(186, Short.MAX_VALUE)
-					.addComponent(button)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(label)
+						.addComponent(button))
 					.addGap(183))
 		);
 		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
+			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(28)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(label)
-						.addComponent(textArea, GroupLayout.PREFERRED_SIZE, 257, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+					.addGap(27)
+					.addComponent(label)
+					.addPreferredGap(ComponentPlacement.RELATED, 268, Short.MAX_VALUE)
 					.addComponent(button)
 					.addContainerGap())
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}
-
 }

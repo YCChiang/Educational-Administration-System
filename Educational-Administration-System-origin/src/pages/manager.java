@@ -115,11 +115,11 @@ class manager extends JFrame implements ActionListener
 			}
 	    	if(ev.getSource()==item1)
 			{
-	    		new 导入学生信息();
+	    		导入学生信息new.main(null);
 			}
 			if(ev.getSource()==item2)
 			{
-				new 查询学生信息();
+				查询学生信息new.main(null);
 			}
 			if(ev.getSource()==item3)
 			{

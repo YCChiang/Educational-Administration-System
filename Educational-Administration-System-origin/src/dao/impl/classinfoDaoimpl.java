@@ -221,5 +221,81 @@ public class classinfoDaoimpl implements classinfoDao{
 		}
 		return result;
 	}
-	
+
+	@Override
+	public int modify(ClassInfo info) {
+		Connection con = connect.getConnection();
+		PreparedStatement pstmt = null;
+		try {
+			String sql = "update classinfo set name = ? ,hour = ? ,capacity = ?,teacher_id = ? ,teacher_name = ?,credit = ? where id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, info.getName());
+			pstmt.setInt(2, info.getHour());
+			pstmt.setInt(3, info.getCapacity());
+			pstmt.setString(4, info.getTeacher_id());
+			pstmt.setString(5, info.getTeacher_name());
+			pstmt.setInt(6, info.getCredit());
+			pstmt.setString(7, info.getId());
+			pstmt.executeQuery();
+			con.close();
+			return 1;
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	@Override
+	public List<ClassInfo> selectAll() {
+		Connection con = connect.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<ClassInfo> result = new ArrayList<ClassInfo>();
+		try {
+			String sql = "select * from classinfo ";
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ClassInfo temp = new ClassInfo();
+				temp.setId(rs.getString("id"));
+				temp.setName(rs.getString("name"));
+				temp.setHour(rs.getInt("hour"));
+				temp.setCapacity(rs.getInt("capacity"));
+				temp.setTeacher_id(rs.getString("teacher_id"));
+				temp.setTeacher_name(rs.getString("teacher_name"));
+				temp.setCredit(rs.getInt("credit"));
+				result.add(temp);
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();				
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				if(rs != null)
+					rs.close();
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+			
+			try {
+				if(con != null)
+					con.close();				
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
 }

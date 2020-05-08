@@ -2,11 +2,14 @@ package pages;
 
 import java.awt.*;
 import javax.swing.*;
+
+import entity.User;
+
 import java.awt.event.*;
 
 public class student extends JFrame implements ActionListener 
 {
-
+		static User user ;
 	    // 工具条
 	    JToolBar jtb;
 	    // 菜单条组件
@@ -17,12 +20,12 @@ public class student extends JFrame implements ActionListener
 
 	    public static void main(String[] args) {
 	        // TODO Auto-generated method stub
-	        new student();
+	     //   new student();
 
 	    }
 
-	    public student() {
-
+	    public student(User u) {
+	    	user = u;
 	        // 创建工具条
 	        jtb = new JToolBar();
 	        jmb = new JMenuBar();
@@ -113,7 +116,8 @@ public class student extends JFrame implements ActionListener
 	    	}
 			if(ev.getSource() == item1)
 			{
-		    	个人信息new.main(null);
+		    	//个人信息new.main(null);
+				new 个人信息new(user);
 			}
 			if(ev.getSource()==item2)
 			{

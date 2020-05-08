@@ -102,7 +102,7 @@ public class inter extends JFrame implements ActionListener {
 					}
 					if (jcb3.isSelected()) {
 						if (get.getpassword().equals(new String(jpf1.getPassword())) && get.gettype().equals("学生")) {
-							new student();
+							new student(get);
 							this.setVisible(false);
 						} else {
 							JOptionPane.showMessageDialog(null, "密码错误", "错误提示", JOptionPane.ERROR_MESSAGE);

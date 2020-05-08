@@ -10,6 +10,9 @@ import java.awt.BorderLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import entity.User;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -36,8 +39,8 @@ public class 个人信息new {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					个人信息new window = new 个人信息new();
-					window.frame.setVisible(true);
+					//个人信息new window = new 个人信息new();
+					//window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -48,23 +51,25 @@ public class 个人信息new {
 	/**
 	 * Create the application.
 	 */
-	public 个人信息new() {
-		initialize();
+	public 个人信息new(User u) {
+		initialize(u);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(User u) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 481);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JLabel label = new JLabel("个人信息");
+	
 		
 		JLabel label_1 = new JLabel("姓名");
 		
-		textField = new JTextField();
+		textField = new JTextField(u.getname());
+
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
@@ -126,7 +131,7 @@ public class 个人信息new {
 				if(arg0.getSource() == button_1)
 				{
 					frame.setVisible(false);
-					new student();
+					new student(u);
 					
 				}
 			}
@@ -226,5 +231,6 @@ public class 个人信息new {
 					.addContainerGap(30, Short.MAX_VALUE))
 		);
 		frame.getContentPane().setLayout(groupLayout);
+		this.frame.setVisible(true);
 	}
 }

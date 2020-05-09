@@ -62,6 +62,7 @@ public class ProfprogramDaoimpl implements ProfprogramDao {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ProfProgram temp = new ProfProgram();
+				temp.setId(rs.getInt("id"));
 				temp.setClass_id(rs.getString("class_id"));
 				temp.setClass_name(rs.getString("class_name"));
 				temp.setSpecialty(specialty);

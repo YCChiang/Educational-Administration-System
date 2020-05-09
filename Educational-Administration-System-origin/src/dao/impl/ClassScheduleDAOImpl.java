@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -57,6 +58,7 @@ public class ClassScheduleDAOImpl implements ClassScheduleDAO {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ClassSchedule temp = new ClassSchedule();
+				temp.setId(rs.getInt("id"));
 				temp.setClass_id(class_id);
 				temp.setClassroom(rs.getString("classroom"));
 				temp.setDay(rs.getInt("day"));
@@ -83,21 +85,23 @@ public class ClassScheduleDAOImpl implements ClassScheduleDAO {
 	}
 
 	@Override
-	public List<ClassSchedule> selectByClass_idAndDay(String class_id,List<Integer> days) {
+	public List<ClassSchedule> selectByClass_idsAndDayAndTime(List<String> class_ids,int day, Time time) {
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<ClassSchedule> result = new ArrayList<ClassSchedule>();
 		try {
-			String sql = "SELECT * FROM classschedule WHERE class_id = ? and day in (";
-			String str= days.stream().map(String::valueOf).collect(Collectors.joining(","));
-			sql += (str+ ")");
+			String idstr = String.join(",", class_ids);
+			String sql = "SELECT * FROM classschedule WHERE class_id in ("+idstr+") and day = ? and time = ?";
+			System.out.print(sql);
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, class_id);
+			pstmt.setInt(1,  day);
+			pstmt.setTime(2, time);
 			rs = pstmt.executeQuery();
-			if(rs.next()) {
+			while(rs.next()) {
 				ClassSchedule temp = new ClassSchedule();
-				temp.setClass_id(class_id);
+				temp.setId(rs.getInt("id"));
+				temp.setClass_id(rs.getString("class_id"));
 				temp.setClassroom(rs.getString("classroom"));
 				temp.setDay(rs.getInt("day"));
 				temp.setTime(rs.getTime("time"));

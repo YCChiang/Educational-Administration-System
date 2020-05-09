@@ -64,7 +64,8 @@ public class ClassGradeDaoimpl implements ClassGradeDao{
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ClassGrade temp = new ClassGrade();
-				temp.setStudent_id(rs.getString(student_id));
+				temp.setId(rs.getInt("id"));
+				temp.setStudent_id(rs.getString("student_id"));
 				temp.setClass_id(rs.getString("class_id"));
 				temp.setGrade(rs.getFloat("grade"));
 				temp.setRank(rs.getInt("rank"));
@@ -104,6 +105,7 @@ public class ClassGradeDaoimpl implements ClassGradeDao{
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ClassGrade temp = new ClassGrade();
+				temp.setId(rs.getInt("id"));
 				temp.setStudent_id(rs.getString("student_id"));
 				temp.setClass_id(class_id);
 				temp.setGrade(rs.getFloat("grade"));
@@ -129,6 +131,47 @@ public class ClassGradeDaoimpl implements ClassGradeDao{
 			}
 		}
 		return result;
+	}
+
+	@Override
+	public ClassGrade selectByStudentidandClassID(String student_id, String class_id) {
+		Connection con = connect.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ClassGrade temp = null;
+		try {
+			String sql = "select * from classgrade where student_id = ? and class_id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, student_id);
+			pstmt.setString(2, class_id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				temp = new ClassGrade();
+				temp.setId(rs.getInt("id"));
+				temp.setStudent_id(rs.getString("student_id"));
+				temp.setClass_id(rs.getString("class_id"));
+				temp.setGrade(rs.getFloat("grade"));
+				temp.setRank(rs.getInt("rank"));
+				temp.setMakeup(rs.getString("makeup"));
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();		
+				if(rs != null)
+					rs.close();
+				if(con != null)
+					con.close();
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return temp;
 	}
 
 

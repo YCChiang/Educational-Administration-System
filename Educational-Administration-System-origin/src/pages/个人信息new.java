@@ -68,7 +68,8 @@ public class 个人信息new {
 		
 		JLabel label_1 = new JLabel("姓名");
 		
-		textField = new JTextField(u.getname());
+		//textField = new JTextField(u.getname());
+		textField = new JTextField();
 
 		textField.setColumns(10);
 		
@@ -131,7 +132,7 @@ public class 个人信息new {
 				if(arg0.getSource() == button_1)
 				{
 					frame.setVisible(false);
-					new student(u);
+					new student();
 					
 				}
 			}

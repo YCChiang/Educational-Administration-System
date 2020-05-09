@@ -18,7 +18,7 @@ public class administratorClassServiceimpl implements administratorClassService{
 	public int modify(ClassInfo classinfo) {
 		// TODO Auto-generated method stub
 		ClassInfoDaoimpl DAO = new ClassInfoDaoimpl();
-		return DAO.modify(classinfo);
+		return DAO.update(classinfo);
 	}
 
 }

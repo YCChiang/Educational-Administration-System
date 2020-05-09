@@ -6,6 +6,7 @@ import java.sql.Time;
  * 此类对应课程时间表
  */
 public class ClassSchedule {
+	private int id;
 	private String class_id;
 	private Time time;
 	private int day;
@@ -33,5 +34,11 @@ public class ClassSchedule {
 	}
 	public void setDay(int day) {
 		this.day = day;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 }

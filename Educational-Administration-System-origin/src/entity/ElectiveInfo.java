@@ -4,6 +4,7 @@ package entity;
  * 此类对应课程成绩信息表 
  */
 public class ElectiveInfo {
+	private int id;
 	private String student_id;
 	private String class_id;
 	
@@ -18,5 +19,11 @@ public class ElectiveInfo {
 	}
 	public void setClass_id(String class_id) {
 		this.class_id = class_id;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 }

@@ -33,7 +33,7 @@ public class TeacherClassServiceimpl implements TeacherClassService{
 			return 2 ;        //提示已经输入过此人的成绩
 		
 		ElectiveInfoDaoImpl EDAO = new ElectiveInfoDaoImpl();
-		if(EDAO.selectByClass_idAndStudent_id(classgrade.getStudent_id(),classgrade.getClass_id())==0)
+		if(EDAO.selectByClass_idAndStudent_id(classgrade.getStudent_id(),classgrade.getClass_id())==null)
 				return 4;	//提示没有该学生选课或
 		
 		if(classgrade.getGrade() < 60)

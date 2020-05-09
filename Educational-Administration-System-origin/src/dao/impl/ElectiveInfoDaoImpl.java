@@ -110,18 +110,23 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 	}
 
 	@Override
-	public int selectByClass_idAndStudent_id(String student_id, String class_id) {
+	public ElectiveInfo selectByClass_idAndStudent_id(String student_id, String class_id) {
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		ElectiveInfo result = null;
 		try {
 			String sql = "select * from classgrade where class_id = ? and student_id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, class_id);
 			pstmt.setString(2, student_id);
 			rs = pstmt.executeQuery();
-			if (rs.next())
-				return 1; // 查询到说明有选课
+			if (rs.next()) {
+				result = new ElectiveInfo();
+				result.setId(rs.getInt("id"));
+				result.setStudent_id(rs.getString(student_id));
+				result.setClass_id(rs.getString(class_id));
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -136,7 +141,7 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 				e.printStackTrace();
 			}
 		}
-		return 0; // 未查询到说明未选课
+		return result;
 	}
 
 	@Override

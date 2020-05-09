@@ -28,6 +28,15 @@ public class ElectiveInfoServiceImpl implements ElectiveInfoService {
 		return electiveinfoDao.selectByClassID(class_id);
 	}
 	
+	public boolean quit(ClassInfo classInfo, String student_id) {
+		ElectiveInfo info = electiveinfoDao.selectByClass_idAndStudent_id(student_id, classInfo.getId());
+		if(info != null) {
+			electiveinfoDao.deleteById(info.getId());
+			return true;
+		}			
+		return false;
+	}
+	
 	public String elective(ClassInfo classInfo, String student_id) {
 		if(ClassInfoService.IsConflictToOther(classInfo, student_id))
 			return classInfo.getName()+"课程与已选课程冲突！";

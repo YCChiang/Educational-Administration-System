@@ -1,6 +1,7 @@
 package entity;
 
 public class ClassGrade {
+	private int id;
 	private String student_id;
 	private String class_id;
 	private float grade;
@@ -36,5 +37,11 @@ public class ClassGrade {
 	}
 	public void setMakeup(String makeup) {
 		this.makeup = makeup;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 }

@@ -52,6 +52,7 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				ElectiveInfo temp = new ElectiveInfo();
+				temp.setId(rs.getInt("id"));
 				temp.setStudent_id(rs.getString(student_id));
 				temp.setClass_id(rs.getString("class_id"));
 				result.add(temp);
@@ -86,6 +87,7 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				ElectiveInfo temp = new ElectiveInfo();
+				temp.setId(rs.getInt("id"));
 				temp.setStudent_id(rs.getString("student_id"));
 				temp.setClass_id(rs.getString(class_id));
 				result.add(temp);

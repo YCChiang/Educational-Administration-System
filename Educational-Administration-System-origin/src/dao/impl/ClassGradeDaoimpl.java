@@ -64,6 +64,7 @@ public class ClassGradeDaoimpl implements ClassGradeDao{
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ClassGrade temp = new ClassGrade();
+				temp.setId(rs.getInt("id"));
 				temp.setStudent_id(rs.getString("student_id"));
 				temp.setClass_id(rs.getString("class_id"));
 				temp.setGrade(rs.getFloat("grade"));
@@ -104,6 +105,7 @@ public class ClassGradeDaoimpl implements ClassGradeDao{
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ClassGrade temp = new ClassGrade();
+				temp.setId(rs.getInt("id"));
 				temp.setStudent_id(rs.getString("student_id"));
 				temp.setClass_id(class_id);
 				temp.setGrade(rs.getFloat("grade"));
@@ -145,12 +147,12 @@ public class ClassGradeDaoimpl implements ClassGradeDao{
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				temp = new ClassGrade();
+				temp.setId(rs.getInt("id"));
 				temp.setStudent_id(rs.getString("student_id"));
 				temp.setClass_id(rs.getString("class_id"));
 				temp.setGrade(rs.getFloat("grade"));
 				temp.setRank(rs.getInt("rank"));
 				temp.setMakeup(rs.getString("makeup"));
-				
 			}
 		}
 		catch(SQLException e) {

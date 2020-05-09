@@ -33,11 +33,12 @@ public class CommentDaoimpl implements CommentDao {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				Comment temp = new Comment();
-				temp.setClass_id(rs.getString(1));
-				temp.setClass_name(rs.getString(2));
-				temp.setTeacher_id(rs.getString(3));
-				temp.setTeacher_name(rs.getString(4));
-				temp.setContent(rs.getString(5));
+				temp.setId(rs.getInt("id"));
+				temp.setClass_id(rs.getString("class_id"));
+				temp.setClass_name(rs.getString("class_name"));
+				temp.setTeacher_id(teacher_id);
+				temp.setTeacher_name("teacher_name");
+				temp.setContent(rs.getString("content"));
 				result.add(temp);
 			}
 		}
@@ -134,11 +135,12 @@ public class CommentDaoimpl implements CommentDao {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				Comment temp = new Comment();
-				temp.setClass_id(rs.getString(1));
-				temp.setClass_name(rs.getString(2));
-				temp.setTeacher_id(rs.getString(3));
-				temp.setTeacher_name(rs.getString(4));
-				temp.setContent(rs.getString(5));
+				temp.setId(rs.getInt("id"));
+				temp.setClass_id(rs.getString("class_id"));
+				temp.setClass_name(rs.getString("class_name"));
+				temp.setTeacher_id(rs.getString("teacher_id"));
+				temp.setTeacher_name("teacher_name");
+				temp.setContent(rs.getString("content"));
 				result.add(temp);
 			}
 		}

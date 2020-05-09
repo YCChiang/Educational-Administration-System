@@ -4,6 +4,7 @@ package entity;
  * 此类对应选课信息表
  */
 public class Comment {
+	private int id;
 	private String class_id;
 	private String class_name;
 	private String teacher_id;
@@ -45,5 +46,11 @@ public class Comment {
 	}
 	public void setStudent_id(String student_id) {
 		this.student_id = student_id;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 }

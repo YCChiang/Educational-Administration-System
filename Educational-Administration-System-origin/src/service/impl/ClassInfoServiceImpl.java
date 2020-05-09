@@ -88,4 +88,16 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 		return classinfoDao.selectByTeacherid(teacher_id);
 	}
 
+	@Override
+	public List<ClassInfo> findByYear(String year) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int modify(ClassInfo classinfo) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

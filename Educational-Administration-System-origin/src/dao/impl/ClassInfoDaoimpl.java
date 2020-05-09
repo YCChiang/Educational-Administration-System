@@ -193,6 +193,7 @@ public class ClassInfoDaoimpl implements ClassInfoDao{
 	public int update(ClassInfo info) {
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
+		int result = 0;
 		try {
 			String sql = "update classinfo set name = ? ,hour = ? ,capacity = ?,teacher_id = ? ,teacher_name = ?,credit = ? where id = ?";
 			pstmt = con.prepareStatement(sql);
@@ -203,9 +204,7 @@ public class ClassInfoDaoimpl implements ClassInfoDao{
 			pstmt.setString(5, info.getTeacher_name());
 			pstmt.setInt(6, info.getCredit());
 			pstmt.setString(7, info.getId());
-			pstmt.executeQuery();
-			con.close();
-			return 1;
+			result = pstmt.executeUpdate();
 		}
 		catch(SQLException e) {
 			e.printStackTrace();
@@ -221,7 +220,7 @@ public class ClassInfoDaoimpl implements ClassInfoDao{
 				e.printStackTrace();
 			}
 		}
-		return 0;
+		return result;
 	}
 
 	@Override
@@ -233,6 +232,51 @@ public class ClassInfoDaoimpl implements ClassInfoDao{
 		try {
 			String sql = "select * from classinfo";
 			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ClassInfo temp = new ClassInfo();
+				temp.setId(rs.getString("id"));
+				temp.setName(rs.getString("name"));
+				temp.setHour(rs.getInt("hour"));
+				temp.setCapacity(rs.getInt("capacity"));
+				temp.setYear(rs.getString("year"));
+				temp.setStart_week(rs.getInt("start_week"));
+				temp.setEnd_week(rs.getInt("end_week"));
+				temp.setTeacher_id(rs.getString("teacher_id"));
+				temp.setTeacher_name(rs.getString("teacher_name"));
+				temp.setCredit(rs.getInt("credit"));
+				result.add(temp);
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();		
+				if(rs != null)
+					rs.close();
+				if(con != null)
+					con.close();
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public List<ClassInfo> selectByYear(String year) {
+		Connection con = connect.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<ClassInfo> result = new ArrayList<ClassInfo>();
+		try {
+			String sql = "select * from classinfo where year = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, year);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ClassInfo temp = new ClassInfo();

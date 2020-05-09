@@ -58,6 +58,7 @@ public class ClassScheduleDAOImpl implements ClassScheduleDAO {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ClassSchedule temp = new ClassSchedule();
+				temp.setId(rs.getInt("id"));
 				temp.setClass_id(class_id);
 				temp.setClassroom(rs.getString("classroom"));
 				temp.setDay(rs.getInt("day"));
@@ -99,6 +100,7 @@ public class ClassScheduleDAOImpl implements ClassScheduleDAO {
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ClassSchedule temp = new ClassSchedule();
+				temp.setId(rs.getInt("id"));
 				temp.setClass_id(rs.getString("class_id"));
 				temp.setClassroom(rs.getString("classroom"));
 				temp.setDay(rs.getInt("day"));

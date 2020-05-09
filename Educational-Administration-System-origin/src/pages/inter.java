@@ -74,6 +74,13 @@ public class inter extends JFrame implements ActionListener {
 		this.setSize(500, 400);
 		this.setTitle("登录");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		/*
+		 * 设置在桌面中间出现
+		 */
+		int w = (Toolkit.getDefaultToolkit().getScreenSize().width - 500) / 2;
+		int h = (Toolkit.getDefaultToolkit().getScreenSize().height - 400) / 2;
+		this.setLocation(w, h);
+
 		this.setVisible(true);
 	}
 

@@ -98,7 +98,7 @@ public class student extends JFrame implements ActionListener
 			item9.addActionListener(this);
 			item10.addActionListener(this);
 	        
-	        jl1 = new JLabel(new ImageIcon("F://1.jpg"));
+	        jl1 = new JLabel(new ImageIcon("image/OIP.jpg"));
 	        this.add(jl1);
 	        // 展示
 	        this.setTitle("教务管理系统（学生端）");

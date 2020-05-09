@@ -115,35 +115,35 @@ class manager extends JFrame implements ActionListener
 			}
 	    	if(ev.getSource()==item1)
 			{
-	    		导入学生信息new.main(null);
+	    		new 导入学生信息new();
 			}
 			if(ev.getSource()==item2)
 			{
-				查询学生信息new.main(null);
+				new 查询学生信息new();
 			}
 			if(ev.getSource()==item3)
 			{
-				new 导入教师信息();
+				new 导入教师信息new();
 			}
 			if(ev.getSource()==item4)
 			{
-				new 查询教师信息();
+				new 查询教师信息new();
 			}
 			if(ev.getSource()==item5)
 			{
-				new 导出教师评价();
+				new 导出教师评价new();
 			}
 			if(ev.getSource()==item6)
 			{
-				new 导入培养方案();
+				new 导入培养方案new();
 			}
 			if(ev.getSource()==item7)
 			{
-				new 导入课程安排();
+				new 导入课程安排new();
 			}
 			if(ev.getSource()==item8)
 			{
-				new 修改课程名单();
+				new 修改课程名单new();
 			}
 			this.setVisible(false);
 		}

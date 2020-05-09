@@ -20,7 +20,7 @@ public class student extends JFrame implements ActionListener
 
 	    public static void main(String[] args) {
 	        // TODO Auto-generated method stub
-	     //   new student();
+	        //new student();
 
 	    }
 
@@ -120,35 +120,35 @@ public class student extends JFrame implements ActionListener
 			}
 			if(ev.getSource()==item2)
 			{
-				培养方案new.main(null);
+				new 培养方案new();
 			}
 			if(ev.getSource()==item3)
 			{
-				学籍注册new.main(null);
+				new 学籍注册new();
 			}
 			if(ev.getSource()==item4)
 			{
-				本学期课表new.main(null);
+				new 本学期课表new();
 			}
 			if(ev.getSource()==item5)
 			{
-				选课new.main(null);
+				new 选课new();
 			}
 			if(ev.getSource()==item6)
 			{
-				退课new.main(null);
+				new 退课new();
 			}
 			if(ev.getSource()==item7)
 			{
-				课程成绩new.main(null);
+				new 课程成绩new();
 			}
 			if(ev.getSource()==item8)
 			{
-				补考报名new.main(null);
+				new 补考报名new();
 			}
 			if(ev.getSource()==item10)
 			{
-				教学评估new.main(null);
+				new 教学评估new();
 			}
 			this.setVisible(false);
 		}

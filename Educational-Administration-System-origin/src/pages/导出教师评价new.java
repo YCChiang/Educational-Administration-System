@@ -3,18 +3,17 @@ package pages;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.JLabel;
-import javax.swing.JButton;
+import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JTextArea;
+import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JTable;
-import javax.swing.JTextField;
 
-public class 培养方案new {
+public class 导出教师评价new {
 
 	private JFrame frame;
 	private JTextField textField;
@@ -26,7 +25,7 @@ public class 培养方案new {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					培养方案new window = new 培养方案new();
+					导出教师评价new window = new 导出教师评价new();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,7 +37,7 @@ public class 培养方案new {
 	/**
 	 * Create the application.
 	 */
-	public 培养方案new() {
+	public 导出教师评价new() {
 		initialize();
 	}
 
@@ -47,10 +46,19 @@ public class 培养方案new {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 400);
+		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JLabel label = new JLabel("培养方案");
+		JLabel label = new JLabel("教师评价表");
+		
+		JLabel lblId = new JLabel("ID");
+		
+		JLabel lblid = new JLabel("课程ID");
+		
+		JLabel label_1 = new JLabel("评价");
+		
+		textField = new JTextField();
+		textField.setColumns(10);
 		
 		JButton button = new JButton("返回");
 		button.addActionListener(new ActionListener() {
@@ -58,69 +66,52 @@ public class 培养方案new {
 				if(e.getSource() == button)
 				{
 					frame.setVisible(false);
-					new student();
+					new manager();
 					
 				}
 			}
 		});
-		
-		JLabel lblid = new JLabel("专业ID");
-		
-		JLabel label_1 = new JLabel("专业");
-		
-		JLabel lblid_1 = new JLabel("课程ID");
-		
-		JLabel label_2 = new JLabel("课程名");
-		
-		textField = new JTextField();
-		textField.setColumns(10);
-		
-		JLabel label_3 = new JLabel("学分");
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(54)
+					.addGap(175)
+					.addComponent(label)
+					.addContainerGap(182, Short.MAX_VALUE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(34)
+					.addComponent(lblId)
+					.addGap(43)
 					.addComponent(lblid)
-					.addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
 					.addComponent(label_1)
-					.addGap(27)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(label)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblid_1)
-							.addGap(30)
-							.addComponent(label_2)
-							.addGap(35)
-							.addComponent(label_3)))
-					.addGap(52))
+					.addGap(114))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(24)
+					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 378, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(30, Short.MAX_VALUE))
 				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-					.addContainerGap(31, Short.MAX_VALUE)
-					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 367, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-					.addContainerGap(207, Short.MAX_VALUE)
+					.addContainerGap(187, Short.MAX_VALUE)
 					.addComponent(button)
-					.addGap(162))
+					.addGap(182))
 		);
 		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-					.addGap(30)
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
 					.addComponent(label)
 					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblId)
 						.addComponent(lblid)
-						.addComponent(label_3)
-						.addComponent(label_2)
-						.addComponent(lblid_1)
 						.addComponent(label_1))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
 					.addComponent(button)
 					.addContainerGap())
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}
+
 }

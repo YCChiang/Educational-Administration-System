@@ -55,7 +55,7 @@ public class 导入学生信息new {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 561);
+		frame.setBounds(100, 100, 450, 580);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JLabel label = new JLabel("导入学生信息");
@@ -115,6 +115,16 @@ public class 导入学生信息new {
 			public void actionPerformed(ActionEvent arg0) {
 				if(arg0.getSource() == button)
 					JOptionPane.showMessageDialog(null, "导入成功");
+				textField.setText(null);
+				textField_1.setText(null);
+				textField_2.setText(null);
+				textField_3.setText(null);
+				textField_4.setText(null);
+				textField_5.setText(null);
+				textField_6.setText(null);
+				textField_7.setText(null);
+				textField_8.setText(null);
+				textField_9.setText(null);
 			}
 		});
 		
@@ -127,7 +137,7 @@ public class 导入学生信息new {
 		});
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
+			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addGroup(groupLayout.createSequentialGroup()
@@ -166,13 +176,13 @@ public class 导入学生信息new {
 										.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 										.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))))
-					.addContainerGap(81, Short.MAX_VALUE))
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(107)
+					.addContainerGap(131, Short.MAX_VALUE))
+				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+					.addGap(109)
 					.addComponent(button)
-					.addPreferredGap(ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
 					.addComponent(button_1)
-					.addGap(78))
+					.addGap(79))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -219,10 +229,11 @@ public class 导入学生信息new {
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(label_9)
 						.addComponent(textField_9, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(button)
-						.addComponent(button_1)))
+						.addComponent(button_1))
+					.addContainerGap())
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}

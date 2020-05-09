@@ -3,25 +3,25 @@ package pages;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+
+import java.awt.BorderLayout;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class 导入教师信息new {
+public class 导入培养方案new {
 
 	private JFrame frame;
-	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
-	private JTextField textField_5;
 
 	/**
 	 * Launch the application.
@@ -30,7 +30,7 @@ public class 导入教师信息new {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					导入教师信息new window = new 导入教师信息new();
+					导入培养方案new window = new 导入培养方案new();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -42,7 +42,7 @@ public class 导入教师信息new {
 	/**
 	 * Create the application.
 	 */
-	public 导入教师信息new() {
+	public 导入培养方案new() {
 		initialize();
 	}
 
@@ -51,25 +51,18 @@ public class 导入教师信息new {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 427);
+		frame.setBounds(100, 100, 475, 374);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JLabel label = new JLabel("导入教师信息");
+		JLabel label = new JLabel("导入培养方案");
 		
-		JLabel lblid = new JLabel("教师ID");
+		JLabel label_1 = new JLabel("专业");
 		
-		JLabel label_1 = new JLabel("教师姓名");
+		JLabel lblid = new JLabel("课程ID");
 		
-		JLabel label_2 = new JLabel("性别");
+		JLabel label_2 = new JLabel("课程名");
 		
-		JLabel label_3 = new JLabel("学院");
-		
-		JLabel label_4 = new JLabel("职称");
-		
-		JLabel label_5 = new JLabel("电话号码");
-		
-		textField = new JTextField();
-		textField.setColumns(10);
+		JLabel label_3 = new JLabel("学分");
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
@@ -83,20 +76,17 @@ public class 导入教师信息new {
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		
 		JButton button = new JButton("导入");
 		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				if(arg0.getSource() == button)
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == button)
+				{
 					JOptionPane.showMessageDialog(null, "导入成功");
-					textField.setText(null);
 					textField_1.setText(null);
 					textField_2.setText(null);
 					textField_3.setText(null);
 					textField_4.setText(null);
-					textField_5.setText(null);
+				}
 			}
 		});
 		
@@ -104,78 +94,76 @@ public class 导入教师信息new {
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button_1)
+				{
+					frame.setVisible(false);
 					new manager();
+				}
 			}
 		});
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-					.addContainerGap(186, Short.MAX_VALUE)
-					.addComponent(label)
-					.addGap(174))
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
-						.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-							.addGap(134)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(123)
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+										.addComponent(label_3)
+										.addComponent(label_1)
+										.addComponent(lblid, Alignment.TRAILING))
+									.addGap(16))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addComponent(label_2)
+									.addGap(18)))
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGap(10)
+									.addComponent(label))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGap(18)
+									.addComponent(textField_4, GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE))
+								.addGroup(groupLayout.createSequentialGroup()
+									.addGap(18)
+									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+										.addComponent(textField_2)
+										.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+										.addComponent(textField_3)))))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(141)
 							.addComponent(button)
 							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(button_1))
-						.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-							.addGap(133)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblid)
-								.addComponent(label_1)
-								.addComponent(label_2)
-								.addComponent(label_3)
-								.addComponent(label_4)
-								.addComponent(label_5))
-							.addGap(31)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(textField_5)
-								.addComponent(textField_4)
-								.addComponent(textField_3)
-								.addComponent(textField_2)
-								.addComponent(textField_1)
-								.addComponent(textField, GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE))))
-					.addContainerGap(101, Short.MAX_VALUE))
+							.addComponent(button_1)))
+					.addContainerGap(67, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(23)
+					.addGap(21)
 					.addComponent(label)
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblid))
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+					.addGap(34)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(label_1)
 						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
+					.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblid))
+					.addGap(29)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(label_2)
-						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(label_3)
 						.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(label_4)
+						.addComponent(label_3)
 						.addComponent(textField_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(label_5)
-						.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
 					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
 						.addComponent(button)
 						.addComponent(button_1))
-					.addGap(30))
+					.addGap(24))
 		);
 		frame.getContentPane().setLayout(groupLayout);
 	}
-
 }

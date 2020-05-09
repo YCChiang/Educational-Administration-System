@@ -24,8 +24,7 @@ public class student extends JFrame implements ActionListener
 
 	    }
 
-	    public student(User u) {
-	    	user = u;
+	    public student() {
 	        // 创建工具条
 	        jtb = new JToolBar();
 	        jmb = new JMenuBar();

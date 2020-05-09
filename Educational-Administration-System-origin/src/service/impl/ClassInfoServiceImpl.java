@@ -13,9 +13,9 @@ import dao.impl.ElectiveInfoDaoImpl;
 import dao.impl.ClassScheduleDAOImpl;
 
 public class ClassInfoServiceImpl implements ClassInfoService {
-	ClassInfoDaoimpl classinfoDao;
-	ElectiveInfoDaoImpl electiveinfoDao;
-	ClassScheduleDAOImpl classscheduleDAO;
+	ClassInfoDaoimpl classinfoDao = new ClassInfoDaoimpl();
+	ElectiveInfoDaoImpl electiveinfoDao = new ElectiveInfoDaoImpl();
+	ClassScheduleDAOImpl classscheduleDAO = new ClassScheduleDAOImpl();
 	
 	@Override
 	public List<ClassInfo> findByName(String name) {
@@ -59,13 +59,12 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 	
 	/*
 	 * 通过课程名称查找课程
-	 * IsFall: 1为只查找课容量不为0的课程，0为包括课容量为0的课程
-	 * IsConflict: 1为只查找与自己选课不冲突的课程，0为包括冲突课程
+	 * IsFall: false为只查找课容量不为0的课程，0true为包括课容量为0的课程
+	 * IsConflict: false为只查找与自己选课不冲突的课程，true为包括冲突课程
 	 */
 	public List<ClassInfo> seachClassByName(String name, String year,String student_id, boolean IsFall, boolean IsConflict) {
-		List<ClassInfo> Infos = findByName(name);
-		
-		if(IsFall) {
+		List<ClassInfo> Infos = findByNameAndYear(name, year);		
+		if(!IsFall) {
 			for(ClassInfo info:Infos) {
 				if(info.getCapacity() == electiveinfoDao.selectByClassID(info.getId()).size()) {
 					Infos.remove(info);
@@ -73,7 +72,7 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 			}
 		}
 		
-		if(IsConflict) {
+		if(!IsConflict) {
 			for(ClassInfo info:Infos) {
 				if(IsConflictToOther(info, student_id)) {
 					Infos.remove(info);
@@ -103,6 +102,16 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 	@Override
 	public int add(ClassInfo classinfo) {
 		return classinfoDao.insert(classinfo);
+	}
+
+	@Override
+	public List<ClassInfo> findByTeacher_idAndYear(String teacher_id, String year) {
+		return classinfoDao.selectByTeacheridAndYear(teacher_id, year);
+	}
+
+	@Override
+	public List<ClassInfo> findByNameAndYear(String name, String year) {
+		return classinfoDao.selectByNameAndYear(name, year);
 	}
 
 }

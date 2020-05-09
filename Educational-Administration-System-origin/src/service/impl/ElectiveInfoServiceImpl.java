@@ -1,17 +1,17 @@
 package service.impl;
 
 import java.util.List;
-import dao.ClassScheduleDAO;
-import dao.ClassInfoDao;
-import dao.ElectiveInfoDao;
+import dao.impl.ClassScheduleDAOImpl;
+import dao.impl.ClassInfoDaoimpl;
+import dao.impl.ElectiveInfoDaoImpl;
 import entity.ClassInfo;
 import entity.ElectiveInfo;
 import service.ElectiveInfoService;
 
 public class ElectiveInfoServiceImpl implements ElectiveInfoService {
-	ElectiveInfoDao electiveinfoDao;
-	ClassInfoDao classinfoDao;
-	ClassScheduleDAO classscheduleDAO;
+	ElectiveInfoDaoImpl electiveinfoDao = new ElectiveInfoDaoImpl();
+	ClassInfoDaoimpl classinfoDao = new ClassInfoDaoimpl();
+	ClassScheduleDAOImpl classscheduleDAO = new ClassScheduleDAOImpl();
 	ClassInfoServiceImpl ClassInfoService;
 	
 	public int add(ElectiveInfo info) {

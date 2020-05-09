@@ -126,5 +126,4 @@ public class inter extends JFrame implements ActionListener {
 			System.exit(-1);
 		}
 	}
-
 }

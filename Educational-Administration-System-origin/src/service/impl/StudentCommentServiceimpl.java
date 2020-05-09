@@ -10,6 +10,8 @@ public class StudentCommentServiceimpl implements StudentCommentService{
 	public int add(Comment c) {
 		// TODO Auto-generated method stub
 		CommentDaoimpl DAO = new CommentDaoimpl();
+		if(c.getContent().length() <3)
+			return 2;		//评教过短,请重新输入
 		return DAO.insert(c);
 	}
 	

@@ -66,7 +66,11 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 		List<ClassInfo> Infos = findByName(name);
 		
 		if(IsFall) {
-			
+			for(ClassInfo info:Infos) {
+				if(info.getCapacity() == electiveinfoDao.selectByClassID(info.getId()).size()) {
+					Infos.remove(info);
+				}
+			}
 		}
 		
 		if(IsConflict) {
@@ -77,6 +81,11 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public List<ClassInfo> findByTeacher_id(String teacher_id) {
+		return classinfoDao.selectByTeacherid(teacher_id);
 	}
 
 }

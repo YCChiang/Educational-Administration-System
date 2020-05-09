@@ -16,7 +16,7 @@ public class ElectiveInfoServiceImpl implements ElectiveInfoService {
 	ClassScheduleDAO classscheduleDAO;
 	ClassInfoServiceImpl ClassInfoService;
 	
-	public int save(ElectiveInfo info) {
+	public int add(ElectiveInfo info) {
 		return electiveinfoDao.insert(info);
 	}
 	
@@ -36,7 +36,7 @@ public class ElectiveInfoServiceImpl implements ElectiveInfoService {
 		ElectiveInfo info = new ElectiveInfo();
 		info.setStudent_id(student_id);
 		info.setClass_id(classInfo.getId());
-		if(save(info)==1)
+		if(add(info)==1)
 			return "选课成功";
 		else
 			return "选课失败";

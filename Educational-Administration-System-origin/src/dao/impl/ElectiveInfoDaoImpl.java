@@ -108,7 +108,7 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 	}
 
 	@Override
-	public int isSelected(String student_id, String class_id) {
+	public int selectByClass_idAndStudent_id(String student_id, String class_id) {
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -138,17 +138,16 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 	}
 
 	@Override
-	public int remove(String student_id, String class_id) {
+	public int deleteById(int id) {
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		int result = 0;
 		try {
-			String sql = "delete from electiveinfo where student_id = ? and class_id = ?";
+			String sql = "delete from electiveinfo where id = ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, student_id);
-			pstmt.setString(2, class_id);
-			rs = pstmt.executeQuery();
-			return 1; // 删除成功
+			pstmt.setInt(1, id);
+			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -163,7 +162,6 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 				e.printStackTrace();
 			}
 		}
-		return 0; // 删除失败
+		return result;
 	}
-
 }

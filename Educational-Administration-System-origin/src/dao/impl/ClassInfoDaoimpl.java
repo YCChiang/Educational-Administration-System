@@ -190,7 +190,7 @@ public class ClassInfoDaoimpl implements ClassInfoDao{
 	}
 
 	@Override
-	public int modify(ClassInfo info) {
+	public int update(ClassInfo info) {
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		try {

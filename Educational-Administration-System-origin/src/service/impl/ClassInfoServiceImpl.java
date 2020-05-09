@@ -62,7 +62,7 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 	 * IsFall: 1为只查找课容量不为0的课程，0为包括课容量为0的课程
 	 * IsConflict: 1为只查找与自己选课不冲突的课程，0为包括冲突课程
 	 */
-	public List<ClassInfo> seachClassByName(String name, String student_id, boolean IsFall, boolean IsConflict) {
+	public List<ClassInfo> seachClassByName(String name, String year,String student_id, boolean IsFall, boolean IsConflict) {
 		List<ClassInfo> Infos = findByName(name);
 		
 		if(IsFall) {

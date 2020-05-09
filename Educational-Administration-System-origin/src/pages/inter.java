@@ -4,7 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 
 import entity.User;
-import service.loginservice;
+import service.impl.UserServiceImpl;
 
 import java.awt.event.*;
 
@@ -88,8 +88,8 @@ public class inter extends JFrame implements ActionListener {
 	{
 		if (ev.getSource() == jb1) {
 			if (jcb1.isSelected() || jcb2.isSelected() || jcb3.isSelected()) {
-				loginservice login = new loginservice();
-				User get = login.findById(jtf1.getText());
+				UserServiceImpl login = new UserServiceImpl();
+				User get = login.findByName(jtf1.getText());
 				if (get != null) {
 					if (jcb1.isSelected()) {
 						if (get.getpassword().equals(new String(jpf1.getPassword())) && get.gettype().equals("管理员")) {

@@ -1,13 +1,11 @@
 package service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 import dao.ClassScheduleDAO;
 import dao.ClassInfoDao;
 import dao.ElectiveInfoDao;
 import entity.ClassInfo;
 import entity.ElectiveInfo;
-import entity.ClassSchedule;
 import service.ElectiveInfoService;
 
 public class ElectiveInfoServiceImpl implements ElectiveInfoService {

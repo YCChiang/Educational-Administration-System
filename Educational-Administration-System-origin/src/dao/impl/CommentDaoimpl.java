@@ -39,6 +39,7 @@ public class CommentDaoimpl implements CommentDao {
 				temp.setTeacher_id(teacher_id);
 				temp.setTeacher_name("teacher_name");
 				temp.setContent(rs.getString("content"));
+				temp.setStudent_id(rs.getString("student_id"));
 				result.add(temp);
 			}
 		}
@@ -98,7 +99,7 @@ public class CommentDaoimpl implements CommentDao {
 	}
 
 	@Override
-	public int modify(Comment c) {
+	public int update(Comment c) {
 	/*	Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		try {
@@ -141,6 +142,91 @@ public class CommentDaoimpl implements CommentDao {
 				temp.setTeacher_id(rs.getString("teacher_id"));
 				temp.setTeacher_name("teacher_name");
 				temp.setContent(rs.getString("content"));
+				temp.setStudent_id(rs.getString("student_id"));
+				result.add(temp);
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();
+				if(rs != null) 
+					rs.close();
+				if(con != null)
+					con.close();
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public List<Comment> searchByStudnetid(String student_id) {
+		Connection con = connect.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Comment> result = new ArrayList<Comment>();
+		try {
+			String sql = "select * from comment where student_id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, student_id);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Comment temp = new Comment();
+				temp.setId(rs.getInt("id"));
+				temp.setClass_id(rs.getString("class_id"));
+				temp.setClass_name(rs.getString("class_name"));
+				temp.setTeacher_id(rs.getString("teacher_id"));
+				temp.setTeacher_name("teacher_name");
+				temp.setContent(rs.getString("content"));
+				temp.setStudent_id(student_id);
+				result.add(temp);
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();
+				if(rs != null) 
+					rs.close();
+				if(con != null)
+					con.close();
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public List<Comment> searchByTeacheridAndClassId(String teacher_id, String class_id) {
+		Connection con = connect.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<Comment> result = new ArrayList<Comment>();
+		try {
+			String sql = "select * from comment where class_id = ? and teacher_id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, class_id);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				Comment temp = new Comment();
+				temp.setId(rs.getInt("id"));
+				temp.setClass_id(rs.getString(class_id));
+				temp.setClass_name(rs.getString("class_name"));
+				temp.setTeacher_id(teacher_id);
+				temp.setTeacher_name("teacher_name");
+				temp.setContent(rs.getString("content"));
+				temp.setStudent_id(rs.getString("student_id"));
 				result.add(temp);
 			}
 		}

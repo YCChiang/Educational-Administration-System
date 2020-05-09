@@ -14,7 +14,7 @@ public class TeacherClassServiceimpl implements TeacherClassService{
 	@Override
 	public int addClassinfo(ClassInfo Classinfo) {
 		ClassInfoDaoimpl DAO = new ClassInfoDaoimpl();
-		ClassInfo old = DAO.selectByClass_id(Classinfo.getId());
+		ClassInfo old = DAO.selectById(Classinfo.getId());
 		if(old!=null) {           //课程号重复,无法添加
 			return 2;
 		}

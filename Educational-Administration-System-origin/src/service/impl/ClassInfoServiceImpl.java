@@ -19,12 +19,12 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 	
 	@Override
 	public List<ClassInfo> findByName(String name) {
-		return classinfoDao.selectByClass_name(name);
+		return classinfoDao.selectByName(name);
 	}
 
 	@Override
 	public ClassInfo findById(String Id) {
-		return classinfoDao.selectByClass_id(Id);
+		return classinfoDao.selectById(Id);
 	}
 	
 	public boolean IsConflictToOther(ClassInfo classInfo, String student_id) {
@@ -34,7 +34,7 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 		// 查看选择的课程是否与已选课程在教学周上有冲突
 		if(!electiveInfo.isEmpty()) {
 			for(ElectiveInfo e:electiveInfo) {
-				ClassInfo temp = classinfoDao.selectByClass_id(e.getClass_id());
+				ClassInfo temp = classinfoDao.selectById(e.getClass_id());
 				if(temp.getEnd_week() > classInfo.getStart_week() && temp.getStart_week() < classInfo.getStart_week()) {
 					conflictClass.add(e.getClass_id());					
 				}
@@ -82,6 +82,8 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 		}
 		return null;
 	}
+	
+	
 
 	@Override
 	public List<ClassInfo> findByTeacher_id(String teacher_id) {
@@ -90,14 +92,17 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 
 	@Override
 	public List<ClassInfo> findByYear(String year) {
-		// TODO Auto-generated method stub
-		return null;
+		return classinfoDao.selectByYear(year);
 	}
 
 	@Override
 	public int modify(ClassInfo classinfo) {
-		// TODO Auto-generated method stub
-		return 0;
+		return classinfoDao.update(classinfo);
+	}
+
+	@Override
+	public int add(ClassInfo classinfo) {
+		return classinfoDao.insert(classinfo);
 	}
 
 }

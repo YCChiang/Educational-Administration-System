@@ -4,6 +4,7 @@ import java.util.List;
 
 import dao.impl.ClassGradeDaoimpl;
 import dao.impl.ClassInfoDaoimpl;
+import dao.impl.ElectiveInfoDaoImpl;
 import entity.ClassGrade;
 import entity.ClassInfo;
 import service.TeacherClassService;
@@ -30,6 +31,10 @@ public class TeacherClassServiceimpl implements TeacherClassService{
 		ClassGrade old = DAO.selectByStudentidandClassID(classgrade.getStudent_id(), classgrade.getClass_id());
 		if(old!=null)
 			return 2 ;        //提示已经输入过此人的成绩
+		
+		ElectiveInfoDaoImpl EDAO = new ElectiveInfoDaoImpl();
+		if(EDAO.isSelected(classgrade.getStudent_id(),classgrade.getClass_id())==0)
+				return 4;	//提示没有该学生选课或
 		
 		if(classgrade.getGrade() < 60)
 			classgrade.setMakeup("补考");   	//如果成绩低于60需要补考

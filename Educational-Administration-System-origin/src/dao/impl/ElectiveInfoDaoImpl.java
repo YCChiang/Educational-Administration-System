@@ -24,18 +24,15 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 			pstmt.setString(1, info.getStudent_id());
 			pstmt.setString(2, info.getClass_id());
 			result = pstmt.executeUpdate();
-		}
-		catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		finally {
+		} finally {
 			try {
-				if(pstmt != null)
+				if (pstmt != null)
 					pstmt.close();
-				if(con != null)
+				if (con != null)
 					con.close();
-			}
-			catch(SQLException e) {
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
@@ -53,26 +50,23 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, student_id);
 			rs = pstmt.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				ElectiveInfo temp = new ElectiveInfo();
 				temp.setStudent_id(rs.getString(student_id));
 				temp.setClass_id(rs.getString("class_id"));
 				result.add(temp);
 			}
-		}
-		catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		finally {
+		} finally {
 			try {
-				if(pstmt != null)
-					pstmt.close();		
-				if(rs != null)
+				if (pstmt != null)
+					pstmt.close();
+				if (rs != null)
 					rs.close();
-				if(con != null)
+				if (con != null)
 					con.close();
-			}
-			catch(SQLException e) {
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
@@ -90,26 +84,23 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, class_id);
 			rs = pstmt.executeQuery();
-			while(rs.next()) {
+			while (rs.next()) {
 				ElectiveInfo temp = new ElectiveInfo();
 				temp.setStudent_id(rs.getString("student_id"));
 				temp.setClass_id(rs.getString(class_id));
 				result.add(temp);
 			}
-		}
-		catch(SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		finally {
+		} finally {
 			try {
-				if(pstmt != null)
-					pstmt.close();		
-				if(rs != null)
+				if (pstmt != null)
+					pstmt.close();
+				if (rs != null)
 					rs.close();
-				if(con != null)
+				if (con != null)
 					con.close();
-			}
-			catch(SQLException e) {
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
@@ -127,26 +118,52 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 			pstmt.setString(1, class_id);
 			pstmt.setString(2, student_id);
 			rs = pstmt.executeQuery();
-			if(rs.next())
-				return 1;  //查询到说明有选课
-		}
-		catch(SQLException e) {
+			if (rs.next())
+				return 1; // 查询到说明有选课
+		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		finally {
+		} finally {
 			try {
-				if(pstmt != null)
-					pstmt.close();		
-				if(rs != null)
+				if (pstmt != null)
+					pstmt.close();
+				if (rs != null)
 					rs.close();
-				if(con != null)
+				if (con != null)
 					con.close();
-			}
-			catch(SQLException e) {
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
-		return 0;  //未查询到说明未选课
+		return 0; // 未查询到说明未选课
+	}
+
+	@Override
+	public int remove(String student_id, String class_id) {
+		Connection con = connect.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			String sql = "delete from electiveinfo where student_id = ? and class_id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, student_id);
+			pstmt.setString(2, class_id);
+			rs = pstmt.executeQuery();
+			return 1; // 删除成功
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (pstmt != null)
+					pstmt.close();
+				if (rs != null)
+					rs.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return 0; // 删除失败
 	}
 
 }

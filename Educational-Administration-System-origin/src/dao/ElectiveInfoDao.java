@@ -9,4 +9,5 @@ public interface ElectiveInfoDao {
 	public List<ElectiveInfo> selectByStudentid(String student_id);
 	public List<ElectiveInfo> selectByClassID(String class_id);
 	public int isSelected(String student_id , String class_id);
+	public int remove(String student_id , String class_id);
 }

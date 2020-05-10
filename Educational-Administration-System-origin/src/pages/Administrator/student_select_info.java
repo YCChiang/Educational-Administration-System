@@ -17,7 +17,7 @@ import java.awt.event.ActionEvent;
 import entity.Student;
 import entity.User;
 
-public class manager_select_info implements ActionListener {
+public class student_select_info implements ActionListener {
 
 	private JFrame frame;
 	private JTextField textField;
@@ -32,7 +32,7 @@ public class manager_select_info implements ActionListener {
 	private JTextField textField_9;
 	JButton button;
 
-	public manager_select_info(Student info) {
+	public student_select_info(Student info) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 439, 560);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

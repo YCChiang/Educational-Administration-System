@@ -80,7 +80,7 @@ public class 查询学生信息new implements ActionListener {
 			if (student == null) {
 				JOptionPane.showMessageDialog(null, "没有此学生");
 			} else
-				new manager_select_info(student);
+				new student_select_info(student);
 		} else if (e.getSource() == button_1) {
 			new manager(u);
 			this.frame.dispose();

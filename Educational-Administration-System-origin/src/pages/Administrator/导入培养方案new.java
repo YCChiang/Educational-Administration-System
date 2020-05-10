@@ -11,7 +11,10 @@ import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import entity.ProfProgram;
 import entity.User;
+import service.impl.profprogramServiceimpl;
 public class 导入培养方案new {
 
 	private JFrame frame;
@@ -20,21 +23,11 @@ public class 导入培养方案new {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	public User u;
-	/**
-	 * Launch the application.
-	 */
 	
-
-	/**
-	 * Create the application.
-	 */
 	public 导入培养方案new(User user) {
 		initialize(user);
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize(User u1) {
 		u = u1;
 		frame = new JFrame();
@@ -68,11 +61,27 @@ public class 导入培养方案new {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button)
 				{
-					JOptionPane.showMessageDialog(null, "导入成功");
+					try {
+					//JOptionPane.showMessageDialog(null, "导入成功");
+						ProfProgram PP = new ProfProgram();
+						PP.setSpecialty(textField_1.getText());
+						PP.setClass_id(textField_2.getText());
+						PP.setClass_name(textField_3.getText());
+						PP.setCredit(Integer.valueOf(textField_4.getText()));
+						profprogramServiceimpl service = new profprogramServiceimpl();
+						int ans = service.add(PP);
+						if(ans == 1)
+							JOptionPane.showMessageDialog(null, "插入成功");
+						else
+							JOptionPane.showMessageDialog(null, "插入失败，请检查数据库");
 					textField_1.setText(null);
 					textField_2.setText(null);
 					textField_3.setText(null);
 					textField_4.setText(null);
+					}catch(Exception ex) {
+						ex.printStackTrace();
+						JOptionPane.showMessageDialog(null, "请输入正确数据");
+					}
 				}
 			}
 		});

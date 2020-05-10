@@ -7,8 +7,11 @@ import javax.swing.JOptionPane;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
-
+import entity.Student;
+import entity.Teacher;
 import entity.User;
+import pages.Administrator.teacher_select_info;
+import service.impl.studentinfoserviceimpl;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -32,6 +35,7 @@ public class 个人信息new {
 	private JTextField textField_9;
 	
 	public User user;
+	public Student info;
 
 	/**
 	 * Launch the application.
@@ -50,7 +54,10 @@ public class 个人信息new {
 	 */
 	private void initialize(User u) {
 		user = u;
-		String cut = " ";
+		System.out.println(user.getname());
+		studentinfoserviceimpl service = new studentinfoserviceimpl();
+		info = service.findById(user.getname());
+		//String cut = " ";
 		//String stu=u.getname();
 		//String[] newStr = stu.split(cut);
 		frame = new JFrame();
@@ -111,17 +118,19 @@ public class 个人信息new {
 		
 		textField_9 = new JTextField();
 		textField_9.setColumns(10);
-		
-		/*textField.setText(newStr[0]);
-		textField_1.setText(newStr[1]);
-		textField_2.setText(newStr[2]);
-		textField_3.setText(newStr[3]);
-		textField_4.setText(newStr[4]);
-		textField_5.setText(newStr[5]);
-		textField_6.setText(newStr[6]);
-		textField_7.setText(newStr[7]);
-		textField_8.setText(newStr[8]);
-		textField_9.setText(newStr[9]);*/
+		String s=String.valueOf(info.getGender());
+		String s1=String.valueOf(info.getAge());
+		String s2=String.valueOf(info.getAdmission_time());
+		textField.setText(info.getName());
+		textField_1.setText(info.getId());
+		textField_2.setText(s);
+		textField_3.setText(info.getDepartment());
+		textField_4.setText(info.getSpecialty());
+		textField_5.setText(info.getClassinfo());
+		textField_6.setText(s1);
+		textField_7.setText(info.getAddress());
+		textField_8.setText(info.getTel());
+		textField_9.setText(s2);
 		
 		JButton button = new JButton("确认修改");
 		button.addActionListener(new ActionListener() {

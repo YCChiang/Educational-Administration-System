@@ -1,7 +1,11 @@
 package pages.Administrator;
 
 import java.awt.BorderLayout;
+
+import entity.Comment;
 import entity.User;
+import service.impl.administratorCommentServiceimpl;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -16,6 +20,7 @@ import javax.swing.SwingConstants;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class OutComment extends JFrame {
@@ -23,9 +28,14 @@ public class OutComment extends JFrame {
 	private JPanel contentPane;
 	public User u;
 	public static void main(String [] args ) {
-		new OutComment(null);
+		//new OutComment(null);
 	}
 	public OutComment(User user) {
+		
+		administratorCommentServiceimpl service = new administratorCommentServiceimpl();
+		List<Comment> list = service.findCommentList();
+		int size = list.size();
+		
 		setTitle("课程评价信息");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 528, 384);
@@ -45,7 +55,14 @@ public class OutComment extends JFrame {
 		contentPane.add(scrollPane);
 		
 		JTextArea textArea = new JTextArea();
+		
 		scrollPane.setViewportView(textArea);
+		//textArea.appen);
+		
+		for(int i  = 0 ; i< size ; i++) {
+			String temp = list.get(i).getClass_name()+" "+(list.get(i)).getTeacher_name()+" "+list.get(i).getContent()+"\r\n";
+			textArea.append(temp);
+		}
 		
 		JButton button = new JButton("返回");
 		button.addActionListener(new ActionListener() {

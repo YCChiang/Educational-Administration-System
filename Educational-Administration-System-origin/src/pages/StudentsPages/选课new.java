@@ -28,30 +28,19 @@ public class 选课new {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					//选课new window = new 选课new();
-					//window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 */
 	public 选课new(User u) {
-		initialize();
+		initialize(u);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(User u) {
+		user = u;
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 383);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -92,7 +81,7 @@ public class 选课new {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button_2)
 				{
-					new student();
+					new student(user);
 					frame.setVisible(false);
 				}
 			}
@@ -136,5 +125,6 @@ public class 选课new {
 					.addGap(22))
 		);
 		frame.getContentPane().setLayout(groupLayout);
+		frame.setVisible(true);
 	}
 }

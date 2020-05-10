@@ -114,7 +114,7 @@ public class teacher extends JFrame implements ActionListener
 			}
 			if(ev.getSource()==item2)
 			{
-				new TeacherVisitClassInfo();
+				new TeacherVisitClassInfo(u1);
 			}
 			if(ev.getSource()==item3)
 			{
@@ -122,11 +122,11 @@ public class teacher extends JFrame implements ActionListener
 			}
 			if(ev.getSource()==item4)
 			{
-				new TeacherVisitComment();
+				new TeacherVisitComment(u1);
 			}
 			if(ev.getSource()==item5)
 			{
-				new TeacherImportGrade();
+				new TeacherImportGrade(u1);
 			}
 			if(ev.getSource()==item6)
 			{

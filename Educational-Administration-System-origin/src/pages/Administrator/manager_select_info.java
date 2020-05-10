@@ -77,7 +77,7 @@ public class manager_select_info {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button)
-					manager.main(null);
+					new manager(u);
 			}
 		});
 		

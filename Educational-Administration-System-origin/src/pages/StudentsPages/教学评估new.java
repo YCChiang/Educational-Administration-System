@@ -23,30 +23,20 @@ public class 教学评估new {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					//教学评估new window = new 教学评估new();
-					//window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the application.
 	 */
 	public 教学评估new(User u) {
-		initialize();
+		initialize(u);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(User u) {
+		user = u;
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 373);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -74,7 +64,7 @@ public class 教学评估new {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button_1)
 				{
-					new student();
+					new student(user);
 					frame.setVisible(false);
 				}
 			}
@@ -110,6 +100,7 @@ public class 教学评估new {
 					.addGap(21))
 		);
 		frame.getContentPane().setLayout(groupLayout);
+		frame.setVisible(true);
 	}
 
 }

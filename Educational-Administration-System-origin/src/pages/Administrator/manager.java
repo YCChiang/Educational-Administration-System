@@ -1,6 +1,7 @@
 package pages.Administrator;
 
 import java.awt.BorderLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -82,7 +83,9 @@ public class manager extends JFrame implements ActionListener
 	        //JScrollPane jsp = new JScrollPane(jta);
 	       // jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 	        //this.add(jsp);
-	        
+	        int w = (Toolkit.getDefaultToolkit().getScreenSize().width - 500) / 2;
+			int h = (Toolkit.getDefaultToolkit().getScreenSize().height - 400) / 2;
+			this.setLocation(w, h);
 	        
 	        item1.addActionListener(this);
 			item2.addActionListener(this);

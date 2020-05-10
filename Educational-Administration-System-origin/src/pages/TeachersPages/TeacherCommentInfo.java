@@ -55,7 +55,7 @@ public class TeacherCommentInfo extends JFrame {
 		JButton button = new JButton("返回");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new TeacherVisitComment();
+				new TeacherVisitComment(u);
 			}
 		});
 		button.setBounds(198, 249, 113, 27);

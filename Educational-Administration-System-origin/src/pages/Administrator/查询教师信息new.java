@@ -47,7 +47,7 @@ public class 查询教师信息new {
 		JButton button = new JButton("查询");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				manager_select_info.main(null);
+				new manager_select_info(u);
 			}
 		});
 		
@@ -55,7 +55,7 @@ public class 查询教师信息new {
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button_1)
-					new manager();
+					new manager(u);
 			}
 		});
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());

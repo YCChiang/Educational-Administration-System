@@ -23,30 +23,18 @@ public class 评估new {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					//评估new window = new 评估new();
-					//window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	/**
 	 * Create the application.
 	 */
 	public 评估new(User u) {
-		initialize();
+		initialize(u);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(User u) {
+		user = u;
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 393);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -72,7 +60,7 @@ public class 评估new {
 				if(e.getSource() == button_1)
 				{
 					frame.setVisible(false);
-					教学评估new.main(null);
+					new 教学评估new(user);
 				}
 			}
 		});
@@ -109,6 +97,7 @@ public class 评估new {
 					.addContainerGap(48, Short.MAX_VALUE))
 		);
 		frame.getContentPane().setLayout(groupLayout);
+		frame.setVisible(true);
 	}
 
 }

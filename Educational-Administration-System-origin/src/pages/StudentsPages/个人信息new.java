@@ -41,18 +41,7 @@ public class 个人信息new {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					//个人信息new window = new 个人信息new();
-					//window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the application.
@@ -65,6 +54,7 @@ public class 个人信息new {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(User u) {
+		user = u;
 		String cut = " ";
 		//String stu=u.getname();
 		//String[] newStr = stu.split(cut);
@@ -152,7 +142,7 @@ public class 个人信息new {
 				if(arg0.getSource() == button_1)
 				{
 					frame.setVisible(false);
-					new student();
+					new student(user);
 					
 				}
 			}

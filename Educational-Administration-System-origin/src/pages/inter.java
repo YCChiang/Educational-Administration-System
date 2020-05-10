@@ -129,7 +129,7 @@ public class inter extends JFrame implements ActionListener {
 			}
 		}
 		if (ev.getSource() == jb2) {
-			System.exit(-1);
+			System.exit(0);
 		}
 	}
 }

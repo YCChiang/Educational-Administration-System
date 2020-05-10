@@ -56,7 +56,7 @@ public class ClassInformation extends JFrame {
 		JButton button = new JButton("返回");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new TeacherVisitClassInfo();
+				new TeacherVisitClassInfo(u);
 			}
 		});
 		button.setBounds(200, 378, 113, 27);

@@ -75,7 +75,7 @@ public class 修改课程名单new {
 		JButton button_2 = new JButton("返回");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new manager();
+				new manager(u);
 			}
 		});
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());

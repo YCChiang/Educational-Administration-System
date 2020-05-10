@@ -25,30 +25,18 @@ public class 退课new {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					//退课new window = new 退课new();
-					//window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
 	/**
 	 * Create the application.
 	 */
 	public 退课new(User u) {
-		initialize();
+		initialize(u);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(User u) {
+		user = u;
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 366);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -72,7 +60,7 @@ public class 退课new {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button_1)
 				{
-					new student();
+					new student(user);
 					frame.setVisible(false);
 				}
 			}
@@ -109,6 +97,7 @@ public class 退课new {
 					.addGap(25))
 		);
 		frame.getContentPane().setLayout(groupLayout);
+		frame.setVisible(true);
 	}
 
 }

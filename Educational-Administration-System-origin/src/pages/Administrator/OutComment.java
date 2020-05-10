@@ -16,13 +16,9 @@ public class OutComment extends JFrame {
 
 	private JPanel contentPane;
 	public User u;
-	/**
-	 * Launch the application.
-	 */
-	
-	/**
-	 * Create the frame.
-	 */
+	public static void main(String [] args ) {
+		new OutComment(null);
+	}
 	public OutComment(User user) {
 		setTitle("课程评价信息");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,5 +44,6 @@ public class OutComment extends JFrame {
 		scrollBar_1.setOrientation(JScrollBar.HORIZONTAL);
 		scrollBar_1.setBounds(0, 284, 444, 21);
 		contentPane.add(scrollBar_1);
+		this.setVisible(true);
 	}
 }

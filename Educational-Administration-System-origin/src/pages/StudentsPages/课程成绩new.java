@@ -17,13 +17,6 @@ public class 课程成绩new {
 	private JTextField textField;
 	public User user;
 
-	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the application.
-	 */
 	public 课程成绩new(User u) {
 		initialize(u);
 	}

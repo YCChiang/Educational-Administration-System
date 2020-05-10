@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 
 import entity.Teacher;
+import entity.User;
 
 public class teacher_select_info extends JFrame {
 

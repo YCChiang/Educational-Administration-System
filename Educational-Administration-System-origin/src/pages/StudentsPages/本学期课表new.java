@@ -12,16 +12,18 @@ import java.util.List;
 import java.awt.event.ActionEvent;
 
 import entity.ClassInfo;
+import entity.ClassSchedule;
 import entity.User;
 import service.impl.ClassInfoServiceImpl;
 import service.impl.ElectiveInfoServiceImpl;
+import service.impl.ClassScheduleServiceImpl;
 
 public class 本学期课表new {
 
 	private JFrame frame;
 	public User user;
-	ElectiveInfoServiceImpl electiveinfoservice = null;
 	ClassInfoServiceImpl classinfoservice = null;
+	ClassScheduleServiceImpl classscheduleservice= null;
 	List<ClassInfo> classInfo = null;
 	/**
 	 * Launch the application.
@@ -33,6 +35,8 @@ public class 本学期课表new {
 	 */
 	public 本学期课表new(User u) {
 		initialize(u);
+		classscheduleservice = new ClassScheduleServiceImpl();
+		classinfoservice = new ClassInfoServiceImpl();
 	}
 
 	/**
@@ -89,12 +93,26 @@ public class 本学期课表new {
 		// TODO 添加表格组件
 		/*
 		 * 添加表格：教程http://c.biancheng.net/view/1258.html
-		 * 列名有：课程ID，课程名称，教师名称，课容量，开课学期，开课周
+		 * 列名有：课程ID，课程名称，教师名称，课容量，开课学期，开课周，上课时间
 		 * 其中开课周为start_week-end_week（例如：1-8）
 		 */
 		classInfo = classinfoservice.findByStudentId(user.getname());
 		if(!classInfo.isEmpty()) {
-			// 将数据添加到表格中
+			for(ClassInfo c:classInfo) {
+				List<ClassSchedule> schedule = classscheduleservice.findByClassId(c.getId());
+				if(!schedule.isEmpty()) {
+					/*
+					 *  将数据添加到表格中显示为如下
+					 * -----------------------------------------------------
+					 * |课程ID|课程名称|教师名称|课容量|开课周|上课时间|
+					 * -----------------------------------------------------
+					 * |001232|数据结构|连XX	   |60  |1-8  |星期一  10:05:00|
+					 * -----------------------------------------------------
+					 * |			全为空单元格			  |星期二  10:05:00|
+					 * -----------------------------------------------------
+					 */
+				}
+			}			
 		}
 		
 		JButton button = new JButton("返回");

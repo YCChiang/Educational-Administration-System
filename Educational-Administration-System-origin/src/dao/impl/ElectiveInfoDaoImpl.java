@@ -145,7 +145,7 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 	}
 
 	@Override
-	public int deleteById(int id) {
+	public int deleteById(int class_id) {
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -153,7 +153,7 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 		try {
 			String sql = "delete from electiveinfo where id = ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, id);
+			pstmt.setInt(1, class_id);
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

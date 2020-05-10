@@ -2,9 +2,6 @@ package pages;
 
 import java.awt.*;
 import javax.swing.*;
-import pages.Administrator.*;
-import pages.StudentsPages.*;
-import pages.TeachersPages.*;
 import entity.User;
 import service.impl.UserServiceImpl;
 

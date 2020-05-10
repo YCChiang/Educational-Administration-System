@@ -1,35 +1,36 @@
 package pages.StudentsPages;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-import java.awt.BorderLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
-import entity.Student;
+import entity.ClassInfo;
 import entity.User;
+import service.impl.ClassInfoServiceImpl;
+import service.impl.ElectiveInfoServiceImpl;
+import service.impl.Massage;
 
 public class 退课new {
 
 	private JFrame frame;
 	User user;
-	/**
-	 * Launch the application.
-	 */
-	/**
-	 * Create the application.
-	 */
+	ElectiveInfoServiceImpl electiveinfoservice = null;
+	ClassInfoServiceImpl classinfoservice = null;
+	List<ClassInfo> classInfo = null;
+
 	public 退课new(User u) {
 		initialize(u);
+		classinfoservice = new ClassInfoServiceImpl();
+		electiveinfoservice = new ElectiveInfoServiceImpl();
 	}
 
 	/**
@@ -43,14 +44,39 @@ public class 退课new {
 		
 		JLabel label = new JLabel("所有课程");
 		
-		JCheckBox checkBox = new JCheckBox("软件工程");
+		// TODO 添加表格组件
+		/*
+		 * 添加表格：教程http://c.biancheng.net/view/1258.html
+		 * 列名有：课程ID，课程名称，教师名称，课容量，开课学期，开课周
+		 * 其中开课周为start_week-end_week（例如：1-8）
+		 */
+		classInfo = classinfoservice.findByStudentId(user.getname());
+		if(!classInfo.isEmpty()) {
+			// 将数据添加到表格中
+		}
+		
+		JCheckBox checkBox = new JCheckBox("软件工程"); // 删除
 		
 		JButton button = new JButton("退课");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button)
 				{
-		    		JOptionPane.showMessageDialog(null, "退课成功");
+					// TODO 判断表格里是否有内容和是否有被选列
+					/*
+					 * 监听表格，用getSelectedRow
+					 * getSelectedRow会返回索引
+					 */
+					ClassInfo selected = classInfo.get(0); // 将0换成索引
+					Massage msg = electiveinfoservice.quit(selected.getId(), user.getname());
+					if(msg.isError()) {
+						// TODO 警告弹窗，消息为msg.getContent()						
+					}
+					else {
+						// TODO 提示弹窗，消息为msg.getContent()	
+						
+						// TODO 删除索引对应的表格行，更新表格
+					}
 				}
 			}
 		});

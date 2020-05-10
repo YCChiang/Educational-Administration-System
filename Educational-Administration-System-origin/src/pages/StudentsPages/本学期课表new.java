@@ -1,30 +1,28 @@
 package pages.StudentsPages;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
-import java.awt.GridLayout;
-import javax.swing.JTextField;
-import java.awt.CardLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.JSplitPane;
-import java.awt.GridBagLayout;
-import javax.swing.JPanel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
-import java.awt.BorderLayout;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
+import entity.ClassInfo;
 import entity.User;
+import service.impl.ClassInfoServiceImpl;
+import service.impl.ElectiveInfoServiceImpl;
 
 public class 本学期课表new {
 
 	private JFrame frame;
 	public User user;
+	ElectiveInfoServiceImpl electiveinfoservice = null;
+	ClassInfoServiceImpl classinfoservice = null;
+	List<ClassInfo> classInfo = null;
 	/**
 	 * Launch the application.
 	 */
@@ -87,6 +85,17 @@ public class 本学期课表new {
 		JTextArea textArea_18 = new JTextArea();
 		
 		JTextArea textArea_19 = new JTextArea();
+		
+		// TODO 添加表格组件
+		/*
+		 * 添加表格：教程http://c.biancheng.net/view/1258.html
+		 * 列名有：课程ID，课程名称，教师名称，课容量，开课学期，开课周
+		 * 其中开课周为start_week-end_week（例如：1-8）
+		 */
+		classInfo = classinfoservice.findByStudentId(user.getname());
+		if(!classInfo.isEmpty()) {
+			// 将数据添加到表格中
+		}
 		
 		JButton button = new JButton("返回");
 		button.addActionListener(new ActionListener() {

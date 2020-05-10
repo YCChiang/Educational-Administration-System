@@ -2,6 +2,7 @@ package service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import entity.ClassInfo;
 import entity.ClassSchedule;
@@ -25,6 +26,17 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 	@Override
 	public ClassInfo findOne(String Id) {
 		return classinfoDao.selectOne(Id);
+	}
+	
+	public List<ClassInfo> findByStudentId(String student_id){
+		List<ElectiveInfo> temp = electiveinfoDao.selectByStudentid(student_id);
+		List<ClassInfo> classes = new ArrayList<ClassInfo>();
+		if(!temp.isEmpty()) {
+			for(ElectiveInfo t:temp) {
+				classes.add(classinfoDao.selectOne(t.getClass_id()));
+			}
+		}
+		return classes;
 	}
 	
 	public boolean IsConflictToOther(ClassInfo classInfo, String student_id) {
@@ -56,6 +68,11 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 		}
 		return false;
 	}
+	
+	/*
+	 * 查找已选的课程
+	 */
+	
 	
 	/*
 	 * 通过课程名称查找课程

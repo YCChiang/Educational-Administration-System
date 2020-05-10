@@ -1,12 +1,7 @@
 package pages.StudentsPages;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import java.awt.BorderLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JTextField;
@@ -17,7 +12,6 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
 
-import entity.Student;
 import entity.User;
 import entity.ClassInfo;
 
@@ -100,6 +94,7 @@ public class 选课new {
 			}
 		});
 		
+		// TODO 添加表格组件
 		/*
 		 * 添加表格：教程http://c.biancheng.net/view/1258.html
 		 * 列名有：课程ID，课程名称，教师名称，课容量，开课学期，开课周
@@ -116,7 +111,7 @@ public class 选课new {
 					 * 监听表格，用getSelectedRow
 					 * getSelectedRow会返回索引
 					 */
-					ClassInfo selected = classInfo.get(0);
+					ClassInfo selected = classInfo.get(0); // 将0换成索引
 					
 					Massage msg = electiveinfoservice.elective(selected, user.getname());
 					if(msg.isError()) {

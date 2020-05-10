@@ -8,8 +8,6 @@ import entity.User;
 import java.awt.event.*;
 import pages.inter;
 
-import entity.User;
-
 public class student extends JFrame implements ActionListener 
 {
 		public  User user ;

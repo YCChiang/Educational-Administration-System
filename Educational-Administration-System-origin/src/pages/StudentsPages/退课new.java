@@ -50,9 +50,11 @@ public class 退课new {
 		 * 列名有：课程ID，课程名称，教师名称，课容量，开课学期，开课周
 		 * 其中开课周为start_week-end_week（例如：1-8）
 		 */
-		classInfo = classinfoservice.findByStudentId(user.getname());
+		classInfo = classinfoservice.findByStudentIdAndYear(user.getname(), "2020春");
 		if(!classInfo.isEmpty()) {
-			// 将数据添加到表格中
+			for(ClassInfo c:classInfo) {
+				// 将数据添加到表格中
+			}			
 		}
 		
 		JCheckBox checkBox = new JCheckBox("软件工程"); // 删除

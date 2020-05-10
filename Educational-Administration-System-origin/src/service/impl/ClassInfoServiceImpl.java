@@ -28,12 +28,14 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 		return classinfoDao.selectOne(Id);
 	}
 	
-	public List<ClassInfo> findByStudentId(String student_id){
+	public List<ClassInfo> findByStudentIdAndYear(String student_id, String year){
 		List<ElectiveInfo> temp = electiveinfoDao.selectByStudentid(student_id);
 		List<ClassInfo> classes = new ArrayList<ClassInfo>();
 		if(!temp.isEmpty()) {
 			for(ElectiveInfo t:temp) {
-				classes.add(classinfoDao.selectOne(t.getClass_id()));
+				ClassInfo info = classinfoDao.selectOne(t.getClass_id());
+				if(info.getYear().equals(year))
+					classes.add(info);
 			}
 		}
 		return classes;

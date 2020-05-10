@@ -1,6 +1,8 @@
 package pages.TeachersPages;
 
 import entity.User;
+import service.impl.ClassInfoServiceImpl;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -22,7 +24,8 @@ public class ImportClassInfo extends JFrame {
 	private JTextField textField_6;
 	private JTextField textField_7;
 	private JTextField textField_8;
-	private static User u;
+	private User u;
+	ClassInfoServiceImpl classinfoservice = null;
 
 	/**
 	 * Launch the application.
@@ -33,6 +36,7 @@ public class ImportClassInfo extends JFrame {
 	 */
 	public ImportClassInfo(User u1) {
 		u = u1;
+		classinfoservice = new 	ClassInfoServiceImpl();
 		setTitle("课程信息");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 658, 422);
@@ -127,16 +131,17 @@ public class ImportClassInfo extends JFrame {
 			public void actionPerformed(ActionEvent e) 
 			{
 				ClassInfo info = new ClassInfo();
+				
 				info.setId(textField.getText());
 				info.setName(textField_1.getText());
-				info.setTeacher_id(textField_2.getText());
+				info.setTeacher_id(u.getname());
 				info.setTeacher_name(textField_3.getText());
 				info.setCapacity(Integer.parseInt(textField_4.getText()));
 				info.setStart_week(Integer.parseInt(textField_5.getText()));
 				info.setEnd_week(Integer.parseInt(textField_6.getText()));
 				info.setCredit(Integer.parseInt(textField_8.getText()));
 				info.setYear(textField_7.getText());
-				
+				classinfoservice.add(info);
 			}
 		});
 		button.setBounds(129, 301, 113, 27);

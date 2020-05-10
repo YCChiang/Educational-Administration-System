@@ -96,7 +96,7 @@ public class 本学期课表new {
 		 * 列名有：课程ID，课程名称，教师名称，课容量，开课学期，开课周，上课时间
 		 * 其中开课周为start_week-end_week（例如：1-8）
 		 */
-		classInfo = classinfoservice.findByStudentId(user.getname());
+		classInfo = classinfoservice.findByStudentIdAndYear(user.getname(), "2020春");
 		if(!classInfo.isEmpty()) {
 			for(ClassInfo c:classInfo) {
 				List<ClassSchedule> schedule = classscheduleservice.findByClassId(c.getId());

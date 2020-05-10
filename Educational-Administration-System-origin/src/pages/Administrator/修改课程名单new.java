@@ -12,13 +12,13 @@ import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import entity.User;
 public class 修改课程名单new {
 
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
-
+	public User u;
 	/**
 	 * Launch the application.
 	 */

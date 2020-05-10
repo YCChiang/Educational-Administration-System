@@ -12,8 +12,8 @@ import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import entity.ClassGrade;;
-
+import entity.ClassGrade;
+import entity.User;
 public class TeacherImportGrade extends JFrame {
 
 	/**
@@ -26,6 +26,7 @@ public class TeacherImportGrade extends JFrame {
 	private JTextField textField;
 	private JTextField textField_3;
 	private ClassGrade grade1;
+	public User u;
 
 	/**
 	 * Launch the application.

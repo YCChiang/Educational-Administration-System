@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import entity.User;
 public class manager_select_info {
 
 	private JFrame frame;
@@ -26,7 +26,7 @@ public class manager_select_info {
 	private JTextField textField_7;
 	private JTextField textField_8;
 	private JTextField textField_9;
-
+	public User u;
 	/**
 	 * Launch the application.
 	 */

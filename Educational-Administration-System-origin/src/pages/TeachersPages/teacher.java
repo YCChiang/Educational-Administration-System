@@ -11,6 +11,7 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JToolBar;
+import entity.User;
 
 import pages.inter;
 
@@ -24,6 +25,7 @@ public class teacher extends JFrame implements ActionListener
 	    JMenu menu1, menu2, menu3, menu4;
 	    JMenuItem item1,item2, item3, item4, item5, item6,item7;
 	    JLabel jl1;
+	    User u1;
 
 	    public static void main(String[] args) {
 	        // TODO Auto-generated method stub
@@ -60,7 +62,7 @@ public class teacher extends JFrame implements ActionListener
 	        menu1.add(item7);
 
 	        menu3.add(item1);
-	        menu3.add(item2);
+	        menu2.add(item2);
 	        menu3.add(item3);
 	        menu3.add(item4);
 	        
@@ -106,11 +108,13 @@ public class teacher extends JFrame implements ActionListener
 		{
 	    	if(ev.getSource()==item7)
 			{
-	    		new inter();
+	    		inter in =new inter();
+	    		
+	    		
 			}
 	    	if(ev.getSource()==item1)
 			{
-	    		new TeacherClass();
+	    		TeacherClass tc = new TeacherClass();
 			}
 			if(ev.getSource()==item2)
 			{

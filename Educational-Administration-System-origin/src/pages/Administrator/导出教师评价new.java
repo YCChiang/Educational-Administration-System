@@ -12,12 +12,12 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import entity.User;
 public class 导出教师评价new {
 
 	private JFrame frame;
 	private JTextField textField;
-
+	public User u;
 	/**
 	 * Launch the application.
 	 */

@@ -11,12 +11,12 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-
+import entity.User;
 public class 查询教师信息new {
 
 	private JFrame frame;
 	private JTextField textField;
-
+	public User u;
 	/**
 	 * Launch the application.
 	 */

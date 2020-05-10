@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 import javax.swing.UIManager;
 import javax.swing.JTable;
-
+import entity.User;
 public class TeachersInfo extends JFrame {
 
 	private JPanel contentPane;
@@ -29,7 +29,7 @@ public class TeachersInfo extends JFrame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
-
+	public User u;
 	/**
 	 * Launch the application.
 	 */

@@ -12,7 +12,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JToolBar;
 import pages.inter;
-
+import entity.User;
 public class manager extends JFrame implements ActionListener 
 {
 
@@ -23,7 +23,7 @@ public class manager extends JFrame implements ActionListener
 	    JMenu menu1, menu2, menu3, menu4;
 	    JMenuItem item1,item2, item3, item4, item5, item6, item7,item8,item9;
 	    JLabel jl1;
-
+	    public User u;
 	    public static void main(String[] args) {
 	        // TODO Auto-generated method stub
 	        new manager();

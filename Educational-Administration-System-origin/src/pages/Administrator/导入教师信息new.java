@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import entity.User;
 public class 导入教师信息new {
 
 	private JFrame frame;
@@ -22,7 +22,7 @@ public class 导入教师信息new {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
-
+	public User u;
 	/**
 	 * Launch the application.
 	 */

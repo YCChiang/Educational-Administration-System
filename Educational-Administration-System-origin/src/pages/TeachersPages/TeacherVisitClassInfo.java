@@ -11,12 +11,12 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import entity.User;
 public class TeacherVisitClassInfo extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-
+	public User u;
 	/**
 	 * Launch the application.
 	 */

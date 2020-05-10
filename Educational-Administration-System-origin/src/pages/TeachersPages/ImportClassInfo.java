@@ -1,6 +1,7 @@
 package pages.TeachersPages;
 
 import java.awt.BorderLayout;
+import entity.User;
 import java.awt.EventQueue;
 import pages.*;
 import javax.swing.JFrame;
@@ -24,6 +25,7 @@ public class ImportClassInfo extends JFrame {
 	private JTextField textField_6;
 	private JTextField textField_7;
 	private JTextField textField_8;
+	private User u;
 
 	/**
 	 * Launch the application.

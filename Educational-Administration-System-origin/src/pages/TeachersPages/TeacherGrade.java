@@ -6,11 +6,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
+import entity.User;
 public class TeacherGrade extends JFrame {
 
 	private JPanel contentPane;
-
+	public User u;
 	/**
 	 * Launch the application.
 	 */

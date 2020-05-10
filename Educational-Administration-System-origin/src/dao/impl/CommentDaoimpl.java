@@ -72,7 +72,7 @@ public class CommentDaoimpl implements CommentDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		try {
-			String sql = "INSERT INTO comment (class_id, class_name, teacher_id ,teacher_name ,content ,student_id ) VALUES (?, ?, ? ,?,?,?);";
+			String sql = "INSERT INTO comment (class_id, class_name, teacher_id ,teacher_name ,content ,student_id ) VALUES (?, ?, ? ,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, c.getClass_id());
 			pstmt.setString(2, c.getClass_name());

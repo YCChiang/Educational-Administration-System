@@ -8,7 +8,6 @@ public class StudentCommentServiceimpl implements StudentCommentService{
 	CommentDaoimpl DAO = new CommentDaoimpl();
 	@Override	
 	public int add(Comment c) {
-		// TODO Auto-generated method stub
 		if(c.getContent().length() <3)
 			return 2;		//评教过短,请重新输入
 		return DAO.insert(c);

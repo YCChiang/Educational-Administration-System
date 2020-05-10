@@ -15,7 +15,6 @@ public class administratorCommentServiceimpl implements administratorCommentServ
 
 	@Override
 	public int modify(Comment C) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 

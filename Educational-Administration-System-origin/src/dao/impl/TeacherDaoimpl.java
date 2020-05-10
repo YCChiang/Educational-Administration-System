@@ -65,7 +65,6 @@ public class TeacherDaoimpl implements TeacherDao{
 	 * 成功更新返回1，失败返回0
 	 */
 	public int modify(Teacher t) {
-		// TODO Auto-generated method stub
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		int result = 0;

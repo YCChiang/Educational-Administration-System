@@ -10,7 +10,6 @@ import entity.Comment;
 public class getcommentbyteacherid {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		CommentDaoimpl c = new CommentDaoimpl();
 		List<Comment> ci = c.searchByTeacherid("0011");
 		if(!ci.isEmpty()) {

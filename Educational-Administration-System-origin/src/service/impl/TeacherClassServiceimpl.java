@@ -44,7 +44,6 @@ public class TeacherClassServiceimpl implements TeacherClassService{
 
 	@Override
 	public List<ClassInfo> findclassinfoList(String teacher_id) {
-		// TODO Auto-generated method stub
 		return IDAO.selectByTeacherid(teacher_id);
 	}
 

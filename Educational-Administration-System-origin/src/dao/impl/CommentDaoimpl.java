@@ -21,7 +21,6 @@ public class CommentDaoimpl implements CommentDao {
 	 * 若查询失败，则返回的是null指针
 	 */
 	public List<Comment> searchByTeacherid(String teacher_id) {
-		// TODO Auto-generated method stub
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;

@@ -16,10 +16,14 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import entity.Student;
+import entity.User;
+
 public class 选课new {
 
 	private JFrame frame;
 	private JTextField textField;
+	public User user;
 
 	/**
 	 * Launch the application.
@@ -28,8 +32,8 @@ public class 选课new {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					选课new window = new 选课new();
-					window.frame.setVisible(true);
+					//选课new window = new 选课new();
+					//window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -40,7 +44,7 @@ public class 选课new {
 	/**
 	 * Create the application.
 	 */
-	public 选课new() {
+	public 选课new(User u) {
 		initialize();
 	}
 

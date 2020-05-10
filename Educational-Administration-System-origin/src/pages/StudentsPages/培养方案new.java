@@ -14,10 +14,14 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import entity.Student;
+import entity.User;
+
 public class 培养方案new {
 
 	private JFrame frame;
 	private JTextField textField;
+	public User user;
 
 	/**
 	 * Launch the application.
@@ -26,8 +30,8 @@ public class 培养方案new {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					培养方案new window = new 培养方案new();
-					window.frame.setVisible(true);
+					//培养方案new window = new 培养方案new();
+					//window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -38,7 +42,7 @@ public class 培养方案new {
 	/**
 	 * Create the application.
 	 */
-	public 培养方案new() {
+	public 培养方案new(User u) {
 		initialize();
 	}
 

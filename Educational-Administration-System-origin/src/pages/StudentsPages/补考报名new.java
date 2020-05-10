@@ -14,10 +14,14 @@ import javax.swing.JCheckBox;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import entity.Student;
+import entity.User;
+
 public class 补考报名new {
 
 	private JFrame frame;
 	private JTextField textField;
+	public User user;
 
 	/**
 	 * Launch the application.
@@ -26,8 +30,8 @@ public class 补考报名new {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					补考报名new window = new 补考报名new();
-					window.frame.setVisible(true);
+					//补考报名new window = new 补考报名new();
+					//window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -38,7 +42,7 @@ public class 补考报名new {
 	/**
 	 * Create the application.
 	 */
-	public 补考报名new() {
+	public 补考报名new(User u) {
 		initialize();
 	}
 

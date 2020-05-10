@@ -8,6 +8,8 @@ import entity.User;
 import java.awt.event.*;
 import pages.inter;
 
+import entity.User;
+
 public class student extends JFrame implements ActionListener 
 {
 		static User user ;
@@ -121,35 +123,35 @@ public class student extends JFrame implements ActionListener
 			}
 			if(ev.getSource()==item2)
 			{
-				new 培养方案new();
+				new 培养方案new(user);
 			}
 			if(ev.getSource()==item3)
 			{
-				new 学籍注册new();
+				new 学籍注册new(user);
 			}
 			if(ev.getSource()==item4)
 			{
-				new 本学期课表new();
+				new 本学期课表new(user);
 			}
 			if(ev.getSource()==item5)
 			{
-				new 选课new();
+				new 选课new(user);
 			}
 			if(ev.getSource()==item6)
 			{
-				new 退课new();
+				new 退课new(user);
 			}
 			if(ev.getSource()==item7)
 			{
-				new 课程成绩new();
+				new 课程成绩new(user);
 			}
 			if(ev.getSource()==item8)
 			{
-				new 补考报名new();
+				new 补考报名new(user);
 			}
 			if(ev.getSource()==item10)
 			{
-				new 教学评估new();
+				new 教学评估new(user);
 			}
 			this.setVisible(false);
 		}

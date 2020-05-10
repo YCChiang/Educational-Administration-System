@@ -12,10 +12,13 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import entity.Student;
+import entity.User;
+
 public class 学籍注册new {
 
 	private JFrame frame;
-
+	public User user;
 	/**
 	 * Launch the application.
 	 */
@@ -23,8 +26,8 @@ public class 学籍注册new {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					学籍注册new window = new 学籍注册new();
-					window.frame.setVisible(true);
+					//学籍注册new window = new 学籍注册new();
+					//window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -35,7 +38,7 @@ public class 学籍注册new {
 	/**
 	 * Create the application.
 	 */
-	public 学籍注册new() {
+	public 学籍注册new(User u) {
 		initialize();
 	}
 

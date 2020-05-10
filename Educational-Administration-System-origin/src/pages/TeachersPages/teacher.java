@@ -60,7 +60,7 @@ public class teacher extends JFrame implements ActionListener
 	        menu1.add(item7);
 
 	        menu3.add(item1);
-	        menu3.add(item2);
+	        menu2.add(item2);
 	        menu3.add(item3);
 	        menu3.add(item4);
 	        

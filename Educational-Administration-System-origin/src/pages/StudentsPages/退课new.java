@@ -15,10 +15,13 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import entity.Student;
+import entity.User;
+
 public class 退课new {
 
 	private JFrame frame;
-
+	User user;
 	/**
 	 * Launch the application.
 	 */
@@ -26,8 +29,8 @@ public class 退课new {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					退课new window = new 退课new();
-					window.frame.setVisible(true);
+					//退课new window = new 退课new();
+					//window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -38,7 +41,7 @@ public class 退课new {
 	/**
 	 * Create the application.
 	 */
-	public 退课new() {
+	public 退课new(User u) {
 		initialize();
 	}
 

@@ -19,10 +19,12 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import entity.User;
+
 public class 本学期课表new {
 
 	private JFrame frame;
-
+	public User user;
 	/**
 	 * Launch the application.
 	 */
@@ -30,8 +32,8 @@ public class 本学期课表new {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					本学期课表new window = new 本学期课表new();
-					window.frame.setVisible(true);
+					//本学期课表new window = new 本学期课表new(u);
+					//window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -42,7 +44,7 @@ public class 本学期课表new {
 	/**
 	 * Create the application.
 	 */
-	public 本学期课表new() {
+	public 本学期课表new(User u) {
 		initialize();
 	}
 

@@ -14,10 +14,13 @@ import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import java.awt.Font;
 
+import entity.User;
+
 public class studentinfo extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
+	User user;
 
 	/**
 	 * Launch the application.

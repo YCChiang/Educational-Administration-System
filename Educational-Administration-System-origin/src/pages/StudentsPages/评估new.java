@@ -13,10 +13,13 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import entity.Student;
+import entity.User;
+
 public class 评估new {
 
 	private JFrame frame;
-
+	public User user;
 	/**
 	 * Launch the application.
 	 */
@@ -24,8 +27,8 @@ public class 评估new {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					评估new window = new 评估new();
-					window.frame.setVisible(true);
+					//评估new window = new 评估new();
+					//window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -36,7 +39,7 @@ public class 评估new {
 	/**
 	 * Create the application.
 	 */
-	public 评估new() {
+	public 评估new(User u) {
 		initialize();
 	}
 

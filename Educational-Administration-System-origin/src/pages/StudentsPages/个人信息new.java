@@ -35,6 +35,8 @@ public class 个人信息new {
 	private JTextField textField_7;
 	private JTextField textField_8;
 	private JTextField textField_9;
+	
+	public User user;
 
 	/**
 	 * Launch the application.

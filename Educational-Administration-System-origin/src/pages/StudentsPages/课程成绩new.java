@@ -12,11 +12,14 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
+import entity.Student;
+import entity.User;
 
 public class 课程成绩new {
 
 	private JFrame frame;
 	private JTextField textField;
+	public User user;
 
 	/**
 	 * Launch the application.
@@ -25,8 +28,8 @@ public class 课程成绩new {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					课程成绩new window = new 课程成绩new();
-					window.frame.setVisible(true);
+					//课程成绩new window = new 课程成绩new();
+					//window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -37,7 +40,7 @@ public class 课程成绩new {
 	/**
 	 * Create the application.
 	 */
-	public 课程成绩new() {
+	public 课程成绩new(User u) {
 		initialize();
 	}
 

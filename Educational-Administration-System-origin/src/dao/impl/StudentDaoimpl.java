@@ -110,7 +110,7 @@ public class StudentDaoimpl implements StudentDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		try {
-			String sql = "INSERT INTO student (id, name, gender, department, specialy, class, age, admission_time, address, tel) "
+			String sql = "INSERT INTO student (id, name, gender, department, specialty, class, age, admission_time, address, tel) "
 					+ "VALUES (?,?,?,?,?,?,?,?,?,?);";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1,s.getId());

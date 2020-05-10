@@ -83,8 +83,8 @@ public class manager extends JFrame implements ActionListener
 	        //JScrollPane jsp = new JScrollPane(jta);
 	       // jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 	        //this.add(jsp);
-	        int w = (Toolkit.getDefaultToolkit().getScreenSize().width - 500) / 2;
-			int h = (Toolkit.getDefaultToolkit().getScreenSize().height - 400) / 2;
+	        int w = (Toolkit.getDefaultToolkit().getScreenSize().width - 1200) / 2;
+			int h = (Toolkit.getDefaultToolkit().getScreenSize().height - 900) / 2;
 			this.setLocation(w, h);
 	        
 	        item1.addActionListener(this);
@@ -97,7 +97,7 @@ public class manager extends JFrame implements ActionListener
 			item8.addActionListener(this);
 			item9.addActionListener(this);
 			
-	        jl1 = new JLabel(new ImageIcon("F://1.jpg"));
+	        jl1 = new JLabel(new ImageIcon("image/OIP.jpg"));
 	        this.add(jl1);
 	        // 展示
 	        this.setTitle("教务管理系统（管理员端）");
@@ -145,7 +145,8 @@ public class manager extends JFrame implements ActionListener
 			{
 				new 修改课程名单new(u);
 			}
-			this.setVisible(false);
+			//this.setVisible(false);
+			this.dispose();
 		}
 
 }

@@ -17,7 +17,7 @@ import entity.Student;
 import entity.User;
 import service.impl.administratorinfomationServiceimpl;
 
-public class 导入学生信息new {
+public class 导入学生信息new implements ActionListener {
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -29,6 +29,7 @@ public class 导入学生信息new {
 	private JTextField textField_7;
 	private JTextField textField_8;
 	private JTextField textField_9;
+	JButton button_1;
 	public User u;
 
 	/**
@@ -38,14 +39,14 @@ public class 导入学生信息new {
 	/**
 	 * Create the application.
 	 */
-	public 导入学生信息new(User user) {
-		initialize(user);
-	}
+//	public 导入学生信息new(User user) {
+//		initialize(user);
+//	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(User u1) {
+	public 导入学生信息new(User u1) {
 		u = u1;
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 580);
@@ -149,13 +150,9 @@ public class 导入学生信息new {
 			}
 		});
 
-		JButton button_1 = new JButton("返回");
-		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == button_1)
-					new manager(u);
-			}
-		});
+		button_1 = new JButton("返回");
+		button_1.addActionListener(this);
+
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(groupLayout.createParallelGroup(Alignment.TRAILING).addGroup(groupLayout
 				.createSequentialGroup()
@@ -235,5 +232,13 @@ public class 导入学生信息new {
 				.addContainerGap()));
 		frame.getContentPane().setLayout(groupLayout);
 		frame.setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == button_1) {
+			new manager(u);
+			this.frame.dispose();
+		}
 	}
 }

@@ -103,7 +103,7 @@ public class TeacherDaoimpl implements TeacherDao{
 		int result = 0;
 		try {
 			String sql = "INSERT INTO teacher (id, name, gender, department, title, tel) "
-					+ "VALUES (?,?,?,?,?);";
+					+ "VALUES (?,?,?,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1,t.getId());
 			pstmt.setString(2, t.getName());

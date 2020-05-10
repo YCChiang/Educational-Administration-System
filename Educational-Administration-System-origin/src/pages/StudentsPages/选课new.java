@@ -61,12 +61,34 @@ public class 选课new {
 		textField = new JTextField();
 		textField.setColumns(10);
 		
+		// TODO 添加下拉选课
+		/*
+		 * 通过下拉选框确定搜索的数据类型
+		 * 类型选项有：课程号，课程名
+		 */
+		
+		// TODO 添加两个单选框
+		/*
+		 * 一个单选框为“只显示有课容量的课程”
+		 * 一个单选框为“只显示不与自己课程表冲突的课”
+		 */
+		
 		JButton button = new JButton("搜索");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button)
 				{
-					//搜索所有课程
+					// TODO 判断搜索框里是否输入
+					
+					
+					// TODO 判断两个单选框是否勾选，勾选了为true，反之为false
+					boolean ISFull = true; // “只显示有课容量的课程”
+					boolean IsConfilct = true; //“只显示不与自己课程表冲突的课”
+					
+					// TODO 判断下拉菜单输入的类型
+					// 课程名
+					
+						
 				}
 			}
 		});

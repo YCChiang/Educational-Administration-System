@@ -6,7 +6,8 @@ import dao.impl.ClassInfoDaoimpl;
 import entity.ClassInfo;
 import service.administratorClassService;
 
-public class administratorClassServiceimpl implements administratorClassService{
+public class administratorClassServiceimpl implements administratorClassService {
+	ClassInfoDaoimpl DAO = new ClassInfoDaoimpl();
 
 	@Override
 	public List<ClassInfo> findClassInfoList() {
@@ -17,7 +18,6 @@ public class administratorClassServiceimpl implements administratorClassService{
 	@Override
 	public int modify(ClassInfo classinfo) {
 		// TODO Auto-generated method stub
-		ClassInfoDaoimpl DAO = new ClassInfoDaoimpl();
 		return DAO.update(classinfo);
 	}
 

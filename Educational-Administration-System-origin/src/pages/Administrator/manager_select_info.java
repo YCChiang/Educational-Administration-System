@@ -1,11 +1,13 @@
 package pages.Administrator;
 
+<<<<<<< HEAD
 import java.awt.EventQueue;
 import java.awt.Toolkit;
 
+=======
+>>>>>>> 446a23b39f6d2ad547f41d78e3614c7dbbde88a3
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.BorderLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JTextField;

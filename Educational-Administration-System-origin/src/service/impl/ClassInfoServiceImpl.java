@@ -2,8 +2,6 @@ package service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-
 import entity.ClassInfo;
 import entity.ClassSchedule;
 import entity.ElectiveInfo;

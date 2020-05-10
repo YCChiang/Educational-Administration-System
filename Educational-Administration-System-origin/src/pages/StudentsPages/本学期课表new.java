@@ -15,7 +15,6 @@ import entity.ClassInfo;
 import entity.ClassSchedule;
 import entity.User;
 import service.impl.ClassInfoServiceImpl;
-import service.impl.ElectiveInfoServiceImpl;
 import service.impl.ClassScheduleServiceImpl;
 
 public class 本学期课表new {

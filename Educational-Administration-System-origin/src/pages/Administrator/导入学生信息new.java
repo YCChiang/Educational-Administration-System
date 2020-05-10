@@ -1,7 +1,6 @@
 package pages.Administrator;
 
 
-import java.awt.EventQueue;
 import java.awt.Toolkit;
 
 

@@ -1,6 +1,5 @@
 package pages.Administrator;
 
-import java.awt.EventQueue;
 import java.awt.Toolkit;
 
 
@@ -15,7 +14,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import entity.Student;
-import entity.User;
 
 public class student_select_info implements ActionListener {
 

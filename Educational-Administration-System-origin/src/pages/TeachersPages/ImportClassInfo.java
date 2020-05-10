@@ -140,7 +140,7 @@ public class ImportClassInfo extends JFrame {
 				info.setStart_week(Integer.parseInt(textField_5.getText()));
 				info.setEnd_week(Integer.parseInt(textField_6.getText()));
 				info.setCredit(Integer.parseInt(textField_8.getText()));
-				info.setYear(textField_7.getText());
+				info.setYear(textField_7.getText()); 
 				classinfoservice.add(info);
 			}
 		});

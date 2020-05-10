@@ -52,7 +52,7 @@ public class 教学评估new {
 				{
 		    		if(checkBox.isSelected())
 		    		{
-		    			评估new.main(null);
+		    			new 评估new(user);
 		    			frame.setVisible(false);
 		    		}
 				}

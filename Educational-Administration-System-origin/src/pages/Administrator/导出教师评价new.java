@@ -8,8 +8,12 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
+
+import entity.Comment;
 import entity.User;
+import service.impl.administratorCommentServiceimpl;
 public class 导出教师评价new {
 
 	private JFrame frame;
@@ -43,8 +47,14 @@ public class 导出教师评价new {
 		
 		JLabel label_1 = new JLabel("评价");
 		
+		/*
+		 * 
+		 */
+		administratorCommentServiceimpl service = new administratorCommentServiceimpl();
+		List<Comment> list = service.findCommentList();
+		int size = list.size();
 		textField = new JTextField();
-		textField.setColumns(10);
+	
 		
 		JButton button = new JButton("返回");
 		button.addActionListener(new ActionListener() {

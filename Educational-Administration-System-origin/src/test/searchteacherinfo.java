@@ -6,7 +6,6 @@ import entity.Teacher;
 public class searchteacherinfo {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Teacher t ;
 		TeacherDaoimpl t1 = new TeacherDaoimpl();
 		t = t1.searchByTeacherid("0011");

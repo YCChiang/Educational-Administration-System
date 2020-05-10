@@ -6,7 +6,6 @@ import entity.ProfProgram;
 public class insertprofprogram {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		ProfprogramDaoimpl p = new ProfprogramDaoimpl();
 		ProfProgram PP = new ProfProgram();
 		PP.setClass_id("1");

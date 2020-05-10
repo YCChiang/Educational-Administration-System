@@ -6,7 +6,6 @@ import entity.Teacher;
 public class modifyteacherinfo {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Teacher t =new Teacher();
 		TeacherDaoimpl t1 = new TeacherDaoimpl();
 		t.setId("0011");

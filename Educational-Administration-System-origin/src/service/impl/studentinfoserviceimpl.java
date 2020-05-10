@@ -8,7 +8,6 @@ public class studentinfoserviceimpl implements StudentInfomationService{
 	StudentDaoimpl DAO= new StudentDaoimpl();
 	@Override
 	public Student findById(String id) {
-		// TODO Auto-generated method stub
 		Student stu = DAO.searchByStudentid(id);
 		return stu;
 	}

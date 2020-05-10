@@ -9,7 +9,6 @@ import entity.Student;
 public class searchbystudentid {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Student t =new Student();
 		t.setId("2017011315");
 		t.setDepartment("石油学院");

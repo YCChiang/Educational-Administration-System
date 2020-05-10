@@ -1,1 +1,4 @@
 /.metadata/
+/python/.vscode
+/python/*.xlsx
+/python/*.csv

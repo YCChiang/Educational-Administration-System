@@ -7,10 +7,9 @@ import entity.ProfProgram;
 import service.studentprofprogramService;
 
 public class studentprofprogramServiceimpl implements studentprofprogramService {
-
+	ProfprogramDaoimpl DAO = new ProfprogramDaoimpl();
 	@Override
 	public List<ProfProgram> findProfProgramList(String specialty) {
-		ProfprogramDaoimpl DAO = new ProfprogramDaoimpl();
 		return DAO.searchBySpecialty(specialty);
 	}
 

@@ -7,10 +7,9 @@ import entity.Comment;
 import service.TeacherCommentService;
 
 public class TeacherCommentServiceimpl implements TeacherCommentService {
-
+	CommentDaoimpl DAO = new CommentDaoimpl();
 	@Override
 	public List<Comment> findCommentList(String teacher_id) {
-		CommentDaoimpl DAO = new CommentDaoimpl();
 		return DAO.searchByTeacherid(teacher_id);
 	}
 	

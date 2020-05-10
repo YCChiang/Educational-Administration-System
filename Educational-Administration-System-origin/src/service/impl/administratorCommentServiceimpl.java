@@ -7,10 +7,9 @@ import entity.Comment;
 import service.administratorCommentService;
 
 public class administratorCommentServiceimpl implements administratorCommentService {
-
+	CommentDaoimpl DAO = new CommentDaoimpl();
 	@Override
 	public List<Comment> findCommentList() {
-		CommentDaoimpl DAO = new CommentDaoimpl();
 		return DAO.searchall();
 	}
 

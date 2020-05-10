@@ -1,6 +1,5 @@
 package pages.Administrator;
 
-import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,8 +9,12 @@ import javax.swing.JButton;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import entity.Teacher;
 import entity.User;
+import service.impl.TeacherInformationServiceimpl;
 public class 查询教师信息new {
 
 	private JFrame frame;
@@ -47,7 +50,15 @@ public class 查询教师信息new {
 		JButton button = new JButton("查询");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new manager_select_info(u);
+	//			new manager_select_info(u);
+				TeacherInformationServiceimpl service = new TeacherInformationServiceimpl();
+				Teacher info = service.findById(textField.getText());
+				if(info == null) {
+					JOptionPane.showMessageDialog(null, "没有该教师");
+				}
+				else {
+					new teacher_select_info(info);
+				}
 			}
 		});
 		

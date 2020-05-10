@@ -1,9 +1,6 @@
 package pages.TeachersPages;
 
-import java.awt.BorderLayout;
 import entity.User;
-import java.awt.EventQueue;
-import pages.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;

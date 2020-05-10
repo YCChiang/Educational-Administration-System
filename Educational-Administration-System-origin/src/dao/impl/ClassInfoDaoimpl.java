@@ -145,7 +145,7 @@ public class ClassInfoDaoimpl implements ClassInfoDao{
 	}
 
 	@Override
-	public ClassInfo selectById(String class_id) {
+	public ClassInfo selectOne(String class_id) {
 		Connection con = connect.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -366,6 +366,52 @@ public class ClassInfoDaoimpl implements ClassInfoDao{
 			String sql = "select * from classinfo where year = ? and teacher_id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, year);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				ClassInfo temp = new ClassInfo();
+				temp.setId(rs.getString("id"));
+				temp.setName(rs.getString("name"));
+				temp.setHour(rs.getInt("hour"));
+				temp.setCapacity(rs.getInt("capacity"));
+				temp.setYear(rs.getString("year"));
+				temp.setStart_week(rs.getInt("start_week"));
+				temp.setEnd_week(rs.getInt("end_week"));
+				temp.setTeacher_id(rs.getString("teacher_id"));
+				temp.setTeacher_name(rs.getString("teacher_name"));
+				temp.setCredit(rs.getInt("credit"));
+				result.add(temp);
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();		
+				if(rs != null)
+					rs.close();
+				if(con != null)
+					con.close();
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public List<ClassInfo> selectByIdAndYear(String id, String year) {
+		Connection con = connect.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		List<ClassInfo> result = new ArrayList<ClassInfo>();
+		try {
+			String sql = "select * from classinfo where id = %?% and year = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, year);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ClassInfo temp = new ClassInfo();

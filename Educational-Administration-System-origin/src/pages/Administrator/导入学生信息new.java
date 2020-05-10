@@ -133,11 +133,12 @@ public class 导入学生信息new implements ActionListener {
 						info.setTel(textField_8.getText());
 
 						administratorinfomationServiceimpl service = new administratorinfomationServiceimpl();
-						if (service.addStudent(info) == 1)
+						int ans = service.addStudent(info);
+						if (ans == 1)
 							JOptionPane.showMessageDialog(null, "导入成功");
-						else if (service.addStudent(info) == 0) {
+						else if (ans == 0) {
 							JOptionPane.showMessageDialog(null, "导入失败,查看数据库相关问题");
-						} else if (service.addStudent(info) == 2)
+						} else if (ans == 2)
 							JOptionPane.showMessageDialog(null, "学号被占用,请修改");
 						textField.setText(null);
 						textField_1.setText(null);

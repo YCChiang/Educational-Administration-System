@@ -1,6 +1,9 @@
 package pages.TeachersPages;
 
 import java.awt.BorderLayout;
+
+import service.TeacherInfomationService;
+import service.impl.*;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -20,6 +23,7 @@ import java.awt.SystemColor;
 import javax.swing.UIManager;
 import javax.swing.JTable;
 import entity.User;
+import entity.Teacher;
 public class TeachersInfo extends JFrame {
 
 	private JPanel contentPane;
@@ -30,6 +34,8 @@ public class TeachersInfo extends JFrame {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	public User u;
+	public TeacherInformationServiceimpl tinfo;
+	static public Teacher t;
 	/**
 	 * Launch the application.
 	 */
@@ -114,12 +120,28 @@ public class TeachersInfo extends JFrame {
 		JButton button_2 = new JButton("返回");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new teacher(u);
+				new teacher(user);
 			}
 		});
 		button_2.setFont(new Font("微软雅黑", Font.PLAIN, 15));
 		button_2.setBounds(282, 98, 113, 27);
 		contentPane.add(button_2);
+		
+	    t= tinfo.findById(user.getname());
+		textField.setText(t.getName());
+		textField_1.setText(t.getId());
+		if(t.getGender()==1)
+		{
+			textField_2.setText("男");
+		}
+		else if(t.getGender()==0)
+		{
+			textField_2.setText("女");
+		}
+		textField_3.setText(t.getDepartment());
+		textField_4.setText(String.valueOf(t.getTel()));
+		textField_5.setText(t.getTitle());
+		
 		this.setVisible(true);
 	}
 }

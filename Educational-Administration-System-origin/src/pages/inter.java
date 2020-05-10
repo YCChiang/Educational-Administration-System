@@ -20,7 +20,6 @@ public class inter extends JFrame implements ActionListener {
 	JTextField jtf1;
 	JPasswordField jpf1;
 	JCheckBox jcb1, jcb2, jcb3;
-	User u;
 
 	public static void main(String[] args) {
 		inter d1 = new inter();
@@ -99,7 +98,7 @@ public class inter extends JFrame implements ActionListener {
 				if (get != null) {
 					if (jcb1.isSelected()) {
 						if (get.getpassword().equals(new String(jpf1.getPassword())) && get.gettype().equals("管理员")) {
-							new manager(u);
+							new manager(get);
 							this.setVisible(false);
 						} else {
 							JOptionPane.showMessageDialog(null, "密码错误", "错误提示", JOptionPane.ERROR_MESSAGE);
@@ -107,7 +106,7 @@ public class inter extends JFrame implements ActionListener {
 					}
 					if (jcb2.isSelected()) {
 						if (get.getpassword().equals(new String(jpf1.getPassword())) && get.gettype().equals("教师")) {
-							new teacher(u);
+							new teacher(get);
 							this.setVisible(false);
 						} else {
 							JOptionPane.showMessageDialog(null, "密码错误", "错误提示", JOptionPane.ERROR_MESSAGE);
@@ -115,7 +114,7 @@ public class inter extends JFrame implements ActionListener {
 					}
 					if (jcb3.isSelected()) {
 						if (get.getpassword().equals(new String(jpf1.getPassword())) && get.gettype().equals("学生")) {
-							new student(u);
+							new student(get);
 							this.setVisible(false);
 						} else {
 							JOptionPane.showMessageDialog(null, "密码错误", "错误提示", JOptionPane.ERROR_MESSAGE);

@@ -1,6 +1,7 @@
 package pages.TeachersPages;
 
 import java.awt.BorderLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -25,12 +26,12 @@ public class teacher extends JFrame implements ActionListener
 	    JMenu menu1, menu2, menu3, menu4;
 	    JMenuItem item1,item2, item3, item4, item5, item6,item7;
 	    JLabel jl1;
-	    User u1;
+	    public User u1;
 
 
 	    public teacher(User u) {
 	    	u1 = u;
-
+	    	
 	        // 创建工具条
 	        jtb = new JToolBar();
 
@@ -96,7 +97,8 @@ public class teacher extends JFrame implements ActionListener
 	        this.setTitle("教务管理系统（教师端）");
 	        this.setSize(1200, 900);
 	        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	        this.setVisible(true);
+			this.setVisible(true);
+
 
 	    }
 	    
@@ -105,8 +107,6 @@ public class teacher extends JFrame implements ActionListener
 	    	if(ev.getSource()==item7)
 			{
 	    		new inter();
-	    		
-	    		
 			}
 	    	if(ev.getSource()==item1)
 			{
@@ -114,7 +114,7 @@ public class teacher extends JFrame implements ActionListener
 			}
 			if(ev.getSource()==item2)
 			{
-				new TeacherVisitClassInfo(u1);
+				new TeachersInfo(u1);
 			}
 			if(ev.getSource()==item3)
 			{

@@ -1,6 +1,7 @@
 package pages.Administrator;
 
 import java.awt.EventQueue;
+import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 import javax.swing.GroupLayout;
@@ -51,6 +52,11 @@ public class 导入学生信息new implements ActionListener {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 580);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		int w = (Toolkit.getDefaultToolkit().getScreenSize().width - 450) / 2;
+		int h = (Toolkit.getDefaultToolkit().getScreenSize().height - 580) / 2;
+		this.frame.setLocation(w, h);
+
 
 		JLabel label = new JLabel("导入学生信息");
 

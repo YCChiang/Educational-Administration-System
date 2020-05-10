@@ -47,7 +47,7 @@ public class 查询教师信息new {
 		JButton button = new JButton("查询");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new manager_select_info(u);
+	//			new manager_select_info(u);
 			}
 		});
 		

@@ -35,17 +35,28 @@ public class ElectiveInfoServiceImpl implements ElectiveInfoService {
 		return false;
 	}
 	
-	public String elective(ClassInfo classInfo, String student_id) {
+	public Massage elective(ClassInfo classInfo, String student_id) {
+		Massage msg = new Massage();
 		if(ClassInfoService.IsConflictToOther(classInfo, student_id))
-			return classInfo.getName()+"课程与已选课程冲突！";
-		
-		// 将选课信息插入数据库中
-		ElectiveInfo info = new ElectiveInfo();
-		info.setStudent_id(student_id);
-		info.setClass_id(classInfo.getId());
-		if(add(info)==1)
-			return "选课成功";
-		else
-			return "选课失败";
+		{
+			msg.setIsError(true);
+			msg.setContent(classInfo.getName()+"课程与已选课程冲突！");
+		}
+		else {
+			// 将选课信息插入数据库中
+			ElectiveInfo info = new ElectiveInfo();
+			info.setStudent_id(student_id);
+			info.setClass_id(classInfo.getId());
+			if(add(info)==1)
+			{
+				msg.setIsError(false);
+				msg.setContent("选课成功");
+			}
+			else{
+				msg.setIsError(true);
+				msg.setContent("选课失败");
+			}
+		}		
+		return msg;
 	}
 }

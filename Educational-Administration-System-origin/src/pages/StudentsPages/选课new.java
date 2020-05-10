@@ -14,16 +14,26 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 import entity.Student;
 import entity.User;
+import entity.ClassInfo;
+
+import service.impl.ClassInfoServiceImpl;
+import service.impl.ElectiveInfoServiceImpl;
+import service.impl.Massage;
 
 public class 选课new {
 
 	private JFrame frame;
 	private JTextField textField;
 	public User user;
+	ClassInfoServiceImpl classinfoservice = null;
+	ElectiveInfoServiceImpl electiveinfoservice = null;
+	List<ClassInfo> classInfo = null;
+	
 
 	/**
 	 * Launch the application.
@@ -34,6 +44,8 @@ public class 选课new {
 	 */
 	public 选课new(User u) {
 		initialize(u);
+		classinfoservice = new ClassInfoServiceImpl();
+		electiveinfoservice = new ElectiveInfoServiceImpl();
 	}
 
 	/**
@@ -68,32 +80,54 @@ public class 选课new {
 				if(e.getSource() == button)
 				{
 					// TODO 判断搜索框里是否输入
-					
+					String input = null;
 					
 					// TODO 判断两个单选框是否勾选，勾选了为true，反之为false
-					boolean ISFull = true; // “只显示有课容量的课程”
-					boolean IsConfilct = true; //“只显示不与自己课程表冲突的课”
+					boolean IsFull = true; // “只显示有课容量的课程”
+					boolean IsConflict = true; //“只显示不与自己课程表冲突的课”
 					
 					// TODO 判断下拉菜单输入的类型
-					// 课程名
+					// 如果是课程名
+					// List<ClassInfo> classInfo = classinfoservice.seachClassByName(input, "2020春", user.getname(), IsFull, IsConflict);
+					// 如果是课程号
+					// List<ClassInfo> classInfo = classinfoservice.seachClassById(input, "2020春", user.getname(), IsFull, IsConflict);
 					
-						
+					// 判断是否有信息
+
+					// TODO 课程信息插入表格，用addROW
+					
 				}
 			}
 		});
 		
-		JCheckBox checkBox = new JCheckBox("软件工程");
+		/*
+		 * 添加表格：教程http://c.biancheng.net/view/1258.html
+		 * 列名有：课程ID，课程名称，教师名称，课容量，开课学期，开课周
+		 */
 		
+		JCheckBox checkBox = new JCheckBox("软件工程");// 不要了
 		JButton button_1 = new JButton("选课");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button_1)
 				{
-		    		if(checkBox.isSelected())
-		    		{
-		    			JOptionPane.showMessageDialog(null, "选课成功");
-		    			frame.setVisible(false);
-		    		}
+					// TODO 判断表格里是否有内容和是否有被选列
+					/*
+					 * 监听表格，用getSelectedRow
+					 * getSelectedRow会返回索引
+					 */
+					ClassInfo selected = classInfo.get(0);
+					
+					Massage msg = electiveinfoservice.elective(selected, user.getname());
+					if(msg.isError()) {
+						// TODO 警告弹窗，消息为msg.getContent()						
+					}
+					else {
+						// TODO 提示弹窗，消息为msg.getContent()	
+						
+						// TODO 删除索引对应的表格行，更新表格
+					}
+						
 				}
 			}
 		});

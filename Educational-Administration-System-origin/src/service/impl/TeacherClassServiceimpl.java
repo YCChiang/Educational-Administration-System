@@ -16,7 +16,7 @@ public class TeacherClassServiceimpl implements TeacherClassService{
 	
 	@Override
 	public int addClassinfo(ClassInfo Classinfo) {
-		ClassInfo old = IDAO.selectById(Classinfo.getId());
+		ClassInfo old = IDAO.selectOne(Classinfo.getId());
 		if(old!=null) {           //课程号重复,无法添加
 			return 2;
 		}

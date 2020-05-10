@@ -1,7 +1,7 @@
 package service.impl;
 
 public class Massage {
-	private boolean IsError;
+	private boolean error;
 	private String content;
 	public String getContent() {
 		return content;
@@ -9,10 +9,10 @@ public class Massage {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public boolean isIsError() {
-		return IsError;
+	public boolean isError() {
+		return error;
 	}
 	public void setIsError(boolean isError) {
-		IsError = isError;
+		error = isError;
 	}
 }

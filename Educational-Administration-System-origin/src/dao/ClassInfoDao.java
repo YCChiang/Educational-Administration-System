@@ -6,7 +6,8 @@ import entity.ClassInfo;
 
 public interface ClassInfoDao{
 	public int insert(ClassInfo grade);
-	public ClassInfo selectById(String class_id);
+	public ClassInfo selectOne(String class_id);
+	public List<ClassInfo> selectByIdAndYear(String id, String year);
 	public List<ClassInfo> selectByTeacherid(String teacher_id);
 	public List<ClassInfo> selectByTeacheridAndYear(String teacher_id, String year);
 	public List<ClassInfo> selectByName(String class_name);

@@ -55,7 +55,7 @@ public class 导出教师评价new {
 				if(e.getSource() == button)
 				{
 					frame.setVisible(false);
-					new manager();
+					new manager(u);
 					
 				}
 			}

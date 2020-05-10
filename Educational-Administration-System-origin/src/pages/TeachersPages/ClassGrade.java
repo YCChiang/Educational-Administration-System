@@ -58,7 +58,7 @@ public class ClassGrade extends JFrame {
 		btnNewButton.setBounds(166, 262, 63, 27);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new TeacherVisitGrade();
+				new TeacherVisitGrade(u);
 			}
 		});
 		

@@ -24,30 +24,19 @@ public class 课程成绩new {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					//课程成绩new window = new 课程成绩new();
-					//window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 */
 	public 课程成绩new(User u) {
-		initialize();
+		initialize(u);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(User u) {
+		user = u;
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 354);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,7 +49,7 @@ public class 课程成绩new {
 				if(e.getSource() == button)
 				{
 					frame.setVisible(false);
-					new student();
+					new student(user);
 					
 				}
 			}
@@ -125,6 +114,7 @@ public class 课程成绩new {
 					.addGap(24))
 		);
 		frame.getContentPane().setLayout(groupLayout);
+		frame.setVisible(true);
 	}
 
 }

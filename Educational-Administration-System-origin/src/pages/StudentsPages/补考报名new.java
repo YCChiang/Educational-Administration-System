@@ -26,30 +26,20 @@ public class 补考报名new {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					//补考报名new window = new 补考报名new();
-					//window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the application.
 	 */
 	public 补考报名new(User u) {
-		initialize();
+		initialize(u);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(User u1) {
+		user = u1;
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 366);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -89,7 +79,7 @@ public class 补考报名new {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button_2)
 				{
-					new student();
+					new student(user);
 					frame.setVisible(false);
 				}
 			}
@@ -133,6 +123,7 @@ public class 补考报名new {
 					.addGap(32))
 		);
 		frame.getContentPane().setLayout(groupLayout);
+		frame.setVisible(true);
 	}
 
 }

@@ -34,13 +34,14 @@ public class 本学期课表new {
 	 * Create the application.
 	 */
 	public 本学期课表new(User u) {
-		initialize();
+		initialize(u);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(User u1) {
+		user = u1;
 		frame = new JFrame();
 		frame.setBounds(100, 100, 451, 425);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -93,7 +94,7 @@ public class 本学期课表new {
 				if(e.getSource() == button)
 				{
 					frame.setVisible(false);
-					new student();
+					new student(user);
 				}
 			}
 		});

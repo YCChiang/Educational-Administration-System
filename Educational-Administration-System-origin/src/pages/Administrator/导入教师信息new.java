@@ -92,7 +92,7 @@ public class 导入教师信息new {
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button_1)
-					new manager();
+					new manager(u);
 			}
 		});
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());

@@ -12,7 +12,7 @@ import entity.User;
 
 public class student extends JFrame implements ActionListener 
 {
-		static User user ;
+		public  User user ;
 	    // 工具条
 	    JToolBar jtb;
 	    // 菜单条组件
@@ -21,12 +21,18 @@ public class student extends JFrame implements ActionListener
 	    JMenuItem item1,item2, item3, item4, item5, item6, item7,item8,item9,item10;
 	    JLabel jl1;
 
+
+	   /* public static void main(String[] args) {
+	        // TODO Auto-generated method stub
+=======
 	    public static void main(String[] args) {
+>>>>>>> 42ee6887ec0015899f31a903c517596b65e0234a
 	        //new student();
 
-	    }
+	    }*/
 
-	    public student() {
+	    public student(User u) {
+	    	user = u;
 	        // 创建工具条
 	        jtb = new JToolBar();
 	        jmb = new JMenuBar();

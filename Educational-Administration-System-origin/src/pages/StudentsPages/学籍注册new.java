@@ -22,30 +22,19 @@ public class 学籍注册new {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					//学籍注册new window = new 学籍注册new();
-					//window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.
 	 */
 	public 学籍注册new(User u) {
-		initialize();
+		initialize(u);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(User u) {
+		user = u;
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -59,7 +48,7 @@ public class 学籍注册new {
 				{
 		    		
 		    		JOptionPane.showMessageDialog(null, "注册成功");
-		    		new student();
+		    		new student(user);
 		    		frame.setVisible(false);
 				}
 			}
@@ -70,7 +59,7 @@ public class 学籍注册new {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button_1)
 				{
-					new student();
+					new student(user);
 					frame.setVisible(false);
 				}
 			}
@@ -101,6 +90,7 @@ public class 学籍注册new {
 					.addContainerGap(75, Short.MAX_VALUE))
 		);
 		frame.getContentPane().setLayout(groupLayout);
+		frame.setVisible(true);
 	}
 
 }

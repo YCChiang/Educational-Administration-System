@@ -6,6 +6,7 @@ import javax.swing.*;
 import entity.User;
 
 import java.awt.event.*;
+import pages.inter;
 
 public class student extends JFrame implements ActionListener 
 {

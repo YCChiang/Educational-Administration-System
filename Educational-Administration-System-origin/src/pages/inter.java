@@ -7,6 +7,9 @@ import entity.User;
 import service.impl.UserServiceImpl;
 
 import java.awt.event.*;
+import pages.StudentsPages.student;
+import pages.TeachersPages.teacher;
+import pages.Administrator.manager;
 
 public class inter extends JFrame implements ActionListener {
 	JPanel jp1, jp2, jp3, jp4;

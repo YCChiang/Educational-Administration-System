@@ -11,8 +11,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JToolBar;
+import pages.inter;
 
-class manager extends JFrame implements ActionListener 
+public class manager extends JFrame implements ActionListener 
 {
 
 	    // 工具条

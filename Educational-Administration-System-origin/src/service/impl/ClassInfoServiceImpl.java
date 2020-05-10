@@ -23,8 +23,8 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 	}
 
 	@Override
-	public ClassInfo findById(String Id) {
-		return classinfoDao.selectById(Id);
+	public ClassInfo findOne(String Id) {
+		return classinfoDao.selectOne(Id);
 	}
 	
 	public boolean IsConflictToOther(ClassInfo classInfo, String student_id) {
@@ -34,7 +34,7 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 		// 查看选择的课程是否与已选课程在教学周上有冲突
 		if(!electiveInfo.isEmpty()) {
 			for(ElectiveInfo e:electiveInfo) {
-				ClassInfo temp = classinfoDao.selectById(e.getClass_id());
+				ClassInfo temp = classinfoDao.selectOne(e.getClass_id());
 				if(temp.getEnd_week() > classInfo.getStart_week() && temp.getStart_week() < classInfo.getStart_week()) {
 					conflictClass.add(e.getClass_id());					
 				}
@@ -62,27 +62,51 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 	 * IsFall: false为只查找课容量不为0的课程，0true为包括课容量为0的课程
 	 * IsConflict: false为只查找与自己选课不冲突的课程，true为包括冲突课程
 	 */
-	public List<ClassInfo> seachClassByName(String name, String year,String student_id, boolean IsFall, boolean IsConflict) {
+	public List<ClassInfo> seachClassByName(String name, String year,String student_id, boolean IsFull, boolean IsConflict) {
 		List<ClassInfo> Infos = findByNameAndYear(name, year);		
-		if(!IsFall) {
-			for(ClassInfo info:Infos) {
-				if(info.getCapacity() == electiveinfoDao.selectByClassID(info.getId()).size()) {
-					Infos.remove(info);
+		if(!Infos.isEmpty())
+		{
+			if(!IsFull) {
+				for(ClassInfo info:Infos) {
+					if(info.getCapacity() == electiveinfoDao.selectByClassID(info.getId()).size()) {
+						Infos.remove(info);
+					}
+				}
+			}
+			
+			if(!IsConflict) {
+				for(ClassInfo info:Infos) {
+					if(IsConflictToOther(info, student_id)) {
+						Infos.remove(info);
+					}
 				}
 			}
 		}
-		
-		if(!IsConflict) {
-			for(ClassInfo info:Infos) {
-				if(IsConflictToOther(info, student_id)) {
-					Infos.remove(info);
-				}
-			}
-		}
-		return null;
+		return Infos;
 	}
 	
-	
+	public List<ClassInfo> seachClassById(String id, String year,String student_id, boolean IsFull, boolean IsConflict) {
+		List<ClassInfo> Infos = findByIdAndYear(id, year);
+		if(!Infos.isEmpty())
+		{
+			if(!IsFull) {
+				for(ClassInfo info:Infos) {
+					if(info.getCapacity() == electiveinfoDao.selectByClassID(info.getId()).size()) {
+						Infos.remove(info);
+					}
+				}
+			}
+			
+			if(!IsConflict) {
+				for(ClassInfo info:Infos) {
+					if(IsConflictToOther(info, student_id)) {
+						Infos.remove(info);
+					}
+				}
+			}
+		}
+		return Infos;
+	}
 
 	@Override
 	public List<ClassInfo> findByTeacher_id(String teacher_id) {
@@ -112,6 +136,11 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 	@Override
 	public List<ClassInfo> findByNameAndYear(String name, String year) {
 		return classinfoDao.selectByNameAndYear(name, year);
+	}
+
+	@Override
+	public List<ClassInfo> findByIdAndYear(String id, String year) {
+		return classinfoDao.selectByIdAndYear(id, year);
 	}
 
 }

@@ -28,17 +28,13 @@ public class TeacherImportGrade extends JFrame {
 	private ClassGrade grade1;
 	public User u;
 
-	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the frame.
-	 */
+	public static void main(String [] args) {
+		new TeacherImportGrade(null);
+	}
 	public TeacherImportGrade(User user) {
 		u = user;
 		setTitle("教师成绩录入");
-		setType(Type.UTILITY);
+		//setType(Type.UTILITY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 565, 397);
 		contentPane = new JPanel();

@@ -26,30 +26,20 @@ public class 导入培养方案new {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					导入培养方案new window = new 导入培养方案new();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the application.
 	 */
-	public 导入培养方案new() {
-		initialize();
+	public 导入培养方案new(User user) {
+		initialize(user);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(User u1) {
+		u = u1;
 		frame = new JFrame();
 		frame.setBounds(100, 100, 475, 374);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -165,5 +155,6 @@ public class 导入培养方案new {
 					.addGap(24))
 		);
 		frame.getContentPane().setLayout(groupLayout);
+		frame.setVisible(true);
 	}
 }

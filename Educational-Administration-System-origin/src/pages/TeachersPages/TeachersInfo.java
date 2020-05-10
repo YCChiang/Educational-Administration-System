@@ -33,23 +33,12 @@ public class TeachersInfo extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TeachersInfo frame = new TeachersInfo();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public TeachersInfo() {
+	public TeachersInfo(User user) {
+		u = user;
 		setBackground(Color.CYAN);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -125,11 +114,12 @@ public class TeachersInfo extends JFrame {
 		JButton button_2 = new JButton("返回");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new teacher();
+				new teacher(u);
 			}
 		});
 		button_2.setFont(new Font("微软雅黑", Font.PLAIN, 15));
 		button_2.setBounds(282, 98, 113, 27);
 		contentPane.add(button_2);
+		this.setVisible(true);
 	}
 }

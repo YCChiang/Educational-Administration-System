@@ -31,23 +31,12 @@ public class TeacherImportGrade extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TeacherImportGrade frame = new TeacherImportGrade();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public TeacherImportGrade() {
+	public TeacherImportGrade(User user) {
+		u = user;
 		setTitle("教师成绩录入");
 		setType(Type.UTILITY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -133,10 +122,11 @@ public class TeacherImportGrade extends JFrame {
 		JButton button_1 = new JButton("返回");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new teacher();
+				new teacher(u);
 			}
 		});
 		button_1.setBounds(318, 280, 113, 27);
 		contentPane.add(button_1);
+		this.setVisible(true);
 	}
 }

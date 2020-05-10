@@ -21,23 +21,12 @@ public class ClassInformation extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ClassInformation frame = new ClassInformation();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public ClassInformation() {
+	public ClassInformation(User user) {
+		u = user;
 		setTitle("课程信息");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 521, 465);
@@ -72,6 +61,7 @@ public class ClassInformation extends JFrame {
 		});
 		button.setBounds(200, 378, 113, 27);
 		contentPane.add(button);
+		this.setVisible(true);
 	}
 
 }

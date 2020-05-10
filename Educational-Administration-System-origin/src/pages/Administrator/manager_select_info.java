@@ -30,30 +30,20 @@ public class manager_select_info {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					manager_select_info window = new manager_select_info();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	
 
 	/**
 	 * Create the application.
 	 */
-	public manager_select_info() {
-		initialize();
+	public manager_select_info(User user) {
+		initialize(user);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(User u1) {
+		u = u1;
 		frame = new JFrame();
 		frame.setBounds(100, 100, 439, 560);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -205,6 +195,7 @@ public class manager_select_info {
 					.addComponent(button))
 		);
 		frame.getContentPane().setLayout(groupLayout);
+		frame.setVisible(true);
 	}
 
 }

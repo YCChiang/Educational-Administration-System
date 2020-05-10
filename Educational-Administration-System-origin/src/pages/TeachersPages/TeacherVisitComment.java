@@ -22,23 +22,12 @@ public class TeacherVisitComment extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TeacherVisitComment frame = new TeacherVisitComment();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public TeacherVisitComment() {
+	public TeacherVisitComment(User user) {
+		u = user;
 		setTitle("课程评价查询");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -68,7 +57,7 @@ public class TeacherVisitComment extends JFrame {
 		JButton button = new JButton("查询");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new TeacherCommentInfo();
+				new TeacherCommentInfo(u);
 			}
 		});
 		button.setBounds(57, 186, 113, 27);
@@ -77,7 +66,7 @@ public class TeacherVisitComment extends JFrame {
 		JButton button_1 = new JButton("返回");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new teacher();
+				new teacher(u);
 			}
 		});
 		button_1.setBounds(241, 186, 113, 27);

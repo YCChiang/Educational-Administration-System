@@ -27,13 +27,9 @@ public class teacher extends JFrame implements ActionListener
 	    JLabel jl1;
 	    User u1;
 
-	    public static void main(String[] args) {
-	        // TODO Auto-generated method stub
-	        new teacher();
 
-	    }
-
-	    public teacher() {
+	    public teacher(User u) {
+	    	u1 = u;
 
 	        // 创建工具条
 	        jtb = new JToolBar();
@@ -108,13 +104,13 @@ public class teacher extends JFrame implements ActionListener
 		{
 	    	if(ev.getSource()==item7)
 			{
-	    		inter in =new inter();
+	    		new inter();
 	    		
 	    		
 			}
 	    	if(ev.getSource()==item1)
 			{
-	    		TeacherClass tc = new TeacherClass();
+	    		new TeacherClass(u1);
 			}
 			if(ev.getSource()==item2)
 			{
@@ -122,7 +118,7 @@ public class teacher extends JFrame implements ActionListener
 			}
 			if(ev.getSource()==item3)
 			{
-				new ImportClassInfo();
+				new ImportClassInfo(u1);
 			}
 			if(ev.getSource()==item4)
 			{
@@ -134,7 +130,7 @@ public class teacher extends JFrame implements ActionListener
 			}
 			if(ev.getSource()==item6)
 			{
-				new ClassGrade();
+				new ClassGrade(u1);
 			}
 			this.setVisible(false);
 				

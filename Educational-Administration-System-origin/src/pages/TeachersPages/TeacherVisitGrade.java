@@ -20,23 +20,12 @@ public class TeacherVisitGrade extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TeacherVisitGrade frame = new TeacherVisitGrade();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public TeacherVisitGrade() {
+	public TeacherVisitGrade(User user) {
+		u = user;
 		setTitle("成绩查询");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -57,7 +46,7 @@ public class TeacherVisitGrade extends JFrame {
 		JButton button = new JButton("查询");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new ClassGrade();
+				new ClassGrade(u);
 			}
 		});
 		button.setBounds(66, 152, 113, 27);
@@ -66,11 +55,12 @@ public class TeacherVisitGrade extends JFrame {
 		JButton button_1 = new JButton("返回");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new teacher();
+				new teacher(u);
 			}
 		});
 		button_1.setBounds(246, 152, 113, 27);
 		contentPane.add(button_1);
+		this.setVisible(true);
 	}
 
 }

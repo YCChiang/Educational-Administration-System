@@ -25,28 +25,17 @@ public class ImportClassInfo extends JFrame {
 	private JTextField textField_6;
 	private JTextField textField_7;
 	private JTextField textField_8;
-	private User u;
+	private static User u;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ImportClassInfo frame = new ImportClassInfo();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public ImportClassInfo() {
+	public ImportClassInfo(User u1) {
+		u = u1;
 		setTitle("课程信息");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 658, 422);
@@ -159,10 +148,11 @@ public class ImportClassInfo extends JFrame {
 		JButton button_1 = new JButton("返回");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new teacher();
+				new teacher(u);
 			}
 		});
 		button_1.setBounds(401, 301, 113, 27);
 		contentPane.add(button_1);
+		this.setVisible(true);
 	}
 }

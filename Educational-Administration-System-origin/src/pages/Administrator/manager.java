@@ -24,13 +24,9 @@ public class manager extends JFrame implements ActionListener
 	    JMenuItem item1,item2, item3, item4, item5, item6, item7,item8,item9;
 	    JLabel jl1;
 	    public User u;
-	    public static void main(String[] args) {
-	        // TODO Auto-generated method stub
-	        new manager();
-
-	    }
-
-	    public manager() {
+	    
+	    public manager(User user) {
+	    	u = user;
 
 	        // 创建工具条
 	        jtb = new JToolBar();
@@ -116,35 +112,35 @@ public class manager extends JFrame implements ActionListener
 			}
 	    	if(ev.getSource()==item1)
 			{
-	    		new 导入学生信息new();
+	    		new 导入学生信息new(u);
 			}
 			if(ev.getSource()==item2)
 			{
-				new 查询学生信息new();
+				new 查询学生信息new(u);
 			}
 			if(ev.getSource()==item3)
 			{
-				new 导入教师信息new();
+				new 导入教师信息new(u);
 			}
 			if(ev.getSource()==item4)
 			{
-				new 查询教师信息new();
+				new 查询教师信息new(u);
 			}
 			if(ev.getSource()==item5)
 			{
-				new 导出教师评价new();
+				new 导出教师评价new(u);
 			}
 			if(ev.getSource()==item6)
 			{
-				new 导入培养方案new();
+				new 导入培养方案new(u);
 			}
 			if(ev.getSource()==item7)
 			{
-				new 导入课程安排new();
+				new 导入课程安排new(u);
 			}
 			if(ev.getSource()==item8)
 			{
-				new 修改课程名单new();
+				new 修改课程名单new(u);
 			}
 			this.setVisible(false);
 		}

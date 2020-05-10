@@ -20,23 +20,12 @@ public class TeacherCommentInfo extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TeacherCommentInfo frame = new TeacherCommentInfo();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public TeacherCommentInfo() {
+	public TeacherCommentInfo(User user) {
+		u = user;
 		setTitle("教师课程评价");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 510, 336);
@@ -71,6 +60,7 @@ public class TeacherCommentInfo extends JFrame {
 		});
 		button.setBounds(198, 249, 113, 27);
 		contentPane.add(button);
+		this.setVisible(true);
 	}
 
 }

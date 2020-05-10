@@ -20,23 +20,13 @@ public class TeacherClass extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					TeacherClass frame = new TeacherClass();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the frame.
 	 */
-	public TeacherClass() {
+	public TeacherClass(User user) {
+		u = user;
 		setTitle("教师课程表");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 585, 385);
@@ -57,11 +47,12 @@ public class TeacherClass extends JFrame {
 		JButton button = new JButton("返回");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new teacher();
+				new teacher(u);
 			}
 		});
 		button.setBounds(225, 287, 113, 27);
 		contentPane.add(button);
+		this.setVisible(true);
 	}
 
 }

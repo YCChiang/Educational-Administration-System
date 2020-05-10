@@ -22,23 +22,12 @@ public class ClassGrade extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ClassGrade frame = new ClassGrade();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public ClassGrade() {
+	public ClassGrade(User user) {
+		u=user;
 		setTitle("课程成绩");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 512, 353);
@@ -77,5 +66,6 @@ public class ClassGrade extends JFrame {
 		scrollBar.setBounds(452, 12, 21, 282);
 		contentPane.add(scrollBar);
 		contentPane.add(btnNewButton);
+		this.setVisible(true);
 	}
 }

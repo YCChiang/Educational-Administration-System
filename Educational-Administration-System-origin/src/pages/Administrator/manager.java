@@ -1,4 +1,4 @@
-package pages.Administrator;
+package pages;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -12,7 +12,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JToolBar;
 
-public class manager extends JFrame implements ActionListener 
+class manager extends JFrame implements ActionListener 
 {
 
 	    // 工具条

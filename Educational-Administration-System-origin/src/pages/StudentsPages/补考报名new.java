@@ -1,4 +1,4 @@
-package pages.StudentsPages;
+package pages;
 
 import java.awt.EventQueue;
 

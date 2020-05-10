@@ -1,4 +1,4 @@
-package pages.StudentsPages;
+package pages;
 
 import java.awt.EventQueue;
 
@@ -11,12 +11,16 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+import entity.Student;
 import entity.User;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.util.Scanner;
+
+//import service.StudentInfomationService;
 
 public class 个人信息new {
 
@@ -59,6 +63,9 @@ public class 个人信息new {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(User u) {
+		String cut = " ";
+		//String stu=u.getname();
+		//String[] newStr = stu.split(cut);
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 481);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -117,6 +124,17 @@ public class 个人信息new {
 		
 		textField_9 = new JTextField();
 		textField_9.setColumns(10);
+		
+		/*textField.setText(newStr[0]);
+		textField_1.setText(newStr[1]);
+		textField_2.setText(newStr[2]);
+		textField_3.setText(newStr[3]);
+		textField_4.setText(newStr[4]);
+		textField_5.setText(newStr[5]);
+		textField_6.setText(newStr[6]);
+		textField_7.setText(newStr[7]);
+		textField_8.setText(newStr[8]);
+		textField_9.setText(newStr[9]);*/
 		
 		JButton button = new JButton("确认修改");
 		button.addActionListener(new ActionListener() {

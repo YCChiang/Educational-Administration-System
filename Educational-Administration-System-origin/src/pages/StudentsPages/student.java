@@ -1,12 +1,9 @@
-package pages.StudentsPages;
+package pages;
 
 import java.awt.*;
 import javax.swing.*;
 
 import entity.User;
-import pages.inter;
-import pages.培养方案new;
-import pages.课程成绩new;
 
 import java.awt.event.*;
 
@@ -101,7 +98,7 @@ public class student extends JFrame implements ActionListener
 			item9.addActionListener(this);
 			item10.addActionListener(this);
 	        
-	        jl1 = new JLabel(new ImageIcon("image/OIP.jpg"));
+	        jl1 = new JLabel(new ImageIcon("F://1.jpg"));
 	        this.add(jl1);
 	        // 展示
 	        this.setTitle("教务管理系统（学生端）");

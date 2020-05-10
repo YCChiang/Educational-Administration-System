@@ -1,9 +1,10 @@
-package pages;
+package pages.StudentsPages;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -13,7 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class 补考报名 extends JFrame implements ActionListener 
+public class 教学评估 extends JFrame implements ActionListener 
 {
 	JPanel jp1,jp2,jp3;
     JLabel jlb1, jlb2,jlb3;
@@ -23,18 +24,15 @@ public class 补考报名 extends JFrame implements ActionListener
     JCheckBox jcb1;
 
     public static void main(String[] args) {
-    	补考报名 d1 = new 补考报名();
+    	教学评估 d1 = new 教学评估();
 
     }
 
     // 构造函数
-    public 补考报名() {
+    public 教学评估() {
 
-        jlb1 = new JLabel("课程名/课程ID");
-
-        jb1 = new JButton("报名");
+        jb1 = new JButton("开始评估");
         jb2 = new JButton("返回");
-        jb3 = new JButton("搜索");
 
         jp1 = new JPanel();
         jp2 = new JPanel();
@@ -47,14 +45,10 @@ public class 补考报名 extends JFrame implements ActionListener
         this.setLayout(new GridLayout(n, 1));
         jlb3 = new JLabel("课程");
         jcb1 = new JCheckBox("软件工程");
-        // 下面可以设置单选
-        //ButtonGroup bg2=new ButtonGroup();
-        //bg2.add(jcb1);
+        ButtonGroup bg2=new ButtonGroup();
+        bg2.add(jcb1);
 
         // 加入各个组件
-        jp1.add(jlb1);
-        jp1.add(jtf1);
-        jp1.add(jb3);
         
         jp2.add(jlb3);
         jp2.add(jcb1);
@@ -64,14 +58,12 @@ public class 补考报名 extends JFrame implements ActionListener
         
         jb1.addActionListener(this);
 		jb2.addActionListener(this);
-		jb3.addActionListener(this);
 		
         // 加入到JFrame
-        this.add(jp1);
         this.add(jp2);
         this.add(jp3);
         this.setSize(500, 400);
-        this.setTitle("补考报名");
+        this.setTitle("教学评估");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
     }
@@ -82,18 +74,14 @@ public class 补考报名 extends JFrame implements ActionListener
 		{
     		if(jcb1.isSelected())
     		{
-    			JOptionPane.showMessageDialog(null, "补考报名成功");
+    			new 评估();
+    			this.setVisible(false);
     		}
 		}
 		if(ev.getSource() == jb2)
 		{
 			new student();
 		}
-		if(ev.getSource() == jb3)
-		{
-			//搜索所有课程
-		}
 		
 	}
 }
-

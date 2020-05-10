@@ -1,4 +1,4 @@
-package pages;
+package pages.StudentsPages;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,4 @@
-package pages;
+package pages.StudentsPages;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -7,8 +7,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextArea;
-
-import pages.StudentsPages.student;
 
 class 个人信息 extends JFrame implements ActionListener 
 {

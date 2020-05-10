@@ -1,4 +1,4 @@
-package pages;
+package pages.Administrator;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;

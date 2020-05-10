@@ -1,4 +1,4 @@
-package pages;
+package pages.Administrator;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;

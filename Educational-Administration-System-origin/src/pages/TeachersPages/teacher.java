@@ -130,7 +130,7 @@ public class teacher extends JFrame implements ActionListener
 			}
 			if(ev.getSource()==item6)
 			{
-				new ClassGrade(u1);
+				new TeacherVisitGrade(u1);
 			}
 			this.setVisible(false);
 				

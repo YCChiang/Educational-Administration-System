@@ -4,16 +4,25 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
+
+import entity.ClassGrade;
+import entity.ClassInfo;
+
 import entity.User;
+import service.impl.ClassInfoServiceImpl;
+import service.impl.ClassScheduleServiceImpl;
 public class TeacherVisitGrade extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
 	public User u;
+	public ClassInfo g;
 	/**
 	 * Launch the application.
 	 */
@@ -23,6 +32,7 @@ public class TeacherVisitGrade extends JFrame {
 	 */
 	public TeacherVisitGrade(User user) {
 		u = user;
+		ClassInfoServiceImpl search = new ClassInfoServiceImpl();
 		setTitle("成绩查询");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -35,15 +45,26 @@ public class TeacherVisitGrade extends JFrame {
 		lblid.setBounds(84, 46, 72, 18);
 		contentPane.add(lblid);
 		
+		
 		textField = new JTextField();
 		textField.setBounds(170, 43, 172, 24);
 		contentPane.add(textField);
 		textField.setColumns(10);
+	
+		ClassInfo g = search.findByIdAndTeacher_id(textField.getText(), user.getname());
 		
 		JButton button = new JButton("查询");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new ClassGrade(u);
+				if(g == null)
+				{
+					JOptionPane.showMessageDialog(null, "课程号错误", "错误提示", JOptionPane.ERROR_MESSAGE);
+					
+				}
+				else 
+				{
+					new ClassGradeinfo(u,textField.getText());
+				}
 			}
 		});
 		button.setBounds(66, 152, 113, 27);

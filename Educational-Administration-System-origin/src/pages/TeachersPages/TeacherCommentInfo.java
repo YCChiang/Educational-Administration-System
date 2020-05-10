@@ -8,8 +8,11 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import entity.User;
+import service.impl.TeacherCommentServiceimpl;
+
 import javax.swing.JTextArea;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
@@ -18,7 +21,7 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 public class TeacherCommentInfo extends JFrame {
 	public User u;
-	public Comment com;
+	public List<Comment> com;
 	/**
 	 * Launch the application.
 	 */
@@ -29,8 +32,9 @@ public class TeacherCommentInfo extends JFrame {
 	 */
 	public TeacherCommentInfo(User user) {
 		u = user;
-		//TeacherCommentServiceimpl comment ;
-		//com = 
+		TeacherCommentServiceimpl comment = new TeacherCommentServiceimpl();
+		com = comment.findCommentList(user.getname());
+		int i = com.size();
 		
 		setTitle("教师课程评价");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -44,7 +48,14 @@ public class TeacherCommentInfo extends JFrame {
 		getContentPane().add(scrollPane);
 		
 		JTextArea textArea = new JTextArea();
+		textArea.setRows(i);
+		int j;
+		for(j = 0;j < i; j++)
+		{
+			textArea.append(com.get(j).getClass_name()+" "+com.get(j).getContent()+"\r\n");
+		}
 		scrollPane.setViewportView(textArea);
+		
 		
 		textField = new JTextField();
 		textField.setHorizontalAlignment(SwingConstants.CENTER);

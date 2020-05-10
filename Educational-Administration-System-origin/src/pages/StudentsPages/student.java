@@ -7,10 +7,14 @@ import entity.User;
 
 import java.awt.event.*;
 import pages.inter;
+import entity.Student;
+import entity.Teacher;
+import pages.Administrator.teacher_select_info;
+import service.impl.studentinfoserviceimpl;
 
 public class student extends JFrame implements ActionListener 
 {
-		public  User user ;
+		public  User user;
 	    // 工具条
 	    JToolBar jtb;
 	    // 菜单条组件
@@ -18,7 +22,6 @@ public class student extends JFrame implements ActionListener
 	    JMenu menu1, menu2, menu3, menu4, menu5;
 	    JMenuItem item1,item2, item3, item4, item5, item6, item7,item8,item9,item10;
 	    JLabel jl1;
-
 
 	   /* public static void main(String[] args) {
 	        // TODO Auto-generated method stub
@@ -103,7 +106,60 @@ public class student extends JFrame implements ActionListener
 			item8.addActionListener(this);
 			item9.addActionListener(this);
 			item10.addActionListener(this);
-	        
+			item1.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if(e.getSource() == item1)
+						new 个人信息new(user);
+				}
+			});
+			item2.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if(e.getSource() == item2)
+						new 培养方案new(user);
+				}
+			});
+			item3.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if(e.getSource() == item3)
+						new 学籍注册new(user);
+				}
+			});
+			item4.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if(e.getSource() == item4)
+						new 本学期课表new(user);
+				}
+			});
+			item5.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if(e.getSource() == item5)
+						new 选课new(user);
+				}
+			});
+			item6.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if(e.getSource() == item6)
+						new 退课new(user);
+				}
+			});
+			item7.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if(e.getSource() == item7);
+						new 课程成绩new(user);
+				}
+			});
+			item8.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if(e.getSource() == item8)
+						new 补考报名new(user);
+				}
+			});
+			item10.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if(e.getSource() == item10)
+						new 评估new(user);
+				}
+			});
 	        jl1 = new JLabel(new ImageIcon("F://1.jpg"));
 	        this.add(jl1);
 	        // 展示
@@ -119,7 +175,7 @@ public class student extends JFrame implements ActionListener
 	    	{
 	    		new inter();
 	    	}
-			if(ev.getSource() == item1)
+			/*if(ev.getSource() == item1)
 			{
 		    	//个人信息new.main(null);
 				new 个人信息new(user);
@@ -155,7 +211,7 @@ public class student extends JFrame implements ActionListener
 			if(ev.getSource()==item10)
 			{
 				new 教学评估new(user);
-			}
+			}*/
 			this.setVisible(false);
 		}
 

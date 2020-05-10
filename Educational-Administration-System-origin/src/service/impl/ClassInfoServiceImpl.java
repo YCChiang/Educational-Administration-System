@@ -160,4 +160,9 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 		return classinfoDao.selectByIdAndYear(id, year);
 	}
 
+	@Override
+	public ClassInfo findByIdAndTeacher_id(String Id, String teacher_id) {
+		return classinfoDao.selectByTeacheridandClassid(teacher_id, Id);
+	}
+
 }

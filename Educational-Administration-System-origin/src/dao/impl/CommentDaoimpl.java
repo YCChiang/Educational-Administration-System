@@ -72,13 +72,14 @@ public class CommentDaoimpl implements CommentDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		try {
-			String sql = "INSERT INTO comment (class_id, class_name, teacher_id ,teacher_name ,content) VALUES (?, ?, ? ,?,?);";
+			String sql = "INSERT INTO comment (class_id, class_name, teacher_id ,teacher_name ,content ,student_id ) VALUES (?, ?, ? ,?,?,?)";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, c.getClass_id());
 			pstmt.setString(2, c.getClass_name());
 			pstmt.setString(3, c.getTeacher_id());
 			pstmt.setString(4, c.getTeacher_name());
 			pstmt.setString(5, c.getContent());
+			pstmt.setString(6, c.getStudent_id());
 			result = pstmt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -139,7 +140,7 @@ public class CommentDaoimpl implements CommentDao {
 				temp.setClass_id(rs.getString("class_id"));
 				temp.setClass_name(rs.getString("class_name"));
 				temp.setTeacher_id(rs.getString("teacher_id"));
-				temp.setTeacher_name("teacher_name");
+				temp.setTeacher_name(rs.getString("teacher_name"));
 				temp.setContent(rs.getString("content"));
 				temp.setStudent_id(rs.getString("student_id"));
 				result.add(temp);

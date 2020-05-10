@@ -53,7 +53,7 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 			while (rs.next()) {
 				ElectiveInfo temp = new ElectiveInfo();
 				temp.setId(rs.getInt("id"));
-				temp.setStudent_id(rs.getString(student_id));
+				temp.setStudent_id(rs.getString("student_id"));
 				temp.setClass_id(rs.getString("class_id"));
 				result.add(temp);
 			}
@@ -89,7 +89,7 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 				ElectiveInfo temp = new ElectiveInfo();
 				temp.setId(rs.getInt("id"));
 				temp.setStudent_id(rs.getString("student_id"));
-				temp.setClass_id(rs.getString(class_id));
+				temp.setClass_id(rs.getString("class_id"));
 				result.add(temp);
 			}
 		} catch (SQLException e) {
@@ -116,7 +116,7 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 		ResultSet rs = null;
 		ElectiveInfo result = null;
 		try {
-			String sql = "select * from classgrade where class_id = ? and student_id = ?";
+			String sql = "select * from electiveinfo where class_id = ? and student_id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, class_id);
 			pstmt.setString(2, student_id);
@@ -124,8 +124,8 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 			if (rs.next()) {
 				result = new ElectiveInfo();
 				result.setId(rs.getInt("id"));
-				result.setStudent_id(rs.getString(student_id));
-				result.setClass_id(rs.getString(class_id));
+				result.setStudent_id(rs.getString("student_id"));
+				result.setClass_id(rs.getString("class_id"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

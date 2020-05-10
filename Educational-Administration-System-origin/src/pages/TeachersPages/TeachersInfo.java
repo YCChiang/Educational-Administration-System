@@ -1,5 +1,11 @@
 package pages.TeachersPages;
 
+import java.awt.BorderLayout;
+
+import service.TeacherInfomationService;
+import service.impl.*;
+import java.awt.EventQueue;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -12,6 +18,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 import entity.User;
+import entity.Teacher;
 public class TeachersInfo extends JFrame {
 
 	private JPanel contentPane;
@@ -22,6 +29,8 @@ public class TeachersInfo extends JFrame {
 	private JTextField textField_4;
 	private JTextField textField_5;
 	public User u;
+	public TeacherInformationServiceimpl tinfo;
+	static public Teacher t;
 	/**
 	 * Launch the application.
 	 */
@@ -31,6 +40,8 @@ public class TeachersInfo extends JFrame {
 	 */
 	public TeachersInfo(User user) {
 		u = user;
+		tinfo = new TeacherInformationServiceimpl();
+		t = tinfo.findById(user.getname());
 		setBackground(Color.CYAN);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -41,7 +52,7 @@ public class TeachersInfo extends JFrame {
 		contentPane.setLayout(null);
 		this.setTitle("教师个人信息");
 		
-		textField = new JTextField();
+		textField = new JTextField(t.getName());
 		textField.setBounds(95, 23, 86, 24);
 		contentPane.add(textField);
 		textField.setColumns(10);
@@ -52,7 +63,7 @@ public class TeachersInfo extends JFrame {
 		lblNewLabel.setBounds(14, 26, 72, 18);
 		contentPane.add(lblNewLabel);
 		
-		textField_1 = new JTextField();
+		textField_1 = new JTextField(t.getId());
 		textField_1.setBounds(95, 60, 86, 24);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
@@ -68,7 +79,10 @@ public class TeachersInfo extends JFrame {
 		label.setBounds(14, 102, 72, 18);
 		contentPane.add(label);
 		
-		textField_2 = new JTextField();
+		if(t.getGender()==1)
+		textField_2 = new JTextField("男");
+		else
+			textField_2 = new JTextField("女");
 		textField_2.setBounds(95, 99, 86, 24);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
@@ -78,7 +92,7 @@ public class TeachersInfo extends JFrame {
 		lblNewLabel_1.setBounds(14, 138, 75, 18);
 		contentPane.add(lblNewLabel_1);
 		
-		textField_3 = new JTextField();
+		textField_3 = new JTextField(t.getDepartment());
 		textField_3.setBounds(95, 136, 86, 24);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
@@ -88,7 +102,7 @@ public class TeachersInfo extends JFrame {
 		label_1.setBounds(14, 182, 72, 18);
 		contentPane.add(label_1);
 		
-		textField_4 = new JTextField();
+		textField_4 = new JTextField(t.getTel());
 		textField_4.setBounds(95, 180, 86, 24);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
@@ -98,7 +112,7 @@ public class TeachersInfo extends JFrame {
 		label_2.setBounds(14, 222, 72, 18);
 		contentPane.add(label_2);
 		
-		textField_5 = new JTextField();
+		textField_5 = new JTextField(t.getTitle());
 		textField_5.setBounds(95, 220, 86, 24);
 		contentPane.add(textField_5);
 		textField_5.setColumns(10);
@@ -106,12 +120,15 @@ public class TeachersInfo extends JFrame {
 		JButton button_2 = new JButton("返回");
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new teacher(u);
+				new teacher(user);
 			}
 		});
 		button_2.setFont(new Font("微软雅黑", Font.PLAIN, 15));
 		button_2.setBounds(282, 98, 113, 27);
 		contentPane.add(button_2);
+		
+	  
+		
 		this.setVisible(true);
 	}
 }

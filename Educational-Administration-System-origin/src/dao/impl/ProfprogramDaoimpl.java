@@ -29,7 +29,7 @@ public class ProfprogramDaoimpl implements ProfprogramDao {
 			pstmt.setString(1,p.getSpecialty());
 			pstmt.setString(2, p.getClass_id());
 			pstmt.setString(3, p.getClass_name());
-			pstmt.setInt(5, p.getCredit());
+			pstmt.setInt(4, p.getCredit());
 			result = pstmt.executeUpdate();
 			return 1;
 		} catch (SQLException e) {

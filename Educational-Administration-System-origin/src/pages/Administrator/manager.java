@@ -131,7 +131,7 @@ public class manager extends JFrame implements ActionListener
 			}
 			if(ev.getSource()==item5)
 			{
-				new 导出教师评价new(u);
+				new OutComment(u);
 			}
 			if(ev.getSource()==item6)
 			{

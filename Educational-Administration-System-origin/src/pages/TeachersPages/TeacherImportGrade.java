@@ -6,12 +6,14 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import entity.ClassGrade;
 import entity.User;
+import service.impl.TeacherClassServiceimpl;
 public class TeacherImportGrade extends JFrame {
 
 	/**
@@ -26,17 +28,13 @@ public class TeacherImportGrade extends JFrame {
 	private ClassGrade grade1;
 	public User u;
 
-	/**
-	 * Launch the application.
-	 */
-
-	/**
-	 * Create the frame.
-	 */
+	public static void main(String [] args) {
+		new TeacherImportGrade(null);
+	}
 	public TeacherImportGrade(User user) {
 		u = user;
 		setTitle("教师成绩录入");
-		setType(Type.UTILITY);
+		//setType(Type.UTILITY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 565, 397);
 		contentPane = new JPanel();
@@ -111,7 +109,20 @@ public class TeacherImportGrade extends JFrame {
 				{
 					info.setMakeup("补考");
 				}
-				
+				TeacherClassServiceimpl service = new TeacherClassServiceimpl();
+				int ans = service.addClassgrade(info);
+				if(ans == 3) {
+					JOptionPane.showMessageDialog(null, "成绩不合理，重新输入");
+				}
+				else if(ans == 2) {
+					JOptionPane.showMessageDialog(null, "该学生成绩已经输入过，请勿重复输入");
+				}
+				else if(ans ==4)
+					JOptionPane.showMessageDialog(null, "该同学并没有选课");
+				else if(ans == 1)
+					JOptionPane.showMessageDialog(null, "导入成功");
+				else if(ans ==0)
+					JOptionPane.showMessageDialog(null, "导入失败，请查看数据库");
 			}
 		});
 		button.setBounds(78, 280, 113, 27);

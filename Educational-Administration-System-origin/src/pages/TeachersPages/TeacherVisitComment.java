@@ -12,9 +12,7 @@ import entity.User;
 public class TeacherVisitComment extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
 	private JTextField textField_1;
-	private JTextField textField_2;
 	public User u;
 	/**
 	 * Launch the application.
@@ -33,21 +31,12 @@ public class TeacherVisitComment extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblid = new JLabel("课程ID");
-		lblid.setBounds(73, 42, 72, 18);
-		contentPane.add(lblid);
-		
-		textField = new JTextField();
-		textField.setBounds(176, 39, 145, 24);
-		contentPane.add(textField);
-		textField.setColumns(10);
-		
 		JLabel lblid_1 = new JLabel("教师ID");
-		lblid_1.setBounds(73, 91, 72, 18);
+		lblid_1.setBounds(75, 64, 72, 18);
 		contentPane.add(lblid_1);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(176, 88, 145, 24);
+		textField_1.setBounds(181, 61, 145, 24);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
@@ -68,15 +57,7 @@ public class TeacherVisitComment extends JFrame {
 		});
 		button_1.setBounds(241, 186, 113, 27);
 		contentPane.add(button_1);
-		
-		JLabel lblNewLabel = new JLabel("学生ID");
-		lblNewLabel.setBounds(73, 140, 72, 18);
-		contentPane.add(lblNewLabel);
-		
-		textField_2 = new JTextField();
-		textField_2.setBounds(176, 137, 145, 24);
-		contentPane.add(textField_2);
-		textField_2.setColumns(10);
+		this.setVisible(true);
 	}
 
 }

@@ -14,4 +14,5 @@ public interface ClassInfoService {
 	public List<ClassInfo> findByYear(String year);
 	public int modify(ClassInfo classinfo);
 	public int add(ClassInfo classinfo);
+	public ClassInfo findByIdAndTeacher_id(String Id , String teacher_id);
 }

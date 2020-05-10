@@ -151,7 +151,7 @@ public class ClassInfoDaoimpl implements ClassInfoDao{
 		ResultSet rs = null;
 		ClassInfo result = null;
 		try {
-			String sql = "select * from classinfo where class_id = ?";
+			String sql = "select * from classinfo where id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, class_id);
 			rs = pstmt.executeQuery();
@@ -426,6 +426,51 @@ public class ClassInfoDaoimpl implements ClassInfoDao{
 				temp.setTeacher_name(rs.getString("teacher_name"));
 				temp.setCredit(rs.getInt("credit"));
 				result.add(temp);
+			}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(pstmt != null)
+					pstmt.close();		
+				if(rs != null)
+					rs.close();
+				if(con != null)
+					con.close();
+			}
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public ClassInfo selectByTeacheridandClassid(String teacher_id, String class_id) {
+		Connection con = connect.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ClassInfo result = null;
+		try {
+			String sql = "select * from classinfo where id = ? and teacher_id = ?";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, class_id);
+			pstmt.setString(2, teacher_id);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				result = new ClassInfo();
+				result.setId(rs.getString("id"));
+				result.setName(rs.getString("name"));
+				result.setHour(rs.getInt("hour"));
+				result.setCapacity(rs.getInt("capacity"));
+				result.setYear(rs.getString("year"));
+				result.setStart_week(rs.getInt("start_week"));
+				result.setEnd_week(rs.getInt("end_week"));
+				result.setTeacher_id(rs.getString("teacher_id"));
+				result.setTeacher_name(rs.getString("teacher_name"));
+				result.setCredit(rs.getInt("credit"));
 			}
 		}
 		catch(SQLException e) {

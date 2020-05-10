@@ -15,4 +15,5 @@ public interface ClassInfoDao{
 	public int update(ClassInfo classinfo);
 	public List<ClassInfo> selectAll();
 	public List<ClassInfo> selectByYear(String year);
+	public ClassInfo selectByTeacheridandClassid(String teacher_id ,String class_id);
 }

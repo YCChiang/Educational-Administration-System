@@ -20,7 +20,7 @@ public class student extends JFrame implements ActionListener
 	    // 菜单条组件
 	    JMenuBar jmb;
 	    JMenu menu1, menu2, menu3, menu4, menu5;
-	    JMenuItem item1,item2, item3, item4, item5, item6, item7,item9,item10;
+	    JMenuItem item1,item2, item3, item4, item5, item6, item7,item8,item9,item10;
 	    JLabel jl1;
 
 	   /* public static void main(String[] args) {
@@ -54,7 +54,7 @@ public class student extends JFrame implements ActionListener
 	        item6 = new JMenuItem("退课");
 	        
 	        item7 = new JMenuItem("课程成绩");
-	        
+	        item8 = new JMenuItem("补考报名");
 	        
 	        item10 = new JMenuItem("教学评估");
 	        
@@ -75,7 +75,7 @@ public class student extends JFrame implements ActionListener
 	        menu3.add(item6);
 	        
 	        menu4.add(item7);
-	        
+	        menu4.add(item8);
 	        
 	        menu5.add(item10);
 
@@ -103,7 +103,7 @@ public class student extends JFrame implements ActionListener
 			item5.addActionListener(this);
 			item6.addActionListener(this);
 			item7.addActionListener(this);
-			
+			item8.addActionListener(this);
 			item9.addActionListener(this);
 			item10.addActionListener(this);
 			item1.addActionListener(new ActionListener() {
@@ -144,7 +144,7 @@ public class student extends JFrame implements ActionListener
 			});
 			item7.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					if(e.getSource() == item7)
+					if(e.getSource() == item7);
 						new 课程成绩new(user);
 				}
 			});
@@ -175,7 +175,7 @@ public class student extends JFrame implements ActionListener
 	    	{
 	    		new inter();
 	    	}
-			if(ev.getSource() == item1)
+			/*if(ev.getSource() == item1)
 			{
 		    	//个人信息new.main(null);
 				new 个人信息new(user);
@@ -204,10 +204,14 @@ public class student extends JFrame implements ActionListener
 			{
 				new 课程成绩new(user);
 			}
+			if(ev.getSource()==item8)
+			{
+				new 补考报名new(user);
+			}
 			if(ev.getSource()==item10)
 			{
-				new 评估new(user);
-			}
+				new 教学评估new(user);
+			}*/
 			this.setVisible(false);
 		}
 

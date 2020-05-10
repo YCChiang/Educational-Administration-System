@@ -4,23 +4,44 @@ import javax.swing.JFrame;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 
-import entity.User;
+import service.*;
+import service.impl.*;
+import dao.*;
+import dao.impl.*;
+import entity.*;
+
 
 public class 培养方案new {
 
+	public Student info;
 	private JFrame frame;
-	private JTextField textField;
 	public User user;
+	public List<ProfProgram> prof;
 
 	/**
 	 * Launch the application.
 	 */
+	/*public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					培养方案new window = new 培养方案new();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}*/
+
 	/**
 	 * Create the application.
 	 */
@@ -32,81 +53,46 @@ public class 培养方案new {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize(User u) {
-		user = u;
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 400);
+		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JLabel label = new JLabel("培养方案");
+		JLabel label = new JLabel("学生培养方案");
+		user = u;
+		System.out.println(user.getname());
+		studentinfoserviceimpl s = new studentinfoserviceimpl();
+		info = s.findById(user.getname());
 		
-		JButton button = new JButton("返回");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if(e.getSource() == button)
-				{
-					frame.setVisible(false);
-					new student(user);
-					
-				}
-			}
-		});
+		studentprofprogramServiceimpl service = new studentprofprogramServiceimpl();
+		List<ProfProgram> list = service.findProfProgramList(info.getSpecialty());
+		int size = list.size();
+		JTextArea textArea = new JTextArea();
 		
-		JLabel lblid = new JLabel("专业ID");
-		
-		JLabel label_1 = new JLabel("专业");
-		
-		JLabel lblid_1 = new JLabel("课程ID");
-		
-		JLabel label_2 = new JLabel("课程名");
-		
-		textField = new JTextField();
-		textField.setColumns(10);
-		
-		JLabel label_3 = new JLabel("学分");
+		for(int i  = 0 ; i< size ; i++) {
+			String temp = list.get(i).getClass_id()+" "+(list.get(i)).getClass_name()+" "+list.get(i).getCredit()+"\r\n";
+			textArea.append(temp);
+		}
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(54)
-					.addComponent(lblid)
-					.addPreferredGap(ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-					.addComponent(label_1)
-					.addGap(27)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(label)
 						.addGroup(groupLayout.createSequentialGroup()
-							.addComponent(lblid_1)
-							.addGap(30)
-							.addComponent(label_2)
-							.addGap(35)
-							.addComponent(label_3)))
-					.addGap(52))
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-					.addContainerGap(31, Short.MAX_VALUE)
-					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 367, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap())
-				.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
-					.addContainerGap(207, Short.MAX_VALUE)
-					.addComponent(button)
-					.addGap(162))
+							.addGap(174)
+							.addComponent(label))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(53)
+							.addComponent(textArea, GroupLayout.PREFERRED_SIZE, 324, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(55, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-					.addGap(30)
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(21)
 					.addComponent(label)
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblid)
-						.addComponent(label_3)
-						.addComponent(label_2)
-						.addComponent(lblid_1)
-						.addComponent(label_1))
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 192, Short.MAX_VALUE)
-					.addComponent(button)
-					.addContainerGap())
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(textArea, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(32, Short.MAX_VALUE))
 		);
 		frame.getContentPane().setLayout(groupLayout);
 		frame.setVisible(true);

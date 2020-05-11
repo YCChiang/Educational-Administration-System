@@ -19,7 +19,7 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 		PreparedStatement pstmt = null;
 		int result = 0;
 		try {
-			String sql = "insert into classgrade (student_id ,class_id) values (?,?) ";
+			String sql = "insert into electiveinfo (student_id ,class_id) values (?,?) ";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, info.getStudent_id());
 			pstmt.setString(2, info.getClass_id());
@@ -81,7 +81,7 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 		ResultSet rs = null;
 		List<ElectiveInfo> result = new ArrayList<ElectiveInfo>();
 		try {
-			String sql = "select * from classgrade where class_id = ?";
+			String sql = "select * from electiveinfo where class_id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, class_id);
 			rs = pstmt.executeQuery();

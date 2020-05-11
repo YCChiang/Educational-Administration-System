@@ -38,6 +38,7 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 				if(info.getYear().equals(year))
 					classes.add(info);
 			}
+			System.out.print("classinfoDao");
 		}
 		return classes;
 	}

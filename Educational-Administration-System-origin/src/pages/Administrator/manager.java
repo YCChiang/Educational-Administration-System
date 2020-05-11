@@ -132,7 +132,7 @@ public class manager extends JFrame implements ActionListener
 			}
 			if(ev.getSource()==item5)
 			{
-				new OutComment(u);
+				new C2();
 			}
 			if(ev.getSource()==item6)
 			{

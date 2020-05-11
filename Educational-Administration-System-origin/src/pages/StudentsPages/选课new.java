@@ -152,19 +152,24 @@ public class 选课new extends JFrame{
 								JOptionPane.ERROR_MESSAGE);
 					}
 					else {
-						System.out.println(id);
-						System.out.println(name_t);
+						//System.out.println(id);
+						//System.out.println(name_t);
 						if(id && !name_t)
 						{
-							List<ClassInfo> classInfo = classinfoservice.seachClassById(input, "2020春", user.getname(), IsFull, IsConflict);
+					//		System.out.println(1);
+							 classInfo = classinfoservice.seachClassById(input, "2020春", user.getname(), IsFull, IsConflict);
+					//if(classInfo == null )
+						//		System.out.println(2);
+
+						//	System.out.println(classInfo.isEmpty());
 						}
 						else if(!id && name_t)
 						{
-							List<ClassInfo> classInfo = classinfoservice.seachClassByName(input, "2020春", user.getname(), IsFull, IsConflict);
+							 classInfo = classinfoservice.seachClassByName(input, "2020春", user.getname(), IsFull, IsConflict);
 						}
 						
 						DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
-						if (!classInfo.isEmpty()) {
+						if (!(classInfo.isEmpty())) {
 							for (ClassInfo c : classInfo) {
 								// 将数据添加到表格中
 								tableModel.addRow(new Object[] { c.getId(), c.getName(), c.getTeacher_name(), c.getCapacity(),

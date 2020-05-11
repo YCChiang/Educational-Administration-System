@@ -409,9 +409,10 @@ public class ClassInfoDaoimpl implements ClassInfoDao{
 		ResultSet rs = null;
 		List<ClassInfo> result = new ArrayList<ClassInfo>();
 		try {
-			String sql = "select * from classinfo where id like %?% and year = ?";
+			String tem = "%"+id+"%";
+			String sql = "select * from classinfo where id like ? and year = ?";
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setString(1, tem);
 			pstmt.setString(2, year);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {

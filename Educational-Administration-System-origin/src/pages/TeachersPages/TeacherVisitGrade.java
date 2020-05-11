@@ -17,12 +17,13 @@ import entity.ClassInfo;
 import entity.User;
 import service.impl.ClassInfoServiceImpl;
 import service.impl.ClassScheduleServiceImpl;
-public class TeacherVisitGrade extends JFrame {
+public class TeacherVisitGrade extends JFrame  implements ActionListener {
 
 	private JPanel contentPane;
 	private JTextField textField;
 	public User u;
 	public ClassInfo g;
+	JButton button_1;
 	/**
 	 * Launch the application.
 	 */
@@ -70,16 +71,18 @@ public class TeacherVisitGrade extends JFrame {
 		button.setBounds(66, 152, 113, 27);
 		contentPane.add(button);
 		
-		JButton button_1 = new JButton("返回");
-		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				//new teacher(u);
-				contentPane.setVisible(false);
-			}
-		});
+		 button_1 = new JButton("返回");
+		button_1.addActionListener(this);
 		button_1.setBounds(246, 152, 113, 27);
 		contentPane.add(button_1);
 		this.setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		if(arg0.getSource()==button_1)
+			this.dispose();
 	}
 
 }

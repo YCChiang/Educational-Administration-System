@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import entity.ClassInfo;
-public class ImportClassInfo extends JFrame {
+public class ImportClassInfo extends JFrame implements ActionListener{
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -26,7 +26,7 @@ public class ImportClassInfo extends JFrame {
 	private JTextField textField_8;
 	private User u;
 	ClassInfoServiceImpl classinfoservice = null;
-
+	JButton button_1;
 	/**
 	 * Launch the application.
 	 */
@@ -147,15 +147,17 @@ public class ImportClassInfo extends JFrame {
 		button.setBounds(129, 301, 113, 27);
 		contentPane.add(button);
 		
-		JButton button_1 = new JButton("返回");
-		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-		//		new teacher(u);
-				contentPane.setVisible(false);
-			}
-		});
+		 button_1 = new JButton("返回");
+		button_1.addActionListener(this);
 		button_1.setBounds(401, 301, 113, 27);
 		contentPane.add(button_1);
 		this.setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==button_1)
+			this.dispose();
 	}
 }

@@ -39,7 +39,7 @@ public class 补考报名new {
 		user = u1;
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 366);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JLabel lblid = new JLabel("课程名/课程ID");
 		

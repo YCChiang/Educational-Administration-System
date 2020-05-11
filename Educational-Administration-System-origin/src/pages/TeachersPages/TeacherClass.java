@@ -15,7 +15,7 @@ import entity.ClassSchedule;
 import entity.User;
 import service.impl.ClassInfoServiceImpl;
 import service.impl.ClassScheduleServiceImpl;
-public class TeacherClass extends JFrame {
+public class TeacherClass extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -23,6 +23,7 @@ public class TeacherClass extends JFrame {
 	ClassInfoServiceImpl classinfoservice = null;
 	ClassScheduleServiceImpl classscheduleservice= null;
 	List<ClassInfo> classInfo = null;
+	JButton button;
 	/**
 	 * Launch the application.
 	 */
@@ -76,15 +77,19 @@ public class TeacherClass extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JButton button = new JButton("返回");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new teacher(u);
-			}
-		});
+		 button = new JButton("返回");
+		button.addActionListener(this);
 		button.setBounds(225, 287, 113, 27);
 		contentPane.add(button);
 		this.setVisible(true);
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==button)
+			this.dispose();
 	}
 
 }

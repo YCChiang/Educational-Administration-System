@@ -19,7 +19,7 @@ import javax.swing.JScrollPane;
 import java.awt.BorderLayout;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
-public class TeacherCommentInfo extends JFrame {
+public class TeacherCommentInfo extends JFrame implements ActionListener{
 	public User u;
 	public List<Comment> com;
 	/**
@@ -27,6 +27,7 @@ public class TeacherCommentInfo extends JFrame {
 	 */
 	private JPanel contentPane;
 	private JTextField textField;
+	JButton button;
 	/**
 	 * Create the frame.
 	 */
@@ -64,14 +65,18 @@ public class TeacherCommentInfo extends JFrame {
 		getContentPane().add(textField);
 		textField.setColumns(10);
 		
-		JButton button = new JButton("返回");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new TeacherVisitComment(user);
-			}
-		});
+		 button = new JButton("返回");
+		button.addActionListener(this);
 		button.setBounds(214, 352, 113, 27);
 		getContentPane().add(button);
 		this.setVisible(true);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource() == button) {
+			new TeacherVisitComment(u);
+			this.dispose();
+		}
 	}
 }

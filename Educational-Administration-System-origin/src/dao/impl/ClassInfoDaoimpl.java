@@ -366,6 +366,7 @@ public class ClassInfoDaoimpl implements ClassInfoDao{
 			String sql = "select * from classinfo where year = ? and teacher_id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, year);
+			pstmt.setString(2, teacher_id);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				ClassInfo temp = new ClassInfo();
@@ -408,7 +409,7 @@ public class ClassInfoDaoimpl implements ClassInfoDao{
 		ResultSet rs = null;
 		List<ClassInfo> result = new ArrayList<ClassInfo>();
 		try {
-			String sql = "select * from classinfo where id = %?% and year = ?";
+			String sql = "select * from classinfo where id like %?% and year = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setString(2, year);

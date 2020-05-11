@@ -245,7 +245,7 @@ public class 导入学生信息new implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == button_1) {
-			new manager(u);
+		//	new manager(u);
 			this.frame.dispose();
 		}
 	}

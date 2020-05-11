@@ -92,7 +92,7 @@ public class 导入培养方案new {
 				if(e.getSource() == button_1)
 				{
 					frame.setVisible(false);
-					new manager(u);
+				//	new manager(u);
 				}
 			}
 		});

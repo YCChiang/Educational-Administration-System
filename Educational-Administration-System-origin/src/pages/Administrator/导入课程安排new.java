@@ -91,7 +91,7 @@ public class 导入课程安排new {
 				if(e.getSource() == button_1)
 				{
 					frame.setVisible(false);
-					new manager(u);
+				//	new manager(u);
 				}
 			}
 		});

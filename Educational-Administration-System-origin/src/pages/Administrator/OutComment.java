@@ -23,9 +23,10 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
 
-public class OutComment extends JFrame {
+public class OutComment extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
+	JButton button;
 	public User u;
 	public static void main(String [] args ) {
 		//new OutComment(null);
@@ -64,12 +65,8 @@ public class OutComment extends JFrame {
 			textArea.append(temp);
 		}
 		
-		JButton button = new JButton("返回");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new manager(user);
-			}
-		});
+		 button = new JButton("返回");
+		button.addActionListener(this); 
 		button.setBounds(198, 297, 113, 27);
 		contentPane.add(button);
 
@@ -79,5 +76,11 @@ public class OutComment extends JFrame {
 		contentPane.add(scrollBar_1);
 
 		this.setVisible(true);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource() == button)
+			this.dispose();
 	}
 }

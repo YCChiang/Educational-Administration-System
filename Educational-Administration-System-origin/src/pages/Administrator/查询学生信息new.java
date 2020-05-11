@@ -81,7 +81,7 @@ public class 查询学生信息new implements ActionListener {
 			} else
 				new student_select_info(student);
 		} else if (e.getSource() == button_1) {
-			new manager(u);
+		//	new manager(u);
 			this.frame.dispose();
 		}
 	}

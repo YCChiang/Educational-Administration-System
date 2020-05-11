@@ -65,8 +65,10 @@ public class 查询教师信息new {
 		JButton button_1 = new JButton("返回");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(e.getSource() == button_1)
-					new manager(u);
+				if(e.getSource() == button_1) {
+				//	new manager(u);
+					frame.setVisible(false);
+				}
 			}
 		});
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());

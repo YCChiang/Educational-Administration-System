@@ -62,7 +62,8 @@ public class TeacherVisitComment extends JFrame implements ActionListener {
 				}
 				else 
 				{
-					new TeacherCommentInfo(u,p);
+					//new TeacherCommentInfo(u,p);
+					new Cteacher(u.getname(),p);
 				}
 				//new TeacherCommentInfo(u,p);
 			}

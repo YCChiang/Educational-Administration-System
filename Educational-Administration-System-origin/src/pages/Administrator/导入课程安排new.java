@@ -33,7 +33,7 @@ public class 导入课程安排new {
 	private String[] years = {"2020秋","2020夏", "2020春"};
 	private JComboBox<String> comboBox;
 	private DefaultComboBoxModel<String> model;
-	ClassInfoServiceImpl classinfoservice = null;
+	ClassInfoServiceImpl classinfoservice = new ClassInfoServiceImpl();
 	public User u;
 	
 	public 导入课程安排new(User user) {

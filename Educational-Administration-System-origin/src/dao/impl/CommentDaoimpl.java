@@ -225,7 +225,7 @@ public class CommentDaoimpl implements CommentDao {
 				temp.setClass_id(class_id);
 				temp.setClass_name(rs.getString("class_name"));
 				temp.setTeacher_id(teacher_id);
-				temp.setTeacher_name("teacher_name");
+				temp.setTeacher_name(rs.getString("teacher_name"));
 				temp.setContent(rs.getString("content"));
 				temp.setStudent_id(rs.getString("student_id"));
 				result.add(temp);

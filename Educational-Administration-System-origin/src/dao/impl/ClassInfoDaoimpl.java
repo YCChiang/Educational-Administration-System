@@ -106,7 +106,7 @@ public class ClassInfoDaoimpl implements ClassInfoDao{
 		ResultSet rs = null;
 		List<ClassInfo> result = new ArrayList<ClassInfo>();
 		try {
-			String sql = "select * from classinfo where class_name = %?%";
+			String sql = "select * from classinfo where name like %?%";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, class_name);
 			rs = pstmt.executeQuery();
@@ -318,7 +318,7 @@ public class ClassInfoDaoimpl implements ClassInfoDao{
 		ResultSet rs = null;
 		List<ClassInfo> result = new ArrayList<ClassInfo>();
 		try {
-			String sql = "select * from classinfo where year = ? and class_name = %?%";
+			String sql = "select * from classinfo where year = ? and name like %?%";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, year);
 			rs = pstmt.executeQuery();
@@ -408,7 +408,7 @@ public class ClassInfoDaoimpl implements ClassInfoDao{
 		ResultSet rs = null;
 		List<ClassInfo> result = new ArrayList<ClassInfo>();
 		try {
-			String sql = "select * from classinfo where id = %?% and year = ?";
+			String sql = "select * from classinfo where id like %?% and year = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, id);
 			pstmt.setString(2, year);

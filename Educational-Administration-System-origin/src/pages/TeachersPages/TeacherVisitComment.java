@@ -30,7 +30,7 @@ public class TeacherVisitComment extends JFrame implements ActionListener {
 	 */
 	public TeacherVisitComment(User user) {
 		u = user;
-		//TeacherCommentServiceimpl comment = new TeacherCommentServiceimpl();
+		TeacherCommentServiceimpl comment = new TeacherCommentServiceimpl();
 		
 		setTitle("课程评价查询");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -48,22 +48,23 @@ public class TeacherVisitComment extends JFrame implements ActionListener {
 		textField_1.setBounds(181, 61, 145, 24);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
-		String p = textField_1.getText();
-		//com = comment.findCommentListbyteacheridandclassid(user.getname(), p);
+		
 		JButton button = new JButton("查询");
-		//String s = com.get(0).getContent();
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//System.out.println(s);
-				/*if(com.isEmpty())
+
+				String p = textField_1.getText();
+				com = comment.findCommentListbyteacheridandclassid(user.getname(), p);
+				if(com.size() == 0)
 				{
 					JOptionPane.showMessageDialog(null, "课程号错误", "错误提示", JOptionPane.ERROR_MESSAGE);
 				}
 				else 
 				{
 					new TeacherCommentInfo(u,p);
-				}*/
-				new TeacherCommentInfo(u,p);
+				}
+				//new TeacherCommentInfo(u,p);
 			}
 		});
 		button.setBounds(57, 186, 113, 27);

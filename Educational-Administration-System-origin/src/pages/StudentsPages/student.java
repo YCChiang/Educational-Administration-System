@@ -12,207 +12,181 @@ import entity.Teacher;
 import pages.Administrator.teacher_select_info;
 import service.impl.studentinfoserviceimpl;
 
-public class student extends JFrame implements ActionListener 
-{
-		public  User user;
-	    // 工具条
-	    JToolBar jtb;
-	    // 菜单条组件
-	    JMenuBar jmb;
-	    JMenu menu1, menu2, menu3, menu4, menu5;
-	    JMenuItem item1,item2, item3, item4, item5, item6, item7,item8,item9,item10;
-	    JLabel jl1;
+public class student extends JFrame implements ActionListener {
+	public User user;
+	// 工具条
+	JToolBar jtb;
+	// 菜单条组件
+	JMenuBar jmb;
+	JMenu menu1, menu2, menu3, menu4, menu5;
+	JMenuItem item1, item2, item3, item4, item5, item6, item7, item8, item9, item10;
+	JLabel jl1;
 
-	   /* public static void main(String[] args) {
-	        // TODO Auto-generated method stub
-=======
-	    public static void main(String[] args) {
->>>>>>> 42ee6887ec0015899f31a903c517596b65e0234a
-	        //new student();
+	/*
+	 * public static void main(String[] args) { // TODO Auto-generated method stub
+	 * ======= public static void main(String[] args) { >>>>>>>
+	 * 42ee6887ec0015899f31a903c517596b65e0234a //new student();
+	 * 
+	 * }
+	 */
 
-	    }*/
+	public student(User u) {
+		user = u;
+		// 创建工具条
+		jtb = new JToolBar();
+		jmb = new JMenuBar();
 
-	    public student(User u) {
-	    	user = u;
-	        // 创建工具条
-	        jtb = new JToolBar();
-	        jmb = new JMenuBar();
+		menu1 = new JMenu("主页");
+		menu2 = new JMenu("个人管理");
+		menu3 = new JMenu("选课管理");
+		menu4 = new JMenu("考务管理");
+		menu5 = new JMenu("教学评估");
 
-	        menu1 = new JMenu("主页");
-	        menu2 = new JMenu("个人管理");
-	        menu3 = new JMenu("选课管理");
-	        menu4 = new JMenu("考务管理");
-	        menu5 = new JMenu("教学评估");
+		// item1=new JMenuItem(“新建”)
+		item1 = new JMenuItem("个人信息");
+		item2 = new JMenuItem("培养方案");
+		item3 = new JMenuItem("学籍注册");
 
-	        // item1=new JMenuItem(“新建”)
-	        item1 = new JMenuItem("个人信息");
-	        item2 = new JMenuItem("培养方案");
-	        item3 = new JMenuItem("学籍注册");
-	        
-	        item4 = new JMenuItem("本学期课表");
-	        item5 = new JMenuItem("选课");
-	        item6 = new JMenuItem("退课");
-	        
-	        item7 = new JMenuItem("课程成绩");
-	        item8 = new JMenuItem("补考报名");
-	        
-	        item10 = new JMenuItem("教学评估");
-	        
-	        item9 = new JMenuItem("返回");
+		item4 = new JMenuItem("本学期课表");
+		item5 = new JMenuItem("选课");
+		item6 = new JMenuItem("退课");
 
-	        //jta = new JTextArea();
+		item7 = new JMenuItem("课程成绩");
+		item8 = new JMenuItem("补考报名");
 
-	        // 设置布局
-	        
-	        menu1.add(item9);
+		item10 = new JMenuItem("教学评估");
 
-	        menu2.add(item1);
-	        menu2.add(item2);
-	        menu2.add(item3);
-	        
-	        menu3.add(item4);
-	        menu3.add(item5);
-	        menu3.add(item6);
-	        
-	        menu4.add(item7);
-	        menu4.add(item8);
-	        
-	        menu5.add(item10);
+		item9 = new JMenuItem("返回");
 
-	        // 将菜单添加到菜单条上
-	        jmb.add(menu1);
-	        jmb.add(menu2);
-	        jmb.add(menu3);
-	        jmb.add(menu4);
-	        jmb.add(menu5);
+		// jta = new JTextArea();
 
-	        // 将菜单添加到窗体上
-	        this.setJMenuBar(jmb);
+		// 设置布局
 
-	        // 将工具条添加到窗体
-	        this.add(jtb, BorderLayout.NORTH);
+		menu1.add(item9);
 
-	        //JScrollPane jsp = new JScrollPane(jta);
-	       // jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-	        //this.add(jsp);
-	        
-	        item1.addActionListener(this);
-			item2.addActionListener(this);
-			item3.addActionListener(this);
-			item4.addActionListener(this);
-			item5.addActionListener(this);
-			item6.addActionListener(this);
-			item7.addActionListener(this);
-			item8.addActionListener(this);
-			item9.addActionListener(this);
-			item10.addActionListener(this);
-			item1.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if(e.getSource() == item1)
-						new 个人信息new(user);
-				}
-			});
-			item2.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if(e.getSource() == item2)
-						new 培养方案new(user);
-				}
-			});
-			item3.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if(e.getSource() == item3)
-						new 学籍注册new(user);
-				}
-			});
-			item4.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if(e.getSource() == item4)
-						new 本学期课表new(user);
-				}
-			});
-			item5.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if(e.getSource() == item5)
-						new 选课new(user);
-				}
-			});
-			item6.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if(e.getSource() == item6)
-						new 退课new(user);
-				}
-			});
-			item7.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if(e.getSource() == item7);
-						new 课程成绩new(user);
-				}
-			});
-			item8.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if(e.getSource() == item8)
-						new 补考报名new(user);
-				}
-			});
-			item10.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if(e.getSource() == item10)
-						new 评估new(user);
-				}
-			});
-	        jl1 = new JLabel(new ImageIcon("F://1.jpg"));
-	        this.add(jl1);
-	        // 展示
-	        this.setTitle("教务管理系统（学生端）");
-	        this.setSize(1200, 900);
-	        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	        this.setVisible(true);
+		menu2.add(item1);
+		menu2.add(item2);
+		menu2.add(item3);
 
-	    }
-	    public void actionPerformed(ActionEvent ev)//为按钮添加的注册事件
-		{
-	    	if(ev.getSource()==item9)
-	    	{
-	    		new inter();
-	    	}
-			/*if(ev.getSource() == item1)
-			{
-		    	//个人信息new.main(null);
-				new 个人信息new(user);
+		menu3.add(item4);
+		menu3.add(item5);
+		menu3.add(item6);
+
+		menu4.add(item7);
+		menu4.add(item8);
+
+		menu5.add(item10);
+
+		// 将菜单添加到菜单条上
+		jmb.add(menu1);
+		jmb.add(menu2);
+		jmb.add(menu3);
+		jmb.add(menu4);
+		jmb.add(menu5);
+
+		// 将菜单添加到窗体上
+		this.setJMenuBar(jmb);
+
+		// 将工具条添加到窗体
+		this.add(jtb, BorderLayout.NORTH);
+
+		// JScrollPane jsp = new JScrollPane(jta);
+		// jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		// this.add(jsp);
+
+		item1.addActionListener(this);
+		item2.addActionListener(this);
+		item3.addActionListener(this);
+		item4.addActionListener(this);
+		item5.addActionListener(this);
+		item6.addActionListener(this);
+		item7.addActionListener(this);
+		item8.addActionListener(this);
+		item9.addActionListener(this);
+		item10.addActionListener(this);
+		item1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == item1)
+					new 个人信息new(user);
 			}
-			if(ev.getSource()==item2)
-			{
-				new 培养方案new(user);
+		});
+		item2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == item2)
+					new 培养方案new(user);
 			}
-			if(ev.getSource()==item3)
-			{
-				new 学籍注册new(user);
+		});
+		item3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == item3)
+					new 学籍注册new(user);
 			}
-			if(ev.getSource()==item4)
-			{
-				new 本学期课表new(user);
+		});
+		item4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == item4)
+					new 本学期课表new(user);
 			}
-			if(ev.getSource()==item5)
-			{
-				new 选课new(user);
+		});
+		item5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == item5)
+					new 选课new(user);
 			}
-			if(ev.getSource()==item6)
-			{
-				new 退课new(user);
+		});
+		item6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == item6)
+					new 退课new(user);
 			}
-			if(ev.getSource()==item7)
-			{
+		});
+		item7.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == item7)
+					;
 				new 课程成绩new(user);
 			}
-			if(ev.getSource()==item8)
-			{
-				new 补考报名new(user);
+		});
+		item8.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == item8)
+					new 补考报名new(user);
 			}
-			if(ev.getSource()==item10)
-			{
-				new 教学评估new(user);
-			}*/
-			this.setVisible(false);
+		});
+		item10.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (e.getSource() == item10)
+					new 评估new(user);
+			}
+		});
+		jl1 = new JLabel(new ImageIcon("image/OIP2.jpg"));
+		this.add(jl1);
+		// 展示
+		this.setTitle("教务管理系统（学生端）");
+		this.setSize(600, 450);
+		int w = (Toolkit.getDefaultToolkit().getScreenSize().width - 600) / 2;
+		int h = (Toolkit.getDefaultToolkit().getScreenSize().height - 450) / 2;
+		this.setLocation(w, h);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setVisible(true);
+
+	}
+
+	public void actionPerformed(ActionEvent ev)// 为按钮添加的注册事件
+	{
+		if (ev.getSource() == item9) {
+			new inter();
 		}
+		/*
+		 * if(ev.getSource() == item1) { //个人信息new.main(null); new 个人信息new(user); }
+		 * if(ev.getSource()==item2) { new 培养方案new(user); } if(ev.getSource()==item3) {
+		 * new 学籍注册new(user); } if(ev.getSource()==item4) { new 本学期课表new(user); }
+		 * if(ev.getSource()==item5) { new 选课new(user); } if(ev.getSource()==item6) {
+		 * new 退课new(user); } if(ev.getSource()==item7) { new 课程成绩new(user); }
+		 * if(ev.getSource()==item8) { new 补考报名new(user); } if(ev.getSource()==item10) {
+		 * new 教学评估new(user); }
+		 */
+		//this.setVisible(false);
+	}
 
 }

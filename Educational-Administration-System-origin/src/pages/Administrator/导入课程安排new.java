@@ -119,7 +119,6 @@ public class 导入课程安排new {
 			public void actionPerformed(ActionEvent e) {
 					if(textField.getText().isEmpty()) {
 						JOptionPane.showMessageDialog(null, "请输入课程id", "错误",JOptionPane.ERROR_MESSAGE);
-						System.out.print("fdasf");
 						return;
 					}
 					if(textField_1.getText().isEmpty()) {

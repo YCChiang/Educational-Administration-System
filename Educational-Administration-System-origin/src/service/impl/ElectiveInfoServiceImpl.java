@@ -108,4 +108,27 @@ public class ElectiveInfoServiceImpl implements ElectiveInfoService {
 		}		
 		return msg;
 	}
+	
+	public Massage elective(String class_id, String student_id) {
+		Massage msg = new Massage();
+		ElectiveInfo e = electiveinfoDao.selectByClass_idAndStudent_id(student_id, class_id);
+		if(e == null) {
+			e.setClass_id(class_id);
+			e.setStudent_id(student_id);
+			if(add(e)==1)
+			{
+				msg.setIsError(false);
+				msg.setContent("选课成功");
+			}
+			else{
+				msg.setIsError(true);
+				msg.setContent("选课失败");
+			}
+		}
+		else {
+			msg.setIsError(true);
+			msg.setContent("此选课信息已存在！");
+		}	
+		return msg;
+	}
 }

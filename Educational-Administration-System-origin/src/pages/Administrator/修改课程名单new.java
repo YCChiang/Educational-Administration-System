@@ -11,27 +11,38 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import entity.User;
+import service.impl.ElectiveInfoServiceImpl;
+import service.impl.Massage;
 public class 修改课程名单new {
 
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
 	public User u;
-	/**
-	 * Launch the application.
-	 */
-	
+	ElectiveInfoServiceImpl electiveinfoservice = null;
 
-	/**
-	 * Create the application.
-	 */
 	public 修改课程名单new(User user) {
 		initialize(user);
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+	private boolean validate() {
+		if(textField.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "请输入学生ID", "错误",JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+		else {
+			if(textField.getText().length()!=10) {
+				JOptionPane.showMessageDialog(null, "学生ID为10位", "错误",JOptionPane.ERROR_MESSAGE);
+				return false;
+			}
+		}
+		if(textField_1.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "请输入课程ID", "错误",JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
+		return true;
+	}
+	
 	private void initialize(User u1) {
 		u = u1;
 		frame = new JFrame();
@@ -54,9 +65,17 @@ public class 修改课程名单new {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button)
-					JOptionPane.showMessageDialog(null, "插入成功");
-					textField.setText(null);
-					textField_1.setText(null);
+					if(validate()) {
+						Massage msg = electiveinfoservice.elective(textField_1.getText(), textField.getText());
+						if(msg.isError()) {
+							JOptionPane.showMessageDialog(null, msg.getContent(), "错误",JOptionPane.ERROR_MESSAGE);
+						}
+						else {
+							JOptionPane.showMessageDialog(null, msg.getContent());
+						}
+						textField.setText(null);
+						textField_1.setText(null);
+					}					
 			}
 		});
 		
@@ -64,9 +83,17 @@ public class 修改课程名单new {
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button_1)
-					JOptionPane.showMessageDialog(null, "删除成功");
-					textField.setText(null);
-					textField_1.setText(null);
+					if(validate()) {
+						Massage msg = electiveinfoservice.quit(textField_1.getText(), textField.getText());
+						if(msg.isError()) {
+							JOptionPane.showMessageDialog(null, msg.getContent(), "错误",JOptionPane.ERROR_MESSAGE);
+						}
+						else {
+							JOptionPane.showMessageDialog(null, msg.getContent());
+						}
+						textField.setText(null);
+						textField_1.setText(null);
+					}	
 			}
 		});
 		

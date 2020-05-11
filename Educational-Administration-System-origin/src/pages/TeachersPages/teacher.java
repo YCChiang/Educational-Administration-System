@@ -91,15 +91,16 @@ public class teacher extends JFrame implements ActionListener
 	       // jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 	        //this.add(jsp);
 	        
-	        jl1 = new JLabel(new ImageIcon("F://1.jpg"));
+	        jl1 = new JLabel(new ImageIcon("image/OIP4.jpg"));
 	        this.add(jl1);
 	        // 展示
 	        this.setTitle("教务管理系统（教师端）");
-	        this.setSize(1200, 900);
+	        this.setSize(600, 450);
 	        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    	int w = (Toolkit.getDefaultToolkit().getScreenSize().width - 600) / 2;
+			int h = (Toolkit.getDefaultToolkit().getScreenSize().height - 450) / 2;
+			this.setLocation(w, h);
 			this.setVisible(true);
-
-
 	    }
 	    
 	    public void actionPerformed(ActionEvent ev)//为按钮添加的注册事件
@@ -107,6 +108,7 @@ public class teacher extends JFrame implements ActionListener
 	    	if(ev.getSource()==item7)
 			{
 	    		new inter();
+	    		this.setVisible(false);
 			}
 	    	if(ev.getSource()==item1)
 			{
@@ -132,7 +134,6 @@ public class teacher extends JFrame implements ActionListener
 			{
 				new TeacherVisitGrade(u1);
 			}
-			this.setVisible(false);
-				
+		//	this.setVisible(false);	
 			}
 		}

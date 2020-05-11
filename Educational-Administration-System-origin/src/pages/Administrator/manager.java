@@ -97,7 +97,7 @@ public class manager extends JFrame implements ActionListener
 			item8.addActionListener(this);
 			item9.addActionListener(this);
 			
-	        jl1 = new JLabel(new ImageIcon("image/OIP.jpg"));
+	        jl1 = new JLabel(new ImageIcon("image/OIP6.jpg"));
 	        this.add(jl1);
 	        // 展示
 	        this.setTitle("教务管理系统（管理员端）");
@@ -112,6 +112,7 @@ public class manager extends JFrame implements ActionListener
 	    	if(ev.getSource()==item9)
 			{
 	    		new inter();
+	    		this.setVisible(false);
 			}
 	    	if(ev.getSource()==item1)
 			{
@@ -146,7 +147,7 @@ public class manager extends JFrame implements ActionListener
 				new 修改课程名单new(u);
 			}
 			//this.setVisible(false);
-			this.dispose();
+		//	this.dispose();
 		}
 
 }

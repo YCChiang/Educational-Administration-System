@@ -59,7 +59,7 @@ public class 培养方案new {
 		frame.setTitle("学生培养方案");
 		JLabel label = new JLabel("学生培养方案");
 		user = u;
-		System.out.println(user.getname());
+	//	System.out.println(user.getname());
 		studentinfoserviceimpl s = new studentinfoserviceimpl();
 		info = s.findById(user.getname());
 		

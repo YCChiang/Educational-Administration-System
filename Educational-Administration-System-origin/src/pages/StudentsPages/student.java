@@ -159,7 +159,7 @@ public class student extends JFrame implements ActionListener {
 					new 评估new(user);
 			}
 		});
-		jl1 = new JLabel(new ImageIcon("image/OIP2.jpg"));
+		jl1 = new JLabel(new ImageIcon("image/OIP5.jpg"));
 		this.add(jl1);
 		// 展示
 		this.setTitle("教务管理系统（学生端）");
@@ -176,6 +176,7 @@ public class student extends JFrame implements ActionListener {
 	{
 		if (ev.getSource() == item9) {
 			new inter();
+			this.setVisible(false);
 		}
 		/*
 		 * if(ev.getSource() == item1) { //个人信息new.main(null); new 个人信息new(user); }

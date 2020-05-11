@@ -46,7 +46,7 @@ public class ElectiveInfoDaoImpl implements ElectiveInfoDao {
 		ResultSet rs = null;
 		List<ElectiveInfo> result = new ArrayList<ElectiveInfo>();
 		try {
-			String sql = "select * from classgrade where student_id = ?";
+			String sql = "select * from electiveinfo where student_id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, student_id);
 			rs = pstmt.executeQuery();

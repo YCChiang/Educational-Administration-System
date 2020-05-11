@@ -55,8 +55,8 @@ public class 培养方案new {
 	private void initialize(User u) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("学生培养方案");
 		JLabel label = new JLabel("学生培养方案");
 		user = u;
 		System.out.println(user.getname());

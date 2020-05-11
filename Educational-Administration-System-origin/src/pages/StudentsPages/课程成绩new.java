@@ -54,9 +54,10 @@ public class 课程成绩new {
 	private void initialize(User u) {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+	//	frame.setDefaultCloseOperation(JFrame.);
+		frame.setTitle("课程成绩");
 		JLabel label = new JLabel("课程成绩");
+	
 		user = u;
 		System.out.println(user.getname());
 		studentinfoserviceimpl s = new studentinfoserviceimpl();

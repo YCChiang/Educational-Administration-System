@@ -62,7 +62,7 @@ public class 个人信息new {
 		//String[] newStr = stu.split(cut);
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 481);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JLabel label = new JLabel("个人信息");
 	
@@ -146,7 +146,7 @@ public class 个人信息new {
 				if(arg0.getSource() == button_1)
 				{
 					frame.setVisible(false);
-					new student(user);
+				//	new student(user);
 					
 				}
 			}

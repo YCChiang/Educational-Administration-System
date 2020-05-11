@@ -221,7 +221,7 @@ public class CommentDaoimpl implements CommentDao {
 			while(rs.next()) {
 				Comment temp = new Comment();
 				temp.setId(rs.getInt("id"));
-				temp.setClass_id(rs.getString(class_id));
+				temp.setClass_id(class_id);
 				temp.setClass_name(rs.getString("class_name"));
 				temp.setTeacher_id(teacher_id);
 				temp.setTeacher_name("teacher_name");

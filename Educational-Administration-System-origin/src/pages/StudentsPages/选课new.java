@@ -152,6 +152,8 @@ public class 选课new extends JFrame{
 								JOptionPane.ERROR_MESSAGE);
 					}
 					else {
+						System.out.println(id);
+						System.out.println(name_t);
 						if(id && !name_t)
 						{
 							List<ClassInfo> classInfo = classinfoservice.seachClassById(input, "2020春", user.getname(), IsFull, IsConflict);

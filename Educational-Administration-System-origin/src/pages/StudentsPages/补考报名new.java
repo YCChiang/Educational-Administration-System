@@ -76,7 +76,7 @@ public class 补考报名new {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button_2)
 				{
-					new student(user);
+		//			new student(user);
 					frame.setVisible(false);
 				}
 			}

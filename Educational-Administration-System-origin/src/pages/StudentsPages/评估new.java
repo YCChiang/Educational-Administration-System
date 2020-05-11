@@ -123,7 +123,7 @@ public class 评估new {
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == button_1)
-					new student(u);
+			//		new student(u);
 				frame.setVisible(false);
 			}
 		});

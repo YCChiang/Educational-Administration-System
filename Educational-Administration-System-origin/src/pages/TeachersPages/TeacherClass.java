@@ -1,64 +1,91 @@
 package pages.TeachersPages;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
+import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
+import javax.swing.JTable;
+import javax.swing.JScrollPane;
+import javax.swing.*;
 
+import entity.ClassGrade;
 import entity.ClassInfo;
 import entity.ClassSchedule;
-import entity.User;
-import service.impl.ClassInfoServiceImpl;
-import service.impl.ClassScheduleServiceImpl;
-public class TeacherClass extends JFrame implements ActionListener {
+import entity.*;
+import service.impl.*;
+import javax.swing.table.DefaultTableModel;
 
-	private JPanel contentPane;
-	private JTextField textField;
-	private User u;
+public class TeacherClass {
+
+	private JFrame frame;
+	public User user;
 	ClassInfoServiceImpl classinfoservice = null;
 	ClassScheduleServiceImpl classscheduleservice= null;
 	List<ClassInfo> classInfo = null;
-	JButton button;
+	private JTable table;
 	/**
 	 * Launch the application.
 	 */
-
+	
 
 	/**
-	 * Create the frame.
+	 * Create the application.
 	 */
-	public TeacherClass(User user) {
-		u = user;
+	public TeacherClass(User u) {
 		classscheduleservice = new ClassScheduleServiceImpl();
 		classinfoservice = new ClassInfoServiceImpl();
-		setTitle("教师课程表");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 585, 385);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		initialize(u);
 		
-		JLabel label = new JLabel("本学期教师课程表");
-		label.setBounds(211, 24, 140, 18);
-		contentPane.add(label);
-		
-		// TODO 添加表格组件
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize(User u1) {
+		user = u1;
+		//System.out.println(user.getname());
+		frame = new JFrame();
+		frame.setBounds(100, 100, 549, 521);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		DefaultTableModel model = new DefaultTableModel();
+		JLabel label = new JLabel("教师课程表");
+		table = new JTable(model);
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				
+			},
+			new String[] {
+				"课程ID", "课程名称",  "课容量", "开课学期", "开课周", "上课时间"
+			}
+		));
 		/*
 		 * 添加表格：教程http://c.biancheng.net/view/1258.html
-		 * 列名有：课程ID，课程名称，课容量，开课学期，开课周，上课时间
+		 * 列名有：课程ID，课程名称，教师名称，课容量，开课学期，开课周，上课时间
 		 * 其中开课周为start_week-end_week（例如：1-8）
 		 */
+		//ElectiveInfoServiceImpl service = new ElectiveInfoServiceImpl();
+		/*List<ClassInfo> classInfo = service.findByStudentId(user.getname());*/
+		DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+		table.setModel(tableModel);
 		classInfo = classinfoservice.findByTeacher_idAndYear(user.getname(), "2020春");
+		//System.out.println(1);
 		if(!classInfo.isEmpty()) {
+			//System.out.println(2);
 			for(ClassInfo c:classInfo) {
+				//System.out.println(c.getId());
+				//System.out.println(3);
 				List<ClassSchedule> schedule = classscheduleservice.findByClassId(c.getId());
 				if(!schedule.isEmpty()) {
+					System.out.println(4);
+					//	System.out.println(c.getId());
+					tableModel.addRow(new Object[] { c.getId(), c.getName(),  c.getCapacity(),c.getTeacher_name(),
+					 c.getStart_week() , c.getEnd_week() ,c.getYear()});
 					/*
 					 *  将数据添加到表格中显示为如下
 					 * ------------------------------------------
@@ -70,26 +97,56 @@ public class TeacherClass extends JFrame implements ActionListener {
 					 * -------------------------------------------
 					 */
 				}
-			}			
+				
+			}	
+			table.setModel(tableModel);
 		}
-		textField = new JTextField();
-		textField.setBounds(48, 55, 446, 201);
-		contentPane.add(textField);
-		textField.setColumns(10);
 		
-		 button = new JButton("返回");
-		button.addActionListener(this);
-		button.setBounds(225, 287, 113, 27);
-		contentPane.add(button);
-		this.setVisible(true);
+		
+		JButton button = new JButton("返回");
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(e.getSource() == button)
+				{
+					frame.setVisible(false);
+					new teacher(user);
+				}
+			}
+		});
+		
+		JScrollPane scrollPane = new JScrollPane();
+		
+		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap(46, Short.MAX_VALUE)
+					.addComponent(button)
+					.addGap(233))
+				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+					.addGap(219)
+					.addComponent(label)
+					.addContainerGap(222, Short.MAX_VALUE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap(46, Short.MAX_VALUE)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 462, GroupLayout.PREFERRED_SIZE)
+					.addGap(23))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.TRAILING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(38)
+					.addComponent(label)
+					.addGap(18)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 336, GroupLayout.PREFERRED_SIZE)
+					.addGap(24)
+					.addComponent(button)
+					.addContainerGap())
+		);
+		
+		
+		scrollPane.setViewportView(table);
+		frame.getContentPane().setLayout(groupLayout);
+		frame.setVisible(true);
 	}
-
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-		if(e.getSource()==button)
-			this.dispose();
-	}
-
 }

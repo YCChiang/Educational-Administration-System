@@ -10,12 +10,16 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
+import javax.swing.JTable;
+import javax.swing.JScrollPane;
+import javax.swing.*;
 
+import entity.ClassGrade;
 import entity.ClassInfo;
 import entity.ClassSchedule;
-import entity.User;
-import service.impl.ClassInfoServiceImpl;
-import service.impl.ClassScheduleServiceImpl;
+import entity.*;
+import service.impl.*;
+import javax.swing.table.DefaultTableModel;
 
 public class 本学期课表new {
 
@@ -24,6 +28,7 @@ public class 本学期课表new {
 	ClassInfoServiceImpl classinfoservice = null;
 	ClassScheduleServiceImpl classscheduleservice= null;
 	List<ClassInfo> classInfo = null;
+	private JTable table;
 	/**
 	 * Launch the application.
 	 */
@@ -33,9 +38,10 @@ public class 本学期课表new {
 	 * Create the application.
 	 */
 	public 本学期课表new(User u) {
-		initialize(u);
 		classscheduleservice = new ClassScheduleServiceImpl();
 		classinfoservice = new ClassInfoServiceImpl();
+		initialize(u);
+		
 	}
 
 	/**
@@ -43,63 +49,62 @@ public class 本学期课表new {
 	 */
 	private void initialize(User u1) {
 		user = u1;
+		//System.out.println(user.getname());
 		frame = new JFrame();
-		frame.setBounds(100, 100, 451, 425);
+		frame.setBounds(100, 100, 549, 521);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+		DefaultTableModel model = new DefaultTableModel();
 		JLabel label = new JLabel("本学期课程表");
-		
-		JTextArea textArea = new JTextArea();
-		
-		JTextArea textArea_1 = new JTextArea();
-		
-		JTextArea textArea_2 = new JTextArea();
-		
-		JTextArea textArea_3 = new JTextArea();
-		
-		JTextArea textArea_4 = new JTextArea();
-		
-		JTextArea textArea_5 = new JTextArea();
-		
-		JTextArea textArea_6 = new JTextArea();
-		
-		JTextArea textArea_7 = new JTextArea();
-		
-		JTextArea textArea_8 = new JTextArea();
-		
-		JTextArea textArea_9 = new JTextArea();
-		
-		JTextArea textArea_10 = new JTextArea();
-		
-		JTextArea textArea_11 = new JTextArea();
-		
-		JTextArea textArea_12 = new JTextArea();
-		
-		JTextArea textArea_13 = new JTextArea();
-		
-		JTextArea textArea_14 = new JTextArea();
-		
-		JTextArea textArea_15 = new JTextArea();
-		
-		JTextArea textArea_16 = new JTextArea();
-		
-		JTextArea textArea_17 = new JTextArea();
-		
-		JTextArea textArea_18 = new JTextArea();
-		
-		JTextArea textArea_19 = new JTextArea();
-		
-		// TODO 添加表格组件
+		table = new JTable(model);
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+				{null, null, null, null, null, null},
+			},
+			new String[] {
+				"课程ID", "课程名称", "教师名称", "课容量", "开课周", "上课时间"
+			}
+		));
 		/*
 		 * 添加表格：教程http://c.biancheng.net/view/1258.html
 		 * 列名有：课程ID，课程名称，教师名称，课容量，开课学期，开课周，上课时间
 		 * 其中开课周为start_week-end_week（例如：1-8）
 		 */
+		//ElectiveInfoServiceImpl service = new ElectiveInfoServiceImpl();
+		/*List<ClassInfo> classInfo = service.findByStudentId(user.getname());*/
+		DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+		table.setModel(tableModel);
 		classInfo = classinfoservice.findByStudentIdAndYear(user.getname(), "2020春");
 		if(!classInfo.isEmpty()) {
 			for(ClassInfo c:classInfo) {
 				List<ClassSchedule> schedule = classscheduleservice.findByClassId(c.getId());
 				if(!schedule.isEmpty()) {
+						System.out.println(c.getId());
+					tableModel.addRow(new Object[] { c.getId(), c.getName(), c.getTeacher_name(), c.getCapacity(),
+					 c.getStart_week() + "-" + c.getEnd_week() ,c.getYear()});
 					/*
 					 *  将数据添加到表格中显示为如下
 					 * -----------------------------------------------------
@@ -111,8 +116,11 @@ public class 本学期课表new {
 					 * -----------------------------------------------------
 					 */
 				}
-			}			
+				
+			}	
+			table.setModel(tableModel);
 		}
+		
 		
 		JButton button = new JButton("返回");
 		button.addActionListener(new ActionListener() {
@@ -124,89 +132,39 @@ public class 本学期课表new {
 				}
 			}
 		});
+		
+		JScrollPane scrollPane = new JScrollPane();
+		
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
 		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
+			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-								.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
-									.addGap(31)
-									.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
-										.addComponent(textArea_5, Alignment.LEADING)
-										.addComponent(textArea, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-										.addComponent(textArea_6, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
-										.addComponent(textArea_7, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
-									.addGap(36)
-									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(textArea_10, GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
-										.addComponent(textArea_9, GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
-										.addComponent(textArea_8)
-										.addComponent(textArea_1, GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE))
-									.addGap(33)
-									.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-										.addComponent(textArea_13, GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
-										.addComponent(textArea_12, GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)
-										.addComponent(textArea_11)
-										.addComponent(textArea_2, GroupLayout.DEFAULT_SIZE, 52, Short.MAX_VALUE)))
-								.addGroup(groupLayout.createSequentialGroup()
-									.addContainerGap()
-									.addComponent(button)))
-							.addGap(37)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(textArea_16, GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-								.addComponent(textArea_15, GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-								.addComponent(textArea_14)
-								.addComponent(textArea_3, GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE))
-							.addGap(33)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addComponent(textArea_19, GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-								.addComponent(textArea_18, GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)
-								.addComponent(textArea_17)
-								.addComponent(textArea_4, GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE)))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(174)
-							.addComponent(label)))
-					.addContainerGap())
+					.addContainerGap(46, Short.MAX_VALUE)
+					.addComponent(button)
+					.addGap(233))
+				.addGroup(Alignment.LEADING, groupLayout.createSequentialGroup()
+					.addGap(219)
+					.addComponent(label)
+					.addContainerGap(222, Short.MAX_VALUE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap(46, Short.MAX_VALUE)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 462, GroupLayout.PREFERRED_SIZE)
+					.addGap(23))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.TRAILING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addGap(22)
+					.addGap(38)
 					.addComponent(label)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textArea_4, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_1, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_2, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_3, GroupLayout.PREFERRED_SIZE, 47, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textArea_5, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_8, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_11, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_14, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_17, GroupLayout.PREFERRED_SIZE, 44, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textArea_6, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_9, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_12, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_15, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_18, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
-					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
-						.addComponent(textArea_7, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_10, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_13, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_16, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textArea_19, GroupLayout.PREFERRED_SIZE, 49, GroupLayout.PREFERRED_SIZE))
-					.addGap(42)
+					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 336, GroupLayout.PREFERRED_SIZE)
+					.addGap(24)
 					.addComponent(button)
 					.addContainerGap())
 		);
+		
+		
+		scrollPane.setViewportView(table);
 		frame.getContentPane().setLayout(groupLayout);
 		frame.setVisible(true);
 	}

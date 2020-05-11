@@ -2,6 +2,8 @@ package pages.StudentsPages;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JCheckBox;
@@ -9,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 
 import entity.ClassInfo;
@@ -39,7 +42,6 @@ public class 退课new {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 366);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 		JLabel label = new JLabel("所有课程");
 		
 		// TODO 添加表格组件
@@ -48,6 +50,16 @@ public class 退课new {
 		 * 列名有：课程ID，课程名称，教师名称，课容量，开课学期，开课周
 		 * 其中开课周为start_week-end_week（例如：1-8）
 		 */
+		Object[][] tabledate = new Object[2][6];
+		for(int i = 0; i < 6; i++)
+		{
+			tabledate[1][i] = 0;
+		}
+		String[] name = {"课程ID","课程名称","教师姓名","课容量","开课学期","开课周"};
+		JTable table =  new JTable(tabledate,name);
+		JScrollPane pane = new JScrollPane(table);
+		frame.getContentPane().add(pane);
+		
 		classInfo = classinfoservice.findByStudentIdAndYear(user.getname(), "2020春");
 		if(!classInfo.isEmpty()) {
 			for(ClassInfo c:classInfo) {
@@ -55,7 +67,7 @@ public class 退课new {
 			}			
 		}
 		
-		JCheckBox checkBox = new JCheckBox("软件工程"); // 删除
+		
 		
 		JButton button = new JButton("退课");
 		button.addActionListener(new ActionListener() {

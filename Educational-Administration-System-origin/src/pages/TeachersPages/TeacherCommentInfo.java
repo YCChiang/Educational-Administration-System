@@ -22,6 +22,7 @@ import javax.swing.SwingConstants;
 public class TeacherCommentInfo extends JFrame implements ActionListener{
 	public User u;
 	public List<Comment> com;
+	public TeacherCommentServiceimpl comment;
 	/**
 	 * Launch the application.
 	 */
@@ -31,10 +32,10 @@ public class TeacherCommentInfo extends JFrame implements ActionListener{
 	/**
 	 * Create the frame.
 	 */
-	public TeacherCommentInfo(User user) {
+	public TeacherCommentInfo(User user,String s) {
 		u = user;
-		TeacherCommentServiceimpl comment = new TeacherCommentServiceimpl();
-		com = comment.findCommentList(user.getname());
+		comment = new TeacherCommentServiceimpl();
+		com = comment.findCommentListbyteacheridandclassid(user.getname(), s);
 		int i = com.size();
 		
 		setTitle("教师课程评价");
@@ -53,7 +54,7 @@ public class TeacherCommentInfo extends JFrame implements ActionListener{
 		int j;
 		for(j = 0;j < i; j++)
 		{
-			textArea.append(com.get(j).getClass_name()+" "+com.get(j).getContent()+"\r\n");
+			textArea.append(com.get(j).getClass_name()+"  "+com.get(j).getContent()+"\r\n");
 		}
 		scrollPane.setViewportView(textArea);
 		

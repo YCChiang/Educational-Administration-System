@@ -18,8 +18,8 @@ public class 修改课程名单new {
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
+	ElectiveInfoServiceImpl electiveinfoservice;
 	public User u;
-	ElectiveInfoServiceImpl electiveinfoservice = null;
 
 	public 修改课程名单new(User user) {
 		initialize(user);
@@ -44,6 +44,8 @@ public class 修改课程名单new {
 	}
 	
 	private void initialize(User u1) {
+
+		 electiveinfoservice = new ElectiveInfoServiceImpl();
 		u = u1;
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 334);

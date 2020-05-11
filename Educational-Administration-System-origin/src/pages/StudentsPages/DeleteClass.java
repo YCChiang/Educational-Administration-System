@@ -76,7 +76,10 @@ public class DeleteClass extends JFrame implements ActionListener {
 		 * 
 		 */
 		DefaultTableModel tableModel = (DefaultTableModel) table.getModel();
+<<<<<<< HEAD
 		//int size = classInfo.size();
+=======
+>>>>>>> 9660161a7323cfd48c7e172dac5339dfe3450253
 		if (!classInfo.isEmpty()) {
 			for (ClassInfo c : classInfo) {
 				// 将数据添加到表格中

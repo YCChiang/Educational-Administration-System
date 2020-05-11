@@ -52,7 +52,7 @@ public class student extends JFrame implements ActionListener {
 		item6 = new JMenuItem("退课");
 
 		item7 = new JMenuItem("课程成绩");
-		item8 = new JMenuItem("补考报名");
+		//item8 = new JMenuItem("补考报名");
 
 		item10 = new JMenuItem("教学评估");
 
@@ -73,7 +73,7 @@ public class student extends JFrame implements ActionListener {
 		menu3.add(item6);
 
 		menu4.add(item7);
-		menu4.add(item8);
+	//	menu4.add(item8);
 
 		menu5.add(item10);
 
@@ -101,7 +101,7 @@ public class student extends JFrame implements ActionListener {
 		item5.addActionListener(this);
 		item6.addActionListener(this);
 		item7.addActionListener(this);
-		item8.addActionListener(this);
+	//	item8.addActionListener(this);
 		item9.addActionListener(this);
 		item10.addActionListener(this);
 		item1.addActionListener(new ActionListener() {
@@ -147,12 +147,13 @@ public class student extends JFrame implements ActionListener {
 				new 课程成绩new(user);
 			}
 		});
-		item8.addActionListener(new ActionListener() {
+	/*	item8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == item8)
 					new 补考报名new(user);
 			}
 		});
+		*/
 		item10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == item10)

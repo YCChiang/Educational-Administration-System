@@ -54,7 +54,7 @@ public class 个人信息new {
 	 */
 	private void initialize(User u) {
 		user = u;
-		System.out.println(user.getname());
+		//System.out.println(user.getname());
 		studentinfoserviceimpl service = new studentinfoserviceimpl();
 		info = service.findById(user.getname());
 		//String cut = " ";

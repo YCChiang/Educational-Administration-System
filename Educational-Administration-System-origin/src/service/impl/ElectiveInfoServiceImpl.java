@@ -113,6 +113,7 @@ public class ElectiveInfoServiceImpl implements ElectiveInfoService {
 		Massage msg = new Massage();
 		ElectiveInfo e = electiveinfoDao.selectByClass_idAndStudent_id(student_id, class_id);
 		if(e == null) {
+			e = new ElectiveInfo();
 			e.setClass_id(class_id);
 			e.setStudent_id(student_id);
 			if(add(e)==1)

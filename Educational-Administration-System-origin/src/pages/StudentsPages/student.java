@@ -137,7 +137,7 @@ public class student extends JFrame implements ActionListener {
 		item6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (e.getSource() == item6)
-					new 退课new(user);
+					new DeleteClass(user);
 			}
 		});
 		item7.addActionListener(new ActionListener() {

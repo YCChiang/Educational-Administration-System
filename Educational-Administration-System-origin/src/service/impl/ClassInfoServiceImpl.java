@@ -5,16 +5,19 @@ import java.util.List;
 import entity.ClassInfo;
 import entity.ClassSchedule;
 import entity.ElectiveInfo;
+import entity.Teacher;
 import service.ClassInfoService;
 
 import dao.impl.ClassInfoDaoimpl;
 import dao.impl.ElectiveInfoDaoImpl;
 import dao.impl.ClassScheduleDAOImpl;
+import dao.impl.TeacherDaoimpl;
 
 public class ClassInfoServiceImpl implements ClassInfoService {
 	ClassInfoDaoimpl classinfoDao = new ClassInfoDaoimpl();
 	ElectiveInfoDaoImpl electiveinfoDao = new ElectiveInfoDaoImpl();
 	ClassScheduleDAOImpl classscheduleDAO = new ClassScheduleDAOImpl();
+	TeacherDaoimpl teacherDao = new TeacherDaoimpl();
 	
 	@Override
 	public List<ClassInfo> findByName(String name) {
@@ -68,10 +71,6 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 		}
 		return false;
 	}
-	
-	/*
-	 * 查找已选的课程
-	 */
 	
 	
 	/*
@@ -165,4 +164,30 @@ public class ClassInfoServiceImpl implements ClassInfoService {
 		return classinfoDao.selectByTeacheridandClassid(teacher_id, Id);
 	}
 
+	public Massage addOne(ClassInfo classinfo) {
+		Massage msg = new Massage();
+		if(findOne(classinfo.getId()) == null) {
+			Teacher teacher = teacherDao.searchByTeacherid(classinfo.getTeacher_id());
+			if(teacher != null) {
+				classinfo.setTeacher_name(teacher.getName());
+				if(add(classinfo) == 1) {
+					msg.setIsError(false);
+					msg.setContent("导入课程成功！");
+				}
+				else {
+					msg.setIsError(true);
+					msg.setContent("输入信息错误！");
+				}
+			}
+			else {
+				msg.setIsError(true);
+				msg.setContent("教师id不存在！");
+			}
+		}
+		else {
+			msg.setIsError(true);
+			msg.setContent("此课程id已存在，无法插入");
+		}
+		return msg;
+	}
 }

@@ -40,7 +40,10 @@ public class DeleteClass extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+
+	
 	public DeleteClass(User user) {
+		
 		setTitle("退课");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 618, 330);
@@ -72,7 +75,6 @@ public class DeleteClass extends JFrame {
 		table.getColumnModel().getColumn(2).setMinWidth(25);
 		scrollPane.setViewportView(table);
 		classInfo = classinfoservice.findByStudentIdAndYear(user.getname(), "2020春");
-		
 		JLabel label = new JLabel("已选课程");
 		label.setBounds(242, 26, 72, 18);
 		contentPane.add(label);
@@ -90,9 +92,9 @@ public class DeleteClass extends JFrame {
 					DefaultTableModel model=(DefaultTableModel) table.getModel();
 					
 					int []selectedRows = table.getSelectedRows();
-					for(int i = selectedRows[0]; i < selectedRows.length; i++)
+					for(int i = 0; i < selectedRows.length; i++)
 					{
-						String selected = table.getValueAt(1, selectedRows[0]).toString();
+						String selected = table.getValueAt(1, selectedRows[i]).toString();
 						Massage msg = electiveinfoservice.quit(selected, user.getname());
 						if(msg.isError()) {
 							// TODO 警告弹窗，消息为msg.getContent()		
@@ -119,7 +121,8 @@ public class DeleteClass extends JFrame {
 		JButton button_1 = new JButton("返回");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new student(user);
+				//new student(user);
+				contentPane.setVisible(false);
 			}
 		});
 		button_1.setBounds(342, 225, 113, 27);

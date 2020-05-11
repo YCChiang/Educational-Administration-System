@@ -217,6 +217,7 @@ public class CommentDaoimpl implements CommentDao {
 			String sql = "select * from comment where class_id = ? and teacher_id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, class_id);
+			pstmt.setString(2, teacher_id);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				Comment temp = new Comment();

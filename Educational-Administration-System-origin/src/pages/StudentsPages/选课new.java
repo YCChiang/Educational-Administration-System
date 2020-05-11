@@ -210,7 +210,7 @@ public class 选课new extends JFrame{
 						for (int i = 0; i < selectedRows.length; i++) {
 							if(IsFull&&!IsConflict)// “只显示有课容量的课程”
 							{
-								ClassInfo selected = null;
+								ClassInfo selected = new ClassInfo();
 								String s0 = table.getValueAt(selectedRows[i],0).toString();
 								selected.setId(s0);
 								String s1 = table.getValueAt(selectedRows[i],1).toString();

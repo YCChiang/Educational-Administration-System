@@ -19,7 +19,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 import entity.User;
 import entity.Teacher;
-public class TeachersInfo extends JFrame {
+public class TeachersInfo extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JTextField textField;
@@ -28,6 +28,7 @@ public class TeachersInfo extends JFrame {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	JButton button_2;
 	public User u;
 	public TeacherInformationServiceimpl tinfo;
 	static public Teacher t;
@@ -117,12 +118,8 @@ public class TeachersInfo extends JFrame {
 		contentPane.add(textField_5);
 		textField_5.setColumns(10);
 		
-		JButton button_2 = new JButton("返回");
-		button_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new teacher(user);
-			}
-		});
+		 button_2 = new JButton("返回");
+		button_2.addActionListener(this);
 		button_2.setFont(new Font("微软雅黑", Font.PLAIN, 15));
 		button_2.setBounds(282, 98, 113, 27);
 		contentPane.add(button_2);
@@ -130,5 +127,13 @@ public class TeachersInfo extends JFrame {
 	  
 		
 		this.setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource() == button_2) {
+			this.dispose();
+		}
 	}
 }

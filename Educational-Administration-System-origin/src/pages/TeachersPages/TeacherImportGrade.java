@@ -14,7 +14,8 @@ import java.awt.event.ActionEvent;
 import entity.ClassGrade;
 import entity.User;
 import service.impl.TeacherClassServiceimpl;
-public class TeacherImportGrade extends JFrame {
+
+public class TeacherImportGrade extends JFrame implements ActionListener {
 
 	/**
 	 * 
@@ -27,10 +28,12 @@ public class TeacherImportGrade extends JFrame {
 	private JTextField textField_3;
 	private ClassGrade grade1;
 	public User u;
+	JButton button_1;
 
-	public static void main(String [] args) {
+	public static void main(String[] args) {
 		new TeacherImportGrade(null);
 	}
+
 	public TeacherImportGrade(User user) {
 		u = user;
 		setTitle("教师成绩录入");
@@ -127,15 +130,16 @@ public class TeacherImportGrade extends JFrame {
 		});
 		button.setBounds(78, 280, 113, 27);
 		contentPane.add(button);
-		
-		JButton button_1 = new JButton("返回");
-		button_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				new teacher(u);
-			}
-		});
+		 button_1 = new JButton("返回");
+		button_1.addActionListener(this);
+
 		button_1.setBounds(318, 280, 113, 27);
 		contentPane.add(button_1);
 		this.setVisible(true);
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == button_1)
+			this.dispose();
 	}
 }

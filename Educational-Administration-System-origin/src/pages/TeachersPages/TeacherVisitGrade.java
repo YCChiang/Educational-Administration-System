@@ -73,7 +73,8 @@ public class TeacherVisitGrade extends JFrame {
 		JButton button_1 = new JButton("返回");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new teacher(u);
+				//new teacher(u);
+				contentPane.setVisible(false);
 			}
 		});
 		button_1.setBounds(246, 152, 113, 27);

@@ -3,5 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="D:/workplace/Educational-Administration-System/Educational-Administration-System-origin/database/mariadb-java-client-2.4.2.jar"/>
+	<classpathentry kind="lib" path="D:/workplace/Educational-Administration-System/Educational-Administration-System-origin/database/beautyeye_lnf.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

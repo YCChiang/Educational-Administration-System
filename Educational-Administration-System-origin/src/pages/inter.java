@@ -19,6 +19,15 @@ public class inter extends JFrame implements ActionListener {
 	JCheckBox jcb1, jcb2, jcb3;
 
 	public static void main(String[] args) {
+	   try           
+	    {
+	        org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF();
+	    }
+	    catch(Exception e)
+	    {
+	        //TODO exception
+	    }
+	    
 		inter d1 = new inter();
 	}
 

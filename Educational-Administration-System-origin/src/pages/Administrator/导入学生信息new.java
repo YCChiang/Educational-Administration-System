@@ -116,9 +116,25 @@ public class 导入学生信息new implements ActionListener {
 			public void actionPerformed(ActionEvent arg0) {
 				if (arg0.getSource() == button) {
 					try {
+						
+						String id = textField_1.getText();
+						String name = textField.getText();
+						System.out.print("id");
+						if(id.isEmpty()) {
+							JOptionPane.showMessageDialog(null, "请输入正确数据", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						if(id.length() != 10) {
+							JOptionPane.showMessageDialog(null, "学生学号必须为10位数字", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						if(name.isEmpty()) {
+							JOptionPane.showMessageDialog(null, "请输入正确数据", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
 						Student info = new Student();
-						info.setId(textField_1.getText());
-						info.setName(textField.getText());
+						info.setId(id);
+						info.setName(name);
 						if (textField_2.getText().equals("男"))
 							info.setGender(1);
 						else
@@ -152,7 +168,7 @@ public class 导入学生信息new implements ActionListener {
 
 					} catch (Exception e) {
 						e.printStackTrace();
-						JOptionPane.showMessageDialog(null, "请输入正确数据");
+						JOptionPane.showMessageDialog(null, "请输入正确数据", "错误提示",	JOptionPane.ERROR_MESSAGE);
 					}
 				}
 			}

@@ -61,6 +61,16 @@ public class 导入培养方案new {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button)
 				{
+					if(textField_1.getText().equals("")) {
+						JOptionPane.showMessageDialog(null, "未输入专业");
+					}
+					else if(textField_2.getText().equals(""))
+						JOptionPane.showMessageDialog(null, "未输入课程id");
+					else if(textField_3.getText().equals(""))
+						JOptionPane.showMessageDialog(null, "未输入课程名");
+					else if(textField_4.getText().equals(""))
+						JOptionPane.showMessageDialog(null, "未输入学分");
+					else {
 					try {
 					//JOptionPane.showMessageDialog(null, "导入成功");
 						ProfProgram PP = new ProfProgram();
@@ -81,6 +91,7 @@ public class 导入培养方案new {
 					}catch(Exception ex) {
 						ex.printStackTrace();
 						JOptionPane.showMessageDialog(null, "请输入正确数据");
+					}
 					}
 				}
 			}

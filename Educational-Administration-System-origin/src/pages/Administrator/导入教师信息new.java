@@ -85,13 +85,34 @@ public class 导入教师信息new {
 						administratorinfomationServiceimpl service = new administratorinfomationServiceimpl();
 						Teacher info = new Teacher();
 						info.setId(textField.getText());
+						if(textField.getText().length()!=4) {
+							JOptionPane.showMessageDialog(null, "教师工号为4位整数", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
 						info.setName(textField_1.getText());
+						if(textField_1.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "请输入教师姓名", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						
 						if(textField_2.getText().equals("男"))
 							info.setGender(1);
-						else
+						else if(textField_2.getText().equals("女"))
 							info.setGender(0);
+						else {
+							JOptionPane.showMessageDialog(null, "请输入正确性别(男/女)", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
 						info.setDepartment(textField_3.getText());
+						if(textField_3.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "请输入学院", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
 						info.setTitle(textField_4.getText());
+						if(textField_4.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "请输入正确职称", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
 						info.setTel(textField_5.getText());
 						int ans = service.addTeacher(info);
 						if(ans == 1) {
@@ -109,7 +130,7 @@ public class 导入教师信息new {
 						textField_5.setText(null);
 					} catch (Exception e) {
 						e.printStackTrace();
-						JOptionPane.showMessageDialog(null, "信息有误");
+						JOptionPane.showMessageDialog(null, "请输入正确数据", "错误提示",	JOptionPane.ERROR_MESSAGE);
 					}
 			}
 		});

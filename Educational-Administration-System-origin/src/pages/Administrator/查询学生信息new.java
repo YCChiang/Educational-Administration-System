@@ -74,6 +74,10 @@ public class 查询学生信息new implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == button) {
+			if(textField.getText().length()!=10) {
+				JOptionPane.showMessageDialog(null, "请输入十位学号(数字)", "错误提示",	JOptionPane.ERROR_MESSAGE);
+				return;
+			}
 			studentinfoserviceimpl service = new studentinfoserviceimpl();
 			Student student = service.findById(textField.getText());
 			if (student == null) {

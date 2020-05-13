@@ -78,9 +78,9 @@ public class 导入学生信息new implements ActionListener {
 
 		JLabel label_6 = new JLabel("年龄");
 
-		JLabel label_7 = new JLabel("家庭地址");
+		JLabel label_7 = new JLabel("家庭地址(可空)");
 
-		JLabel label_8 = new JLabel("电话号码");
+		JLabel label_8 = new JLabel("电话号码(可空)");
 
 		JLabel label_9 = new JLabel("入学时间");
 
@@ -129,7 +129,7 @@ public class 导入学生信息new implements ActionListener {
 							return;
 						}
 						if(name.isEmpty()) {
-							JOptionPane.showMessageDialog(null, "请输入正确数据", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							JOptionPane.showMessageDialog(null, "请输入姓名", "错误提示",	JOptionPane.ERROR_MESSAGE);
 							return;
 						}
 						Student info = new Student();
@@ -137,13 +137,37 @@ public class 导入学生信息new implements ActionListener {
 						info.setName(name);
 						if (textField_2.getText().equals("男"))
 							info.setGender(1);
-						else
+						else if(textField_2.getText().equals("女"))
 							info.setGender(0);
+						else {
+							JOptionPane.showMessageDialog(null, "请输入正确性别格式:男/女", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
 						info.setDepartment(textField_3.getText());
+						if(textField_3.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "请输入院系", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
 						info.setSpecialty(textField_4.getText());
+						if(textField_4.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "请输入专业信息", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
 						info.setClassinfo(textField_5.getText());
+						if(textField_5.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "请输入班级信息", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						if(textField_6.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "请输入年龄(整数)", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
 						info.setAge(Integer.parseInt(textField_6.getText()));
 						info.setAdmission_time(Integer.parseInt(textField_9.getText()));
+						if(textField_9.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "请输入入学时间(整数)", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
 						info.setAddress(textField_7.getText());
 						info.setTel(textField_8.getText());
 

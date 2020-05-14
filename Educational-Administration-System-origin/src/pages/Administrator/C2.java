@@ -28,7 +28,7 @@ public class C2 extends JFrame implements ActionListener {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -39,12 +39,12 @@ public class C2 extends JFrame implements ActionListener {
 				}
 			}
 		});
-	}
+	}*/
 
 	/**
 	 * Create the frame.
 	 */
-	public C2() {
+	public C2(List<Comment> list) {
 		this.setTitle("查看教师评价");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 531, 363);
@@ -52,8 +52,8 @@ public class C2 extends JFrame implements ActionListener {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		administratorCommentServiceimpl service = new administratorCommentServiceimpl();
-		List<Comment> list = service.findCommentList();
+		//administratorCommentServiceimpl service = new administratorCommentServiceimpl();
+	//	List<Comment> list = service.findCommentList();
 		int size = list.size();
 		String [] name = {"课程名","教师名","评价"};
 		String[][] out = new String[size][3];

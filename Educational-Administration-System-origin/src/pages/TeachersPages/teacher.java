@@ -108,7 +108,8 @@ public class teacher extends JFrame implements ActionListener
 	    	if(ev.getSource()==item7)
 			{
 	    		new inter();
-	    		this.setVisible(false);
+	    		//this.setVisible(false);
+	    		this.dispose();
 			}
 	    	if(ev.getSource()==item1)
 			{

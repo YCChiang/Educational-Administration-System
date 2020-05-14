@@ -7,8 +7,7 @@ import org.jvnet.substance.SubstanceLookAndFeel;
 import org.jvnet.substance.border.StandardBorderPainter;
 import org.jvnet.substance.button.ClassicButtonShaper;
 import org.jvnet.substance.painter.StandardGradientPainter;
-import org.jvnet.substance.skin.SubstanceBusinessBlackSteelLookAndFeel;
-import org.jvnet.substance.theme.SubstanceEbonyTheme;
+import org.jvnet.substance.theme.SubstanceBottleGreenTheme;
 import org.jvnet.substance.title.FlatTitlePainter;
 import org.jvnet.substance.watermark.SubstanceBinaryWatermark;
 
@@ -41,10 +40,10 @@ public class inter extends JFrame implements ActionListener {
 		  try {  
 
 	            //设置外观  
-	            UIManager.setLookAndFeel(new SubstanceBusinessBlackSteelLookAndFeel());  
+	            UIManager.setLookAndFeel(new SubstanceLookAndFeel());  
 	            JFrame.setDefaultLookAndFeelDecorated(true);  
 	            //设置主题   
-	            SubstanceLookAndFeel.setCurrentTheme(new SubstanceEbonyTheme());  
+	            SubstanceLookAndFeel.setCurrentTheme(new SubstanceBottleGreenTheme());  
 	            //设置按钮外观  
 	            SubstanceLookAndFeel.setCurrentButtonShaper(new ClassicButtonShaper());  
 	            //设置水印  

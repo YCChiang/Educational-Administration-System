@@ -1,19 +1,14 @@
 package pages.Administrator;
 
-import java.awt.BorderLayout;
-
 import entity.Comment;
 import entity.User;
 import service.impl.administratorCommentServiceimpl;
-
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextArea;
 import javax.swing.JScrollBar;
-import javax.swing.JProgressBar;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;

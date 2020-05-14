@@ -7,10 +7,6 @@ import entity.User;
 
 import java.awt.event.*;
 import pages.inter;
-import entity.Student;
-import entity.Teacher;
-import pages.Administrator.teacher_select_info;
-import service.impl.studentinfoserviceimpl;
 
 public class student extends JFrame implements ActionListener {
 	public User user;

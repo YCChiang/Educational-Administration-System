@@ -2,7 +2,6 @@ package test;
 
 import java.util.List;
 
-import dao.impl.ClassInfoDaoimpl;
 import entity.ClassInfo;
 import service.impl.ClassInfoServiceImpl;
 

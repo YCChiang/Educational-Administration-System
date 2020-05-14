@@ -3,8 +3,6 @@ package pages.TeachersPages;
 import javax.swing.JFrame;
 import entity.Comment;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -14,9 +12,7 @@ import entity.User;
 import service.impl.TeacherCommentServiceimpl;
 
 import javax.swing.JTextArea;
-import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
-import java.awt.BorderLayout;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 public class TeacherCommentInfo extends JFrame implements ActionListener{

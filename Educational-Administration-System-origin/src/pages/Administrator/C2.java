@@ -1,6 +1,5 @@
 package pages.Administrator;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.util.List;
 
@@ -13,7 +12,6 @@ import entity.Comment;
 import service.impl.administratorCommentServiceimpl;
 
 import javax.swing.JTable;
-import javax.swing.JList;
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JButton;

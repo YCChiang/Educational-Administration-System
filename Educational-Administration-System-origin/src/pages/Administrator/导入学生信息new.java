@@ -13,6 +13,8 @@ import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 
 import entity.Student;
@@ -33,6 +35,7 @@ public class 导入学生信息new implements ActionListener {
 	private JTextField textField_9;
 	JButton button_1;
 	public User u;
+	administratorinfomationServiceimpl service;
 
 	/**
 	 * Launch the application.
@@ -49,6 +52,7 @@ public class 导入学生信息new implements ActionListener {
 	 * Initialize the contents of the frame.
 	 */
 	public 导入学生信息new(User u1) {
+		service = new administratorinfomationServiceimpl();
 		u = u1;
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 580);
@@ -78,14 +82,21 @@ public class 导入学生信息new implements ActionListener {
 
 		JLabel label_6 = new JLabel("年龄");
 
-		JLabel label_7 = new JLabel("家庭地址");
+		JLabel label_7 = new JLabel("家庭地址(可空)");
 
-		JLabel label_8 = new JLabel("电话号码");
+		JLabel label_8 = new JLabel("电话号码(可空)");
 
 		JLabel label_9 = new JLabel("入学时间");
 
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
+		textField_1.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar(); // 获取键盘输入的字符
+				if (Character.isDigit(c)) // 判断输入是否是数字
+					return; // true,返回
+				e.consume(); // false,消毁不匹配的输入
+		}});
 
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
@@ -101,37 +112,107 @@ public class 导入学生信息new implements ActionListener {
 
 		textField_6 = new JTextField();
 		textField_6.setColumns(10);
+		textField_6.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar(); // 获取键盘输入的字符
+				if (Character.isDigit(c)) // 判断输入是否是数字
+					return; // true,返回
+				e.consume(); // false,消毁不匹配的输入
+		}});
 
 		textField_7 = new JTextField();
 		textField_7.setColumns(10);
 
 		textField_8 = new JTextField();
 		textField_8.setColumns(10);
+		textField_8.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar(); // 获取键盘输入的字符
+				if (Character.isDigit(c)) // 判断输入是否是数字
+					return; // true,返回
+				e.consume(); // false,消毁不匹配的输入
+		}});
 
 		textField_9 = new JTextField();
 		textField_9.setColumns(10);
+		textField_9.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar(); // 获取键盘输入的字符
+				if (Character.isDigit(c)) // 判断输入是否是数字
+					return; // true,返回
+				e.consume(); // false,消毁不匹配的输入
+		}});
 
 		JButton button = new JButton("导入");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (arg0.getSource() == button) {
-					try {
+					try {						
+						if(textField.getText().isEmpty()) {
+							JOptionPane.showMessageDialog(null, "请输入姓名", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						if(textField_1.getText().isEmpty()) {
+							JOptionPane.showMessageDialog(null, "请输入学号", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						if(textField_3.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "请输入院系", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						if(textField_4.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "请输入专业信息", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						if(textField_5.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "请输入班级信息", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						if(textField_6.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "请输入年龄(整数)", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						if(textField_9.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "请输入入学时间(整数)", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						
+						
+						String id = textField_1.getText();				
+						int age = Integer.parseInt(textField_6.getText());
+						int year = Integer.parseInt(textField_9.getText());
+						if(id.length() != 10) {
+							JOptionPane.showMessageDialog(null, "学生学号必须为10位数字", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						if(age<0 || age>100) {
+							JOptionPane.showMessageDialog(null, "学生年龄在0-100之间", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						if(year<1000 || year >= 10000) {
+							JOptionPane.showMessageDialog(null, "学生入学年份为4位数", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						
 						Student info = new Student();
-						info.setId(textField_1.getText());
+						info.setId(id);
 						info.setName(textField.getText());
 						if (textField_2.getText().equals("男"))
 							info.setGender(1);
-						else
+						else if(textField_2.getText().equals("女"))
 							info.setGender(0);
-						info.setDepartment(textField_3.getText());
+						else {
+							JOptionPane.showMessageDialog(null, "请输入正确性别格式:男/女", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						info.setDepartment(textField_3.getText());						
 						info.setSpecialty(textField_4.getText());
-						info.setClassinfo(textField_5.getText());
-						info.setAge(Integer.parseInt(textField_6.getText()));
-						info.setAdmission_time(Integer.parseInt(textField_9.getText()));
+						info.setClassinfo(textField_5.getText());						
+						info.setAge(age);
+						info.setAdmission_time(year);						
 						info.setAddress(textField_7.getText());
 						info.setTel(textField_8.getText());
 
-						administratorinfomationServiceimpl service = new administratorinfomationServiceimpl();
 						int ans = service.addStudent(info);
 						if (ans == 1)
 							JOptionPane.showMessageDialog(null, "导入成功");
@@ -152,7 +233,7 @@ public class 导入学生信息new implements ActionListener {
 
 					} catch (Exception e) {
 						e.printStackTrace();
-						JOptionPane.showMessageDialog(null, "请输入正确数据");
+						JOptionPane.showMessageDialog(null, "请输入正确数据", "错误提示",	JOptionPane.ERROR_MESSAGE);
 					}
 				}
 			}

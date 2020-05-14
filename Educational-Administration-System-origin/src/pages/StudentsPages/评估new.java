@@ -1,7 +1,5 @@
 package pages.StudentsPages;
 
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -9,15 +7,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.LayoutStyle.ComponentPlacement;
-
 import entity.Student;
-import entity.Teacher;
 import entity.User;
-import service.*;
 import service.impl.*;
-import dao.*;
-import dao.impl.*;
 import entity.*;
 
 import java.awt.event.ActionListener;

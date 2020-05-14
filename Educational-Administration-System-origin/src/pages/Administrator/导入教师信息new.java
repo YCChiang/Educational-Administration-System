@@ -9,6 +9,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
 
 import entity.Teacher;
@@ -24,6 +26,7 @@ public class 导入教师信息new {
 	private JTextField textField_3;
 	private JTextField textField_4;
 	private JTextField textField_5;
+	administratorinfomationServiceimpl service;
 	public User u;
 
 	/**
@@ -33,13 +36,14 @@ public class 导入教师信息new {
 	 * Create the application.
 	 */
 	public 导入教师信息new(User user) {
+		service = new administratorinfomationServiceimpl();
 		initialize(user);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize(User u1) {
+	private void initialize(User u1) {		
 		u = u1;
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 427);
@@ -61,6 +65,14 @@ public class 导入教师信息new {
 
 		textField = new JTextField();
 		textField.setColumns(10);
+		textField.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar(); // 获取键盘输入的字符
+				if (Character.isDigit(c)) // 判断输入是否是数字
+					return; // true,返回
+				e.consume(); // false,消毁不匹配的输入
+		}});
+
 
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
@@ -76,22 +88,53 @@ public class 导入教师信息new {
 
 		textField_5 = new JTextField();
 		textField_5.setColumns(10);
+		textField_5.addKeyListener(new KeyAdapter() {
+			public void keyTyped(KeyEvent e) {
+				char c = e.getKeyChar(); // 获取键盘输入的字符
+				if (Character.isDigit(c)) // 判断输入是否是数字
+					return; // true,返回
+				e.consume(); // false,消毁不匹配的输入
+		}});
+
 
 		JButton button = new JButton("导入");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (arg0.getSource() == button)
 					try {
-						administratorinfomationServiceimpl service = new administratorinfomationServiceimpl();
+						if(textField.getText().isEmpty()) {
+							JOptionPane.showMessageDialog(null, "请输入教师工号", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						if(textField.getText().length()!=4) {
+							JOptionPane.showMessageDialog(null, "教师工号为4位整数", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						if(textField_1.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "请输入教师姓名", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						if(textField_3.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "请输入学院", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						if(textField_4.getText().equals("")) {
+							JOptionPane.showMessageDialog(null, "请输入正确职称", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
 						Teacher info = new Teacher();
-						info.setId(textField.getText());
-						info.setName(textField_1.getText());
+						info.setId(textField.getText());						
+						info.setName(textField_1.getText());					
 						if(textField_2.getText().equals("男"))
 							info.setGender(1);
-						else
+						else if(textField_2.getText().equals("女"))
 							info.setGender(0);
-						info.setDepartment(textField_3.getText());
-						info.setTitle(textField_4.getText());
+						else {
+							JOptionPane.showMessageDialog(null, "请输入正确性别(男/女)", "错误提示",	JOptionPane.ERROR_MESSAGE);
+							return;
+						}
+						info.setDepartment(textField_3.getText());						
+						info.setTitle(textField_4.getText());						
 						info.setTel(textField_5.getText());
 						int ans = service.addTeacher(info);
 						if(ans == 1) {
@@ -109,7 +152,7 @@ public class 导入教师信息new {
 						textField_5.setText(null);
 					} catch (Exception e) {
 						e.printStackTrace();
-						JOptionPane.showMessageDialog(null, "信息有误");
+						JOptionPane.showMessageDialog(null, "请输入正确数据", "错误提示",	JOptionPane.ERROR_MESSAGE);
 					}
 			}
 		});

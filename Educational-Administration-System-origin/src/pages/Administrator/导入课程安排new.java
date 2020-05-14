@@ -142,7 +142,7 @@ public class 导入课程安排new {
 						return;
 					}
 					if(textField_8.getText().isEmpty()) {
-						JOptionPane.showMessageDialog(null, "请输入开课学年", "错误",JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null, "请输入学分", "错误",JOptionPane.ERROR_MESSAGE);
 						return;
 					}
 					int capacity = Integer.parseInt(textField_4.getText());

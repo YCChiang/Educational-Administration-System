@@ -8,9 +8,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import entity.Student;
-import entity.Teacher;
 import entity.User;
-import pages.Administrator.teacher_select_info;
 import service.impl.studentinfoserviceimpl;
 
 import javax.swing.JTextField;

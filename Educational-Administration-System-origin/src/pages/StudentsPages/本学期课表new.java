@@ -1,6 +1,7 @@
 package pages.StudentsPages;
 
 import javax.swing.GroupLayout.Alignment;
+<<<<<<< HEAD
 import javax.swing.LayoutStyle.ComponentPlacement;
 
 import java.awt.event.ActionListener;
@@ -10,6 +11,15 @@ import java.awt.event.ActionEvent;
 import javax.swing.*;
 
 import entity.ClassGrade;
+=======
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.util.List;
+import java.awt.event.ActionEvent;
+import javax.swing.JTable;
+import javax.swing.JScrollPane;
+>>>>>>> 5a2f21cd3f532bd7b38b735434e343402f4ab2ef
 import entity.ClassInfo;
 import entity.ClassSchedule;
 import entity.*;

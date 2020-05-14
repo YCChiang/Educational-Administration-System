@@ -146,7 +146,6 @@ public class ImportClassInfo extends JFrame implements ActionListener{
 			public void actionPerformed(ActionEvent e) {
 				if(textField.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "请输入课程id", "错误",JOptionPane.ERROR_MESSAGE);
-					System.out.print("fdasf");
 					return;
 				}
 				if(textField_1.getText().isEmpty()) {
@@ -206,7 +205,7 @@ public class ImportClassInfo extends JFrame implements ActionListener{
 				info.setYear(year); 
 				Massage msg = classinfoservice.addOne(info);
 				if(msg.isError()) {
-					JOptionPane.showMessageDialog(null, "错误", msg.getContent(),JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, msg.getContent(), "错误",JOptionPane.ERROR_MESSAGE);
 				}
 				else {
 					JOptionPane.showMessageDialog(null, msg.getContent());  

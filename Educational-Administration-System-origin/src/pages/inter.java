@@ -7,7 +7,9 @@ import org.jvnet.substance.SubstanceLookAndFeel;
 import org.jvnet.substance.border.StandardBorderPainter;
 import org.jvnet.substance.button.ClassicButtonShaper;
 import org.jvnet.substance.painter.StandardGradientPainter;
+import org.jvnet.substance.skin.SubstanceBusinessBlackSteelLookAndFeel;
 import org.jvnet.substance.theme.SubstanceBottleGreenTheme;
+import org.jvnet.substance.theme.SubstanceTerracottaTheme;
 import org.jvnet.substance.title.FlatTitlePainter;
 import org.jvnet.substance.watermark.SubstanceBinaryWatermark;
 
@@ -28,36 +30,43 @@ public class inter extends JFrame implements ActionListener {
 	JCheckBox jcb1, jcb2, jcb3;
 
 	public static void main(String[] args) {
-	 /*  try           
-	    {
-	        org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF();
-	    }
-	    catch(Exception e)
-	    {
-	        //TODO exception
-	    }
-	    */
-		  try {  
 
-	            //设置外观  
-	            UIManager.setLookAndFeel(new SubstanceLookAndFeel());  
-	            JFrame.setDefaultLookAndFeelDecorated(true);  
-	            //设置主题   
-	            SubstanceLookAndFeel.setCurrentTheme(new SubstanceBottleGreenTheme());  
-	            //设置按钮外观  
-	            SubstanceLookAndFeel.setCurrentButtonShaper(new ClassicButtonShaper());  
-	            //设置水印  
-	            SubstanceLookAndFeel.setCurrentWatermark(new SubstanceBinaryWatermark());  
-	            //设置边框  
-	            SubstanceLookAndFeel.setCurrentBorderPainter(new StandardBorderPainter());  
-	            //设置渐变渲染  
-	            SubstanceLookAndFeel.setCurrentGradientPainter(new StandardGradientPainter());  
-	            //设置标题  
-	            SubstanceLookAndFeel.setCurrentTitlePainter(new FlatTitlePainter());  
-	        } catch (Exception e) {  
-	            System.out.println(e.getMessage());  
-	        }
-		  
+		/*
+		 * try 这部分是使用 beautyeye_Inf.jar {
+		 * org.jb2011.lnf.beautyeye.BeautyEyeLNFHelper.launchBeautyEyeLNF(); }
+		 * catch(Exception e) { //TODO exception }
+		 */
+		try { // 这部分是substance.jar
+
+			// 设置外观
+			UIManager.setLookAndFeel(new SubstanceLookAndFeel());
+			JFrame.setDefaultLookAndFeelDecorated(true);
+			JDialog.setDefaultLookAndFeelDecorated(true);
+			// 设置主题
+			SubstanceLookAndFeel.setCurrentTheme(new SubstanceTerracottaTheme());
+			// 设置按钮外观
+		//	SubstanceLookAndFeel.setCurrentButtonShaper(new ClassicButtonShaper());
+			// 设置水印
+		//	SubstanceLookAndFeel.setCurrentWatermark(new SubstanceBinaryWatermark());
+			// 设置边框
+		//	SubstanceLookAndFeel.setCurrentBorderPainter(new StandardBorderPainter());
+			// 设置渐变渲染
+		//	SubstanceLookAndFeel.setCurrentGradientPainter(new StandardGradientPainter());
+			// 设置标题
+		//	SubstanceLookAndFeel.setCurrentTitlePainter(new FlatTitlePainter());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
+		/*
+		 * JTatto.jar
+		 */
+		/*
+		 * String outLookAndFeel ="com.jtattoo.plaf.bernstein.BernsteinLookAndFeel"; try
+		 * { UIManager.setLookAndFeel(outLookAndFeel); } catch (Exception e) {
+		 * e.printStackTrace(); }
+		 */
+
 		inter d1 = new inter();
 	}
 

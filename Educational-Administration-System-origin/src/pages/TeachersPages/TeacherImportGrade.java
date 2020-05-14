@@ -26,7 +26,7 @@ public class TeacherImportGrade extends JFrame implements ActionListener {
 	private JTextField textField_2;
 	private JTextField textField;
 	private JTextField textField_3;
-	private ClassGrade grade1;
+	//private ClassGrade grade1;
 	public User u;
 	JButton button_1;
 

@@ -32,12 +32,12 @@ public class ImportClassInfo extends JFrame implements ActionListener{
 	private JComboBox<String> comboBox;
 	private DefaultComboBoxModel<String> model;
 	private String[] years = {"2020秋","2020夏", "2020春"};
-	private User u;
+	//private User u;
 	ClassInfoServiceImpl classinfoservice = null;
 	JButton button_1;
 	
 	public ImportClassInfo(User u1) {
-		u = u1;
+		//u = u1;
 		classinfoservice = new 	ClassInfoServiceImpl();
 		setTitle("课程信息");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

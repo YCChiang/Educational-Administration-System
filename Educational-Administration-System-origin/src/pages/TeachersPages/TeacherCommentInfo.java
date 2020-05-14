@@ -22,7 +22,7 @@ public class TeacherCommentInfo extends JFrame implements ActionListener{
 	/**
 	 * Launch the application.
 	 */
-	private JPanel contentPane;
+	//private JPanel contentPane;
 	private JTextField textField;
 	JButton button;
 	/**

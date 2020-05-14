@@ -1,6 +1,5 @@
 package pages.Administrator;
 
-import java.awt.EventQueue;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -9,7 +8,6 @@ import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
 
 import entity.Comment;
-import service.impl.administratorCommentServiceimpl;
 
 import javax.swing.JTable;
 import javax.swing.JTextField;

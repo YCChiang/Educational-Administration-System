@@ -58,7 +58,6 @@ public class Cteacher extends JFrame implements ActionListener {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		administratorCommentServiceimpl service = new administratorCommentServiceimpl();
 		int size = list.size();
 		String [] name = {"课程名","评价"};
 		String[][] out = new String[size][2];

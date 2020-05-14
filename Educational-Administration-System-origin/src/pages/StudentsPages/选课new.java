@@ -32,7 +32,7 @@ import javax.swing.JMenu;
 import javax.swing.SwingConstants;
 import javax.swing.JCheckBoxMenuItem;
 
-public class 选课new extends JFrame{
+public class 选课new extends JFrame implements ActionListener{
 	public JCheckBox checkBox,chckbxNewCheckBox;
 	public JMenu mnNewMenu;
 	private JFrame frame;
@@ -260,15 +260,24 @@ public class 选课new extends JFrame{
 		button_1.setBounds(74, 338, 113, 27);
 		contentPane.add(button_1);
 		
-		JButton button_2 = new JButton("返回");
+		 button_2 = new JButton("返回");
 		
-		//button_2.addActionListener(l);
+		button_2.addActionListener(this);
 		button_2.setBounds(384, 338, 113, 27);
 		contentPane.add(button_2);
 		//frame.getContentPane().add(menu_2);
 		
 		
 		frame.setVisible(true);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		if(arg0.getSource()==button_2) {
+			//this.dispose();
+			//System.out.println(2);
+			frame.setVisible(false);
+		}
 	}
 	
 }

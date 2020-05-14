@@ -1,17 +1,12 @@
 package pages.StudentsPages;
 
-import javax.swing.JFrame;
-import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JLabel;
-import javax.swing.JTextArea;
-import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.util.List;
 import java.awt.event.ActionEvent;
-import javax.swing.JTable;
-import javax.swing.JScrollPane;
+
 import javax.swing.*;
 
 import entity.ClassGrade;
@@ -103,6 +98,7 @@ public class 本学期课表new {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button)
 				{
+					
 					frame.setVisible(false);
 					new student(user);
 				}

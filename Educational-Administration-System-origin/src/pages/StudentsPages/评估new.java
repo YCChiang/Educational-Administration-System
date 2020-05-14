@@ -90,9 +90,23 @@ public class 评估new {
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (arg0.getSource() == button)
+				{
+					
 					try {
+						
 						StudentCommentServiceimpl service = new StudentCommentServiceimpl();
 						Comment info = new Comment();
+						//System.out.println(1);
+						if(textField.getText().length()<1)
+							JOptionPane.showMessageDialog(null, "未填入课程ID");
+						if(textField_1.getText().length()<1)
+							JOptionPane.showMessageDialog(null, "未填入课程名字");
+						if(textField_2.getText().length()<1)
+							JOptionPane.showMessageDialog(null, "未填入教师ID");
+						if(textField_3.getText().length()<1)
+							JOptionPane.showMessageDialog(null, "未填入教师名字");
+						if(textField_4.getText().length()<1)
+							JOptionPane.showMessageDialog(null, "未填入评价");
 						info.setClass_id(textField.getText());
 						info.setClass_name(textField_1.getText());
 						info.setTeacher_id(textField_2.getText());
@@ -116,6 +130,7 @@ public class 评估new {
 						e.printStackTrace();
 						JOptionPane.showMessageDialog(null, "评价有误");
 					}
+			}
 			}
 		});
 

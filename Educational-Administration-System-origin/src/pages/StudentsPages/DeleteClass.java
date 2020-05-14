@@ -61,7 +61,7 @@ public class DeleteClass extends JFrame implements ActionListener {
 		electiveinfoservice = new ElectiveInfoServiceImpl();
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(0, 80, 600, 110);
+		scrollPane.setBounds(0, 72, 600, 110);
 		contentPane.add(scrollPane);
 
 		table = new JTable();

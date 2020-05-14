@@ -197,12 +197,12 @@ public class 选课new extends JFrame{
 		
 		
 		
-		
 		JButton button_1 = new JButton("选课");
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button_1)
 				{
+
 					try {
 						DefaultTableModel model = (DefaultTableModel) table.getModel();
 
@@ -227,6 +227,7 @@ public class 选课new extends JFrame{
 								selected.setEnd_week(Integer.parseInt(s[1]));
 								//	System.out.println(selected);
 								 msg = electiveinfoservice.elective(selected, user.getname());
+								 
 							}
 							else if(!IsFull&&IsConflict)
 							{
@@ -257,6 +258,7 @@ public class 选课new extends JFrame{
 			}
 		}
 		);
+		
 		button_1.setBounds(74, 338, 113, 27);
 		contentPane.add(button_1);
 		

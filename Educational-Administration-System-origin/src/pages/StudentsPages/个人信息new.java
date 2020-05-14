@@ -137,6 +137,7 @@ public class 个人信息new {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource() == button)
 				JOptionPane.showMessageDialog(null, "修改成功");
+				
 			}
 		});
 		

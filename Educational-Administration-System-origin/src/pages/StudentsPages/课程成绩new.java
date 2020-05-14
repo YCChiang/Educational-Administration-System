@@ -4,6 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -67,7 +68,6 @@ public class 课程成绩new {
 		List<ClassGrade> list = service.findbyStudentid(info.getId());
 		int size = list.size();
 		JTextArea textArea = new JTextArea();
-		
 		for(int i  = 0 ; i< size ; i++) {
 			String temp = "课程ID："+list.get(i).getClass_id()+"   成绩"+(list.get(i)).getGrade()+"     排名"+list.get(i).getRank()+"\r\n";
 			textArea.append(temp);

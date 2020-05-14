@@ -1,10 +1,7 @@
 package pages.StudentsPages;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
 import java.util.List;
 
 import javax.swing.JFrame;

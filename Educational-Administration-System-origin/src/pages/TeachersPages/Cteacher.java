@@ -1,6 +1,5 @@
 package pages.TeachersPages;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.util.List;
 
@@ -14,7 +13,6 @@ import service.impl.TeacherCommentServiceimpl;
 import service.impl.administratorCommentServiceimpl;
 
 import javax.swing.JTable;
-import javax.swing.JList;
 import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -60,7 +58,6 @@ public class Cteacher extends JFrame implements ActionListener {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		administratorCommentServiceimpl service = new administratorCommentServiceimpl();
 		int size = list.size();
 		String [] name = {"课程名","评价"};
 		String[][] out = new String[size][2];

@@ -8,15 +8,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.util.List;
 import java.awt.event.ActionEvent;
 
-import entity.ClassGrade;
 import entity.ClassInfo;
 
 import entity.User;
 import service.impl.ClassInfoServiceImpl;
-import service.impl.ClassScheduleServiceImpl;
 public class TeacherVisitGrade extends JFrame  implements ActionListener {
 
 	private JPanel contentPane;

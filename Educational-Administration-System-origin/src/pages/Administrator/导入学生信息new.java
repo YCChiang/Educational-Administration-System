@@ -56,7 +56,7 @@ public class 导入学生信息new implements ActionListener {
 		u = u1;
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 580);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	//	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		int w = (Toolkit.getDefaultToolkit().getScreenSize().width - 450) / 2;
 		int h = (Toolkit.getDefaultToolkit().getScreenSize().height - 580) / 2;

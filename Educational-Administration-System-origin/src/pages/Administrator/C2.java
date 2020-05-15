@@ -46,7 +46,7 @@ public class C2 extends JFrame implements ActionListener {
 	 */
 	public C2(List<Comment> list) {
 		this.setTitle("查看教师评价");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 531, 363);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));

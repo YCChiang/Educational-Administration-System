@@ -49,7 +49,7 @@ public class 修改课程名单new {
 		u = u1;
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 334);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	//	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JLabel label = new JLabel("修改课程名单");
 		

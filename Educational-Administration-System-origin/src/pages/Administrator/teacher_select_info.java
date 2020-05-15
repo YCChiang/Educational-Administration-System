@@ -27,7 +27,7 @@ public class teacher_select_info extends JFrame implements ActionListener{
 
 	public teacher_select_info(Teacher info) {
 		//setBackground(Color.CYAN);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	//	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 	//	contentPane.setBackground(UIManager.getColor("Button.background"));

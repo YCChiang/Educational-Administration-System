@@ -76,7 +76,7 @@ public class searchComment {
 		frame.setBounds(100, 100, 450, 334);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		empty = new JLabel();
-		JLabel label = new JLabel("修改课程名单");
+		JLabel label = new JLabel("查看教师课程评价");
 
 		JLabel lblid = new JLabel("教师ID");
 

@@ -3,6 +3,7 @@ package pages.Administrator;
 import java.util.List;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
@@ -22,6 +23,7 @@ public class C2 extends JFrame implements ActionListener {
 	private JPanel contentPane;
 	private JTable table;
 	private JTextField textField;
+	JLabel j;
 
 	/**
 	 * Launch the application.
@@ -69,13 +71,14 @@ public class C2 extends JFrame implements ActionListener {
 		getContentPane().add(scrollpane);
 		//contentPane.add(table);
 		
-		textField = new JTextField();
-		textField.setHorizontalAlignment(SwingConstants.CENTER);
-		textField.setFont(new Font("宋体", Font.PLAIN, 18));
-		textField.setText("教师评价");
-		textField.setBounds(183, 31, 137, 24);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		j = new JLabel();
+		//textField = new JTextField();
+		j.setHorizontalAlignment(SwingConstants.CENTER);
+		j.setFont(new Font("宋体", Font.PLAIN, 18));
+		j.setText("教师评价");
+		j.setBounds(183, 31, 137, 24);
+		contentPane.add(j);
+		//textField.setColumns(10);
 		
 		JButton button = new JButton("返回");
 		button.addActionListener(this);

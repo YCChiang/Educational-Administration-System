@@ -203,6 +203,7 @@ public class ImportClassInfo extends JFrame implements ActionListener{
 				info.setEnd_week(end);
 				info.setCredit(credit);
 				info.setYear(year); 
+				info.setTeacher_id(u1.getname());
 				Massage msg = classinfoservice.addOne(info);
 				if(msg.isError()) {
 					JOptionPane.showMessageDialog(null, msg.getContent(), "错误",JOptionPane.ERROR_MESSAGE);

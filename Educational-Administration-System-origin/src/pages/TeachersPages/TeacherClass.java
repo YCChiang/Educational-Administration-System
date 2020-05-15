@@ -104,7 +104,7 @@ public class TeacherClass {
 				if(e.getSource() == button)
 				{
 					frame.setVisible(false);
-					new teacher(user);
+				//	new teacher(user);
 				}
 			}
 		});

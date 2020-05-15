@@ -38,11 +38,11 @@ public class TeachersInfo extends JFrame implements ActionListener {
 		u = user;
 		tinfo = new TeacherInformationServiceimpl();
 		t = tinfo.findById(user.getname());
-		setBackground(Color.CYAN);
+		//setBackground(Color.CYAN);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
-		contentPane.setBackground(UIManager.getColor("Button.background"));
+		//contentPane.setBackground(UIManager.getColor("Button.background"));
 		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);

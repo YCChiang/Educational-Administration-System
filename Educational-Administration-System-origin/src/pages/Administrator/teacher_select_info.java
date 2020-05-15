@@ -26,11 +26,11 @@ public class teacher_select_info extends JFrame implements ActionListener{
 	JButton button_2;
 
 	public teacher_select_info(Teacher info) {
-		setBackground(Color.CYAN);
+		//setBackground(Color.CYAN);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
-		contentPane.setBackground(UIManager.getColor("Button.background"));
+	//	contentPane.setBackground(UIManager.getColor("Button.background"));
 		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -111,7 +111,6 @@ public class teacher_select_info extends JFrame implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		if(e.getSource() == button_2)
 			this.dispose();
 	}
